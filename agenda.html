@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>XIII JACITEC</title>
+    <link rel="shortcut icon" href="img/title2.png">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="XIII Jacitec - Ifes Campus Cachoeiro de Itapemirim">
+    <meta name="author" content="Ifes Campus Cachoeiro de Itapemirim">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> -->
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/eventos.css">
+
+    <!-- Ícone -->
+    <link rel="shortcut icon" href="/static/img/Logo JACITEC - BGVerde e FGBranco.ico" type="image/x-icon">
+
+    <script src="js/agenda.js"></script>
+</head>
+
+<body>
+    <!-- Barra de Navegação -->
+    <div class="container mt-3 mb-3 d-print-none">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <img src="img/Logo JACITEC - BGTransparente e FGVerde.svg" alt="Logo da JACITEC" width="75" height="75">
+                <h1 style="color: var(--primary-color);">JACITEC</h1>
+            </a>
+        </div>
+    </div>
+
+    <!-- Conteúdo da Página -->
+    <div class="container mb-3 p-3">
+        <h1>Atividades</h1>
+        <hr>
+        <p class="fs-4">Listagem de Atividades da JACITEC.</p>
+
+        <div id="tables-container">
+            <div class="filters">
+
+                <button value="Nenhum" id="filter-Nenhum" class="filter-button"
+                    onclick="filterByThemeAndDate('Nenhum')">Jacitec</button>
+                <button value="SEMIN" id="filter-SEMIN" class="filter-button"
+                    onclick="filterByThemeAndDate('SEMIN')">SEMIN</button>
+                <button value="SINF" id="filter-SINF" class="filter-button"
+                    onclick="filterByThemeAndDate('SINF')">SINF</button>
+                <button value="SEMEC" id="filter-SEMEC" class="filter-button"
+                    onclick="filterByThemeAndDate('SEMEC')">SEMEC</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

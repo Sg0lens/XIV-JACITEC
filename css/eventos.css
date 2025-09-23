@@ -1,0 +1,74 @@
+.is-invalid{
+    border-color:red;
+    background-color: #ffe5e5;
+}
+
+.text-danger{
+    color: red;
+}
+
+input:required, select:required, textarea:required {
+    border-left: 3px solid red;
+}
+.table th:first-child {
+    padding: 50px !important;
+}
+
+.schedule-table td {
+    width: 500px !important;
+}
+
+th:first-child,
+td:first-child {
+    position: sticky;
+    left: 0px;
+}
+
+option {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px var(--green-100);
+}
+
+.alert-success {
+    background-color: #e8f4fa; /* Cor para a variante info */
+}
+.custom-alert {
+    background-color: #e9f7ef; /* Verde claro */
+    border-left: 4px solid #28a745; /* Barra lateral verde */
+    color: #2d6a4f; /* Texto verde escuro */
+    padding: 8px 12px; /* Menor espaçamento interno */
+    font-size: 1rem; /* Tamanho de fonte mais discreto */
+    max-width: 400px; /* Comprimento reduzido */
+    border-radius: 4px; /* Cantos levemente arredondados */
+    margin-top: 10px; /* Margem superior */
+}
+.filters {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    align-content: space-around;
+    margin-right: 30px;
+}
+
+.filter-button {
+    height: 40px;
+    width: 75px;
+    margin-left: 10px;
+    border: 2px solid #1f6223;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.filter-button.active {
+    background-color: #1f6223;
+    color: white;
+    border-color: #1f6223;
+}
+
+.filter-button:hover {
+    background-color: #1f6223;
+    color: white;
+}

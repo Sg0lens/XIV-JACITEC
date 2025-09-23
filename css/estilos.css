@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+:root {
+    --primary-color: #133b15;
+    --green-100: #edf9ed;
+    --green-200: #c6edc8;
+    --green-300: #a0e0a3;
+    --green-400: #79d47e;
+    --green-500: #53c758;
+    --green-600: #38af3e;
+    --green-700: #2c8830;
+    --green-800: #1f6223;
+}
+
+body {
+    font-family: "Inter", sans-serif !important;
+    background-color: #f8f9fa;
+}
+
+.container, option {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px var(--green-100);
+}
+
+.container-fluid {
+    display: grid;
+    place-items: center;
+    height: 100px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.nav-link {
+    color: var(--primary-color) !important;
+}
+
+.active {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+.page-link.active {
+    border-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+.page-link {
+    color: var(--primary-color) !important;
+}
+
+.table th,
+.table td {
+    text-align: center !important;
+    vertical-align: middle !important;
+}
