@@ -35,8 +35,8 @@ option {
 }
 .custom-alert {
     background-color: #e9f7ef; /* Verde claro */
-    border-left: 4px solid #28a745; /* Barra lateral verde */
-    color: #2d6a4f; /* Texto verde escuro */
+    border-left: 4px solid #1f3562; /* Barra lateral verde */
+    color: #2d3c6a; /* Texto verde escuro */
     padding: 8px 12px; /* Menor espaçamento interno */
     font-size: 1rem; /* Tamanho de fonte mais discreto */
     max-width: 400px; /* Comprimento reduzido */
@@ -55,7 +55,7 @@ option {
     height: 40px;
     width: 75px;
     margin-left: 10px;
-    border: 2px solid #1f6223;
+    border: 2px solid #1f3562;
     background-color: #f0f0f0;
     border-radius: 10px;
     cursor: pointer;
@@ -63,12 +63,12 @@ option {
 }
 
 .filter-button.active {
-    background-color: #1f6223;
+    background-color: #1f3562;
     color: white;
-    border-color: #1f6223;
+    border-color: #1f3562;
 }
 
 .filter-button:hover {
-    background-color: #1f6223;
+    background-color: #1f3562;
     color: white;
 }

@@ -1,15 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
 :root {
-    --primary-color: #133b15;
+    --primary-color: #13283b;
     --green-100: #edf9ed;
-    --green-200: #c6edc8;
-    --green-300: #a0e0a3;
-    --green-400: #79d47e;
-    --green-500: #53c758;
-    --green-600: #38af3e;
-    --green-700: #2c8830;
-    --green-800: #1f6223;
+    --green-200: #c6eced;
+    --green-300: #a0d6e0;
+    --green-400: #79a3d4;
+    --green-500: #5381c7;
+    --green-600: rgb(62, 56, 175);
+    --green-700: #2f2c88;
+    --green-800: #1f2262;
 }
 
 body {

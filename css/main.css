@@ -104,7 +104,7 @@ body {
 .btn-basic:visited,
 input[type="submit"] {
   margin: 0.5em 0;
-  background-color: #0e490e;
+  background-color: #1f3562;
   color: #ffffff;
 
 }
@@ -118,7 +118,7 @@ section header h2 {
 }
 
 .header-frame {
-  background-color: #0e490e;
+  background-color: #1f3562;
 }
 
 .header-frame-absolute {
@@ -133,7 +133,7 @@ section header h2 {
 .header-frame-fixed {
   padding: 0;
   position: fixed;
-  background-color: #0e490e;
+  background-color: #1f3562;
 }
 
 .site-logo h1 a {
@@ -239,7 +239,7 @@ section header h2 {
   border: none;
   background-color: white;
   cursor: pointer;
-  color: #0e490e;
+  color: #1f3562;
   font-weight: 500;
 }
 
@@ -291,7 +291,7 @@ section header h2 {
 
 
 .schedule-table th {
-  background-color: #0e490e;
+  background-color: #1f3562;
   color: #fff;
   text-align: center;
 }
@@ -305,7 +305,7 @@ section header h2 {
 }
 
 .active {
-  border-bottom: 12px solid #0e490e;
+  border-bottom: 12px solid #1f3562;
   font-weight: 800;
 }
 
@@ -324,12 +324,12 @@ section header h2 {
 }
 
 .agenda-btn {
-  color: #0e490e;
-  border: 3px solid #0e490e;
+  color: #1f3562;
+  border: 3px solid #1f3562;
 }
 
 .agenda-btn:hover {
-  background-color: #0e490e;
+  background-color: #1f3562;
   color: #fff;
 }
 
@@ -339,7 +339,7 @@ section header h2 {
 }
 
 .bg-green {
-  background-color: #0e490e;
+  background-color: #1f3562;
 }
 
 .nav-mobile,
@@ -379,8 +379,8 @@ section header h2 {
   font-weight: 600;
   width: 10vw;
   text-decoration: none;
-  color: #0e490e;
-  border: 3px solid #0e490e;
+  color: #1f3562;
+  border: 3px solid #1f3562;
   text-align: center;
   box-sizing: border-box;
 }
@@ -422,7 +422,7 @@ section header h2 {
   .nav-inline li a,
   .open .nav-mobile {
     color: #fff;
-    background-color: #0e490e;
+    background-color: #1f3562;
   }
 
 }
@@ -475,7 +475,7 @@ section header h2 {
 .overview .fa,
 #title-prog .fa,
 .title-prog .fa {
-  color: #0e490e;
+  color: #1f3562;
   padding-top: 5px;
   font-size: 55px;
 }
@@ -552,8 +552,8 @@ section header h2 {
 
 #submission .pdf,
 #submission .submit {
-  border: 3px solid #0e490e;
-  color: #0e490e;
+  border: 3px solid #1f3562;
+  color: #1f3562;
   border-radius: 20px;
   padding: 14px 30px 10px;
   background-color: transparent;
@@ -563,9 +563,9 @@ section header h2 {
 }
 
 #submission .pdf {
-  border: 3px solid #0e490e;
+  border: 3px solid #1f3562;
   color: #fff;
-  background-color: #0e490e;
+  background-color: #1f3562;
   display: flex;
   align-items:center;
   justify-content: center;
@@ -579,7 +579,7 @@ section header h2 {
 }
 
 #submission .submit:hover {
-  background-color: #0e490e;
+  background-color: #1f3562;
   color: #fff;
 }
 
@@ -607,7 +607,7 @@ section header h2 {
 
 .venue-address {
   min-height: 300px;
-  background: rgba(0, 43, 2, 0.85) none repeat scroll 0 0;
+  background: #1f3562 none repeat scroll 0 0;
   border-top-left-radius: 10px;
 }
 
@@ -820,7 +820,7 @@ footer {
   }
 
   .header-inline .nav-inline.open:hover {
-    background-color: #0e490e;
+    background-color: #1f3562;
   }
 
 
@@ -848,7 +848,7 @@ footer {
 
   .schedule-table tr td:first-child {
 
-    background-color: #0e490e;
+    background-color: #1f3562;
     font-weight: 600;
     color: white;
     padding-top: 7%;
