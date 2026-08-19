@@ -1,290 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
 <head>
-  <title>XIV JACITEC</title>
-  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="description" content="XIII Jacitec - Ifes Campus Cachoeiro de Itapemirim">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XIV JACITEC — Jornada Acadêmica de Ciência, Tecnologia e Cultura</title>
+  <meta name="description" content="XIV Jornada Acadêmica de Ciência, Tecnologia e Cultura (JACITEC) — Ifes Campus Cachoeiro de Itapemirim. 22 a 24 de outubro de 2025. Tema: Planeta Água.">
   <meta name="author" content="Ifes Campus Cachoeiro de Itapemirim">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> -->
+  <meta name="theme-color" content="#0a2740">
 
-  <link rel="shortcut icon" href="img/ifes-nav.png" type="image/x-icon">
-
-  <link rel="stylesheet" href="css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/basalstyle/style.min.css">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-
-
-  <script src="js/jquery-1.11.0.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/smooth-scroll.js"></script>
-  <script src="js/retina-1.1.0.min.js"></script>
-  <script src="js/main.js"></script>
-
-
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
-  <div class="header-frame header-frame-absolute  row">
-    <header class="header header-inline min-h-3 row desktop-12 container" role="banner">
-      <div class="site-logo" style="margin-top: -0.6%;">
-        <a href="index.html">
-          <img class="img-responsive" style="margin: 2em 0;" src="img/ifes-nav.png" alt="logo" height="60px">
-        </a>
-      </div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <img src="img/ifes-nav.png" alt="Ifes — Campus Cachoeiro de Itapemirim" width="106" height="42">
+        <span class="brand-name">JACITEC<span>XV Jornada · 2026</span></span>
+      </a>
 
-
-      <nav class="nav-inline" role="navigation">
-        <a href="javascript:void(0);" class="nav-mobile">
-          <i class="fa fa-bars" id="nav-icon" style="color: white;"></i>
-        </a>
-        <ul id="nav-list">
-          <li><a data-scroll href="#overview">Sobre</a></li>
-          <li><a data-scroll href="#calendar">Agenda</a></li>
-          <li><a data-scroll href="#registration">Incrições</a></li>
-          <li><a data-scroll href="#events">Eventos</a></li>
-          <li><a data-scroll href="#submission">Mostra Científica</a></li>
-          <!-- <li><a data-scroll href="#download">Downloads</a></li> -->
-          <li><a data-scroll href="#venue">Local</a></li>
-        </ul>
+      <div class="nav-scrim"></div>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <a href="#overview">O Evento</a>
+        <a href="agenda.html">Programação</a>
+        <a href="#registration">Submissões</a>
+        <a href="mostra.html">Mostra Científica</a>
+        <a href="#sponsorship">Exposição e Patrocínio</a>
       </nav>
 
-    </header>
-  </div>
-
-  <section id="carousel-section" class="carousel-section" data-stellar-background-ratio="0.5">
-    <div class="sponsors text-align-center row desktop-12 min-h-6 padding-top-2 container"
-      style="margin-top: 50px; margin-bottom: 0;">
-
-      <!-- Carrossel de imagens -->
-      <div id="img" class="carousel-background">
-        <img src="img/logos-jacitec/imagem1.jpg" alt="Imagem 1">
-        <img src="img/logos-jacitec/imagem2.jpg" alt="Imagem 2">
-        <img src="img/logos-jacitec/imagem3.jpg" alt="Imagem 3">
-        <img src="img/logos-jacitec/imagem4.jpg" alt="Imagem 4">
-        <img src="img/logos-jacitec/imagem5.jpg" alt="Imagem 5">
-        <img src="img/logos-jacitec/imagem6.jpg" alt="Imagem 6">
+      <div class="header-actions">
+        <a class="btn btn-primary btn-sm" href="https://qrcheck.distrito28.com.br" target="_blank" rel="noopener">
+          Inscreva-se
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+          <i class="fa-solid fa-bars"></i>
+        </button>
       </div>
-      <section id="sponsors-sponsor-slider">
-        <div class="sponsors-banner">
-          <img class="img-responsive-logo logo" src="img/Logo-Jacitec.png" alt="logo"
-            style="width:auto; max-width: 40%">
-          <img class="img-responsive-name" src="img/Texto_branco.svg" alt="logo"
-            style="width:auto; height:50% ; max-width: 60%;">
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Cabeçalho da Página com carrossel -->
+    <section class="hero">
+      <div class="hero-carousel" aria-hidden="true">
+        <img class="is-active" src="img/logos-jacitec/imagem1.jpg" alt="">
+        <img src="img/logos-jacitec/imagem2.jpg" alt="">
+        <img src="img/logos-jacitec/imagem3.jpg" alt="">
+        <img src="img/logos-jacitec/imagem4.jpg" alt="">
+        <img src="img/logos-jacitec/imagem5.jpg" alt="">
+        <img src="img/logos-jacitec/imagem6.jpg" alt="">
+      </div>
+
+      <div class="container hero-content">
+        <img class="hero-logo" src="img/logo-marca.png" alt="XV JACITEC 2026 — Ciência Delas" width="600" height="600">
+        <ul class="hero-meta">
+          <li><i class="fa-regular fa-calendar"></i>19 a 22 de outubro de 2026</li>
+          <li><i class="fa-solid fa-location-dot"></i>Ifes Campus Cachoeiro de Itapemirim</li>
+        </ul>
+        <br>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="agenda.html">Programação</a>
+          <a class="btn btn-primary" href="mostra.html">Mostra Ciêntifica</a>
+          <a class="btn btn-ghost" href="https://qrcheck.distrito28.com.br" target="_blank" rel="noopener">Inscreva-se</a>
         </div>
-      </section>
-    </div>
-  </section>
-
-
-
-  <div id="container">
-
-    <section id="overview">
-      <div class="overview text-align-center row desktop-12 min-h-15 padding-top-1 container">
-        <i class="fa fa-5x fa-users"></i>
-        <h2 style="padding: 15px;">O Evento</h2>
-        <figure style="float: left; margin-right: 30px; margin-bottom: 15px; margin-top: 10px;">
-        <img src="img/JACITEC 2016.jpg" alt="" width="550px" style="border: 3px solid #0b4008;">
-        <figcaption style="text-align: left; font-size: 12px; margin-top: 10px;">Fonte: Acervo Ifes Campus Cachoeiro de Itapemirim. JACITEC 2016.</figcaption>
-        </figure><br>
-        <p style="text-align: justify;">A Jornada Acadêmica de Ciência, Tecnologia e Cultura - JACITEC do Ifes - Campus Cachoeiro de Itapemirim é um evento de extensão cujo principal objetivo é divulgar as atividades de ensino, pesquisa e extensão desenvolvidas no campus para a comunidade interna e externa, além de promover a integração entre os participantes de diversas áreas. A temática abordada durante o evento segue o proposto para a Semana Nacional de Ciência e Tecnologia do ano vigente, abordando assim temas de relevância na atualidade.</p>
-        <figure style="float: left; margin-right: 30px; margin-bottom: 15px;">
-        <img src="img/JACITEC 2018.jpg" alt="" width="550px" style="border: 3px solid #0b4008;">
-        <figcaption style="text-align: left; font-size: 12px; margin-top: 10px;">Fonte: Acervo Ifes Campus Cachoeiro de Itapemirim. JACITEC 2018.</figcaption>
-        </figure>
-        <p style="text-align: justify;">A JACITEC busca disseminar à comunidade interna e externa, as atividades de integração ensino, pesquisa e extensão dos diferentes e diversos cursos e programas ofertados pelo campus, além de integrar participantes de áreas distintas a partir de uma programação variada e proposta pelos cursos técnicos intercomplementar, concomitantes e integrados em Mineração, Eletromecânica, Informática e Informática para Internet, pelos cursos superiores de Engenharia de Minas, Engenharia Mecânica, Sistemas de Informação, Licenciatura em Matemática e pelos cursos de pós-graduação em Tecnologia de Produção de Rochas Ornamentais, Ensino de Ciências Naturais com ênfase em Química ou Física e Aperfeiçoamento em Mentorial para a Educação Profissional, Indústria 4.0, e pelos cursos de Mestrado Profissional em Docência na Educação Profissional e Tecnológica - ProfDocênciaEPT e Mestrado em Engenharia Metalúrgica e de Materiais - PROPEMM.</p>
-        <p style="text-align: justify;">O evento engloba em sua grade as semanas de cursos do Ifes - Campus Cachoeiro de Itapemirim, sendo elas: Seminário de Informática(SINF), Semana de Estudos da Mineração(SEMIN), Semana da Engenharia Mecânica(SEMEC)</p>
-      </div>
-      <div class="overview text-align-center row desktop-12 min-h-15 padding-top-1 container">
-      <h2 style="padding: 15px;">Edições anteriores</h2>
-      <figure style="float: right; margin-left: 30px; margin-bottom: 15px; margin-top: 10px;">
-        <img src="img/JACITEC 2022.jpg" alt="" width="500px" style="border: 3px solid #0b4008;">
-        <figcaption style="text-align: left; font-size: 12px; margin-top: 10px;">Fonte: Acervo Ifes Campus Cachoeiro de Itapemirim. JACITEC 2022.</figcaption>
-      </figure>
-      
-      <p style="text-align: justify;">Desde sua criação em 2009, a Jornada Acadêmica de Ciência, Tecnologia e Cultura do Ifes - Campus Cachoeiro de Itapemirim tem se consolidado como um espaço de integração entre ensino, pesquisa, extensão e cultura. Ao longo dos anos, cada edição buscou dialogar com temas nacionais e regionais, fortalecendo a produção científica e promovendo a troca de experiências entre estudantes, professores, pesquisadores e a comunidade externa.</p>
-      <p style="text-align: justify;">Em 2013, a quarta edição trouxe como tema “Ciência, saúde e esporte”, iniciando uma trajetória de debates interdisciplinares que, no ano seguinte, se ampliou na quinta edição, realizada em novembro de 2014, marcada pela consolidação de atividades culturais, científicas e tecnológicas. A sexta e a sétima edições, em 2015 e 2016, deram continuidade a esse movimento, estimulando a reflexão crítica sobre questões sociais, como no tema “O Brasil tem fome de quê?”. Em 2017, a oitava JACITEC aproximou a comunidade da Semana Nacional de Ciência e Tecnologia, explorando o mote “A Matemática está em tudo”. Já em 2018, a nona edição destacou a importância da ciência para a redução das desigualdades, enquanto, em 2019, a décima edição abordou a bioeconomia como caminho para o desenvolvimento sustentável.</p>
-      <figure style="float: left; margin-right: 30px; margin-bottom: 15px; margin-top: 10px;">
-        <img src="img/JACITEC 2024.jpg" alt="" width="500px" style="border: 3px solid #0b4008;">
-        <figcaption style="text-align: left; font-size: 12px; margin-top: 10px;">Fonte: Acervo Ifes Campus Cachoeiro de Itapemirim. JACITEC 2024.</figcaption>
-      </figure>
-      <p style="text-align: justify;">Após a interrupção das atividades presenciais durante a pandemia, o evento retornou em 2022 com sua décima primeira edição, realizada entre 7 e 10 de novembro, reforçando a vocação acadêmica e cultural do Campus. Em 2023, a décima segunda edição retomou com força total o diálogo com a comunidade acadêmica e a sociedade, alinhando-se ao tema “Ciências básicas para o desenvolvimento sustentável”. No ano seguinte, em 2024, a décima terceira JACITEC destacou os “Biomas do Brasil: diversidade, saberes e tecnologias sociais”, valorizando a riqueza natural do país e o papel da ciência na preservação e no uso sustentável desses recursos, além de inovar com sua mostra científica que serviu de classificatória para Feira de Ciência e Inovação Capixaba.</p>
-      <p style="text-align: justify;">Assim, cada edição do evento representa um marco no compromisso do Ifes – Campus Cachoeiro de Itapemirim com a difusão da ciência e o incentivo à participação cultural e social, reforçando a identidade de um evento que cresce a cada ano e se consolida como referência regional.</p>
-      </div>
-      <div class="overview text-align-center row desktop-12 min-h-15 padding-top-1 container">
-      <h2 style="padding: 15px;">Este Ano</h2>
-      <p style="text-align: justify;">A XIV Jornada acontecerá de 22 a 24 de outubro de 2025 e sua programação inclui: palestras, oficinas, exposições, mostra científica,  apresentações artístico-culturais e outras atividades que são realizadas dentro dos espaços de vivência e aula do campus. O evento faz parte da 22ª Semana Nacional de Ciência e Tecnologia (SNCT) e tem como tema "Planeta Água: Cultura oceânica para enfrentar as mudanças climáticas no meu território".</p>
-      <figure>
-        <img src="img/Banner-Jacitec-2025.png" alt="" height="400" style="border: 3px solid #0b4008;margin-left: auto; margin-right: auto; display: block;">
-        <figcaption style="text-align: center; font-size: 12px; margin-top: 10px; margin-left: 10px">Banner de Divulgação da XIV Jornada Acadêmica de Ciência e Tecnologia</figcaption>
-      </figure><br><br><br><br>
-      <p style="text-align: justify;">Dentro de nossa jornada diversas atividades são realizadas, confira em nossa agenda as nossas atividades desse edição e seus horários!</p>
-    </section>
-
-    <div class="title-prog" id="calendar">
-      <i class="fa fas fa-clock"></i>
-      <h2 style="padding: 15px;">AGENDA</h2>
-    </div>
-    <div style="text-align: center; padding-bottom: 15px;" id="tables-container">
-      <p style="margin-bottom: 15px; font-size: 2rem;">Veja a nossa agenda de eventos para se manter atualizado.
-      </p><br>
-      <a class="agenda-btn" href="#" target="_blank">Em Construção!</a>
-    </div>
-
-    <div class="register row" id="registration" style="margin-top: 30px ">
-      <div style="background: #00054cc2;">
-        <div class="text-align-center row desktop-12 padding-top-2 min-h-12 container" style="padding-top: 30px ;">
-          <div class="title-prog">
-            <i class="fa fas fa-user-plus"></i>
-            <h2 style="padding: 15px;">INSCRIÇÕES</h2>
-          </div>
-
-          <p>A inscrição prévia é muito importante para a emissão de certificados e controle do evento.
-          </p>
-
-          <a class="subscribe-btn" style="margin-right: 5px; " href="https://qrcheck.distrito28.com.br" target="_blank">Acessar seu Perfil </a>
-        </div>
-      </div>
-    </div>
-    </section>
-
-        <section id="submission" style="text-align: center; padding: 6% 0 0 0">
-      <div id="title-prog">
-        <i class="fa fas fa-paperclip"></i>
-        <h2 style="margin-top: 0;">MOSTRA CIENTÍFICA</h2>
-      </div>
-      <p style="text-align: justify;">A Mostra Científica é o coração da Jornada Acadêmica de Ciência, Tecnologia e Cultura do Ifes - Campus Cachoeiro de Itapemirim. É nela que estudantes, professores e pesquisadores apresentam seus trabalhos, compartilham descobertas e dialogam sobre soluções para os desafios atuais da sociedade.</p>
-      <p style="text-align: justify; margin-top: 15px;">A Mostra Científica da JACITEC é uma oportunidade única para que os participantes possam expor seus projetos de pesquisa, inovação tecnológica e extensão, promovendo a troca de conhecimentos e experiências entre diferentes áreas do saber. Além disso, a mostra serve como um espaço de incentivo à criatividade e ao pensamento crítico, fundamentais para o desenvolvimento científico e tecnológico.</p>
-      <p style="text-align: justify;">Os trabalhos apresentados na Mostra Científica são avaliados por uma comissão especializada, que leva em consideração critérios como originalidade, relevância, metodologia e impacto social. Os melhores projetos são reconhecidos e premiados, incentivando a continuidade das pesquisas e o engajamento dos participantes.</p>
-      <h4>Critérios de Avaliação da Mostra Científica</h4>
-      <p style="text-align: center;">
-        Os trabalhos apresentados na Mostra Científica serão avaliados por área e com base nos seguintes critérios:</p>
-      <ul class="ul-mostra">
-        <li><strong>Apresentação Visual e Estrutura</strong></li>
-        <li><strong>Apresentação e Domínio do Conteúdo</strong></li>
-        <li><strong>Metodologia e Execução</strong></li>
-        <li><strong>Originalidade e Inovação</strong></li>
-        <li><strong>Relevância e Aplicação Prática</strong></li>
-        <li><strong>Sustentabilidade e Impacto Ambiental</strong></li>
-      </ul>
-      <p style="text-align: justify; margin-top: 15px;">Vale ressaltar que cada trabalho terá uma nota máxima de 100 pontos e
-        em caso de empate, os critérios de
-        desempate serão, na seguinte ordem: maior nota em <strong>"Originalidade e Inovação"</strong>, seguido de maior
-        nota em
-        <strong>"Relevância e Aplicação Prática"</strong> e, por fim, maior nota <strong>"Sustentabilidade e Impacto
-          Ambiental"</strong>.
-
-        O resultado final será publicado no final da tarde do último dia do evento: 24/10/2025.
-
-        Boa sorte e até.
-      </p>
-      <p>Obs: A apresentação do banner impresso é obrigatória para a participação no evento</p>
-
-      <div class="pdf-container" style="display: inline-flex;">
-        <a class="pdf" href="pdfs/XIV_JACITEC_EDITAL_ATIVIDADES.pdf" download>
-          <span style="margin-right: 0px; font-weight: 600;">PDF</span>
-        </a>
-
-        <a class="pdf" href="pdfs/modelo_de_banner_XIVJACITEC_2025.pptx" download>
-          <span style="margin-right: 0px; font-weight: 600;">Banner</span>
-        </a>
-
-             </div>
-      <div class="pdf-container submit-container">
-        <a class="submit" href="https://forms.gle/sUsSjK3E8rtHhBPB7" target="_blank">
-          <span style="font-weight: 600" ;>Envie sua proposta!</span>
-          <i class="fa fas fa-angle-right"></i>
-        </a>
-      </div><br><br>
-</section>
-
-    <section id="venue">
-      <div class="row min-h-10">
-        <div id="title-prog" style="margin-top: 60px;">
-          <i class="fa fa-map-signs"></i>
-          <h2 style="margin-top: 0;">LOCALIZAÇÃO</h2>
-        </div>
-
-        <div style="display: flex; justify-content: center;">
-          <p style="text-align: justify;">Confira abaixo a localização do evento:</p>
-        </div>
-
-        <div class="contact-right">
-          <div class="row desktop-12 container">
-            <div class="venue row" style="margin-top: 5px;">
-              <div class="venue-address desktop-4 gutter" style="color: white;">
-                <h2 style="padding-left: 20px;">IFES Campus Cachoeiro</h2>
-                <p class="address">
-                  Rod Engenheiro Fabiano Vivácqua, <span style="white-space: nowrap;">n° 1568</span><br>
-                  CEP: 29.322-000<br>
-                  Localidade Morro Grande<br>
-                  Cachoeiro de Itapemirim - ES
-                </p>
-              </div>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3729.703776110018!2d-41.15731314909455!3d-20.80326867136092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb9679f48da7bf9%3A0xb6b381296237b225!2sInstituto%20Federal%20do%20Esp%C3%ADrito%20Santo%20-%20Campus%20Cachoeiro%20de%20Itapemirim!5e0!3m2!1spt-BR!2sbr!4v1664279195432!5m2!1spt-BR!2sbr"
-                width="100%" height="320px" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <div class="prefooter">
-    <div class="coluna-1">
-      <h3>Contato</h3>
-      <a href="mailto:jacitec.ci@ifes.edu.br">
-        <p style="padding-bottom:0px ;"><i class="fa fa-1x fa-envelope-o"></i>jacitec.ci@ifes.edu.br</p>
-      </a>
-      <a href="tel:+552835269034">
-        <p style="padding-top:0px ;"><i class="fa fa-1x fa-phone-o"></i>+55 28 3526-9034</p>
-      </a>
-      <img class="img-responsive" src="img/logo-marca.png" alt="logo"
-        style="width:80px;max-width: 100%; margin-top: 0px; ">
-
-    </div>
-    <div class="coluna-2">
-
-      <h3 style="margin-bottom: 0px; padding-bottom: 0px;">Realização</h3>
-      <p>IFES Campus Cachopeiro de Itapemirim<br><nobr>Diretoria de Pesquisa, Pós-Graduação e Extensão</nobr><br>Comissão Organizadora<br>
-        Portaria Nº 402, de 15 de Setembro de 2025.</p>
-
-
-    </div>
-    <div class="coluna-3">
-      <h3>Redes Sociais</h3>
-      <div class="social-icons">
-        <a href="https://www.instagram.com/ifescachoeiro.oficial/" target="_blank"><i class="fab fa-instagram"> @JACITEC</i></a><br>
-        <!-- <a href="https://www.facebook.com/ifescachoeiro.oficial/" target="_blank">
-          <i class="fab fa-facebook-f"></i></a> -->
-        <a href="https://www.youtube.com/c/IfesCampusCachoeiro/featured" target="_blank"><i
-            class="fab fa-youtube"></i></a>
       </div>
 
+      <a class="hero-scroll-cue" href="#overview" aria-label="Rolar para o conteúdo">
+        <span>Saiba mais</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </a>
+    </section>
+    <!-- O Evento -->
+    <section id="overview">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">O evento</p>
+          <h2>União da Ciência, Tecnologia e Cultura!</h2>
+        </div>
+
+        <p class="about-lead">
+          A Jornada Acadêmica de Ciência, Tecnologia e Cultura — JACITEC do Ifes Campus Cachoeiro de Itapemirim é um evento
+          de extensão cujo principal objetivo é divulgar as atividades de ensino, pesquisa e extensão desenvolvidas no
+          campus para a comunidade interna e externa, além de promover a integração entre os participantes de diversas
+          áreas. A temática abordada durante o evento segue o proposto para a Semana Nacional de Ciência e Tecnologia do
+          ano vigente, abordando assim temas de relevância na atualidade.
+        </p>
+
+        <div class="feature-row">
+          <figure class="feature-media">
+            <img src="img/JACITEC 2016.jpg" alt="Estudantes e visitantes na JACITEC 2016" loading="lazy" width="1100" height="700">
+            <figcaption>Acervo Ifes Campus Cachoeiro de Itapemirim — JACITEC 2016</figcaption>
+          </figure>
+          <div class="feature-text">
+            <h3>Integração entre ensino, pesquisa e extensão</h3>
+            <p class="about-lead-text">
+              A JACITEC busca disseminar à comunidade interna e externa as atividades de integração ensino, pesquisa e
+              extensão dos diferentes cursos e programas ofertados pelo campus, além de integrar participantes de áreas
+              distintas a partir de uma programação variada, proposta pelos cursos técnicos, superiores e de
+              pós-graduação do Ifes Cachoeiro.A JACITEC busca disseminar à comunidade interna e externa as atividades de integração ensino, pesquisa e
+              extensão dos diferentes cursos e programas ofertados pelo campus, além de integrar participantes de áreas
+              distintas a partir de uma programação variada, proposta pelos cursos técnicos, superiores e de
+              pós-graduação do Ifes Cachoeiro.A JACITEC busca disseminar à comunidade interna e externa as atividades de integração ensino,
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-row reverse">
+          <figure class="feature-media">
+            <img src="img/JACITEC 2018.jpg" alt="Apresentação na JACITEC 2018" loading="lazy" width="1100" height="619">
+            <figcaption>Acervo Ifes Campus Cachoeiro de Itapemirim — JACITEC 2018</figcaption>
+          </figure>
+          <div class="feature-text">
+            <h3>As semanas de curso do campus</h3>
+            <p class="about-lead-text">
+              O evento engloba em sua grade as semanas de curso do Ifes Campus Cachoeiro de Itapemirim: o Seminário de
+              Informática (SINF), a Semana de Estudos da Mineração (SEMIN) e a Semana da Engenharia Mecânica (SEMEC),
+              reunindo estudantes, professores e pesquisadores de diferentes cursos em uma só programação..A JACITEC busca disseminar à comunidade interna e externa as atividades de integração ensino, pesquisa e.A JACITEC busca disseminar à comunidade interna e externa as atividades de integração ensino, pesquisa e.A JACITEC busca disseminar à comunidade interna e externa as atividades de integração ensino, pesquisa e.A JACITEC busca disseminar à comunidade interna e externa as atividades de integração ensino, pesquisa e.A JACITEC busca disseminar à comunidade interna e externa as atividades de integração ensino, pesquisa e
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section-alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>Edições anteriores</h2>
+        </div>
+
+        <div class="history-copy">
+          <p class="about-lead-text">
+            Desde sua criação em 2009, a Jornada Acadêmica de Ciência, Tecnologia e Cultura do Ifes Campus Cachoeiro de
+            Itapemirim tem se consolidado como um espaço de integração entre ensino, pesquisa, extensão e cultura. Ao
+            longo dos anos, cada edição buscou dialogar com temas nacionais e regionais, fortalecendo a produção
+            científica e promovendo a troca de experiências entre estudantes, professores, pesquisadores e a comunidade
+            externa.
+          </p>
+          <p class="about-lead-text">
+            Em 2013, a quarta edição trouxe como tema "Ciência, saúde e esporte", iniciando uma trajetória de debates
+            interdisciplinares que, no ano seguinte, se ampliou na quinta edição, realizada em novembro de 2014, marcada
+            pela consolidação de atividades culturais, científicas e tecnológicas. A sexta e a sétima edições, em 2015 e
+            2016, deram continuidade a esse movimento, estimulando a reflexão crítica sobre questões sociais, como no
+            tema "O Brasil tem fome de quê?". Em 2017, a oitava JACITEC aproximou a comunidade da Semana Nacional de
+            Ciência e Tecnologia, explorando o mote "A Matemática está em tudo". Já em 2018, a nona edição destacou a
+            importância da ciência para a redução das desigualdades, enquanto, em 2019, a décima edição abordou a
+            bioeconomia como caminho para o desenvolvimento sustentável.
+          </p>
+          <div class="timeline">
+            <article class="timeline-item">
+              <img src="img/JACITEC 2022.jpg" alt="JACITEC 2022" loading="lazy" width="1100" height="619">
+              <div class="timeline-body">
+                <span class="timeline-year">2022 · 11ª edição</span>
+                <p>Retorno das atividades presenciais após a pandemia.</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <img src="img/Mostra 2022.jpg" alt="Mostra Científica 2022" loading="lazy" width="1100" height="619">
+              <div class="timeline-body">
+                <span class="timeline-year">2022 · Mostra Científica</span>
+                <p>Trabalhos de pesquisa, inovação e extensão em exposição.</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <img src="img/JACITEC 2024.JPG" alt="JACITEC 2024" loading="lazy" width="1100" height="733">
+              <div class="timeline-body">
+                <span class="timeline-year">2024 · 13ª edição</span>
+                <p>"Biomas do Brasil: diversidade, saberes e tecnologias sociais".</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <img src="img/Mostra 2024.JPG" alt="Mostra Científica 2024" loading="lazy" width="1100" height="733">
+              <div class="timeline-body">
+                <span class="timeline-year">2024 · Mostra Científica</span>
+                <p>Classificatória para a Feira de Ciência e Inovação Capixaba.</p>
+              </div>
+            </article>
+          </div>
+
+          <p class="about-lead-text">
+            Após a interrupção das atividades presenciais durante a pandemia, o evento retornou em 2022 com sua décima
+            primeira edição, realizada entre 7 e 10 de novembro, reforçando a vocação acadêmica e cultural do Campus. Em
+            2023, a décima segunda edição retomou com força total o diálogo com a comunidade acadêmica e a sociedade,
+            alinhando-se ao tema "Ciências básicas para o desenvolvimento sustentável". No ano seguinte, em 2024, a
+            décima terceira JACITEC destacou os "Biomas do Brasil: diversidade, saberes e tecnologias sociais",
+            valorizando a riqueza natural do país e o papel da ciência na preservação e no uso sustentável desses
+            recursos, além de inovar com sua mostra científica, que serviu de classificatória para a Feira de Ciência e
+            Inovação Capixaba.
+          </p>
+          <div class="timeline">
+            <article class="timeline-item">
+              <img src="img/JACITEC 2022.jpg" alt="JACITEC 2022" loading="lazy" width="1100" height="619">
+              <div class="timeline-body">
+                <span class="timeline-year">2022 · 11ª edição</span>
+                <p>Retorno das atividades presenciais após a pandemia.</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <img src="img/Mostra 2022.jpg" alt="Mostra Científica 2022" loading="lazy" width="1100" height="619">
+              <div class="timeline-body">
+                <span class="timeline-year">2022 · Mostra Científica</span>
+                <p>Trabalhos de pesquisa, inovação e extensão em exposição.</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <img src="img/JACITEC 2024.JPG" alt="JACITEC 2024" loading="lazy" width="1100" height="733">
+              <div class="timeline-body">
+                <span class="timeline-year">2024 · 13ª edição</span>
+                <p>"Biomas do Brasil: diversidade, saberes e tecnologias sociais".</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <img src="img/Mostra 2024.JPG" alt="Mostra Científica 2024" loading="lazy" width="1100" height="733">
+              <div class="timeline-body">
+                <span class="timeline-year">2024 · Mostra Científica</span>
+                <p>Classificatória para a Feira de Ciência e Inovação Capixaba.</p>
+              </div>
+            </article>
+          </div>
+          <p class="about-lead-text">
+            Assim, cada edição do evento representa um marco no compromisso do Ifes Campus Cachoeiro de Itapemirim com a
+            difusão da ciência e o incentivo à participação cultural e social, reforçando a identidade de um evento que
+            cresce a cada ano e se consolida como referência regional.
+          </p>
+        </div>
+        </div>
+      </div>
+      <br>
+      <div>
+        <div class="container">
+          <div class="this-year">
+            <div>
+              <p class="eyebrow">Este ano · 23ª SNCT</p>
+              <h2>Ciência Delas</h2>
+              <p>
+                A XIV Jornada acontecerá de 22 a 24 de outubro de 2025 e sua programação inclui palestras, oficinas,
+                exposições, mostra científica, apresentações artístico-culturais e outras atividades realizadas nos
+                espaços de vivência e aula do campus. O evento faz parte da 22ª Semana Nacional de Ciência e Tecnologia
+                (SNCT) e tem como tema <strong>"Planeta Água: Cultura oceânica para enfrentar as mudanças climáticas no
+                meu território"</strong>.
+              </p>
+              <p>Confira na nossa agenda as atividades desta edição e seus horários.</p>
+              <div class="this-year-actions">
+                <a class="btn btn-primary" href="agenda.html">Ver agenda completa</a>
+                <a class="btn btn-ghost" href="mostra.html">Mostra científica</a>
+              </div>
+            </div>
+            <figure class="this-year-banner">
+              <img src="img/Banner-Jacitec-2025.png" alt="Banner oficial da XIV JACITEC 2025 — Planeta Água" loading="lazy" width="1600" height="900">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="registration" class="register-band">
+      <div class="container">
+        <p class="eyebrow">Inscrições</p>
+        <h2>Inscreva-se agora e participe da XV JACITEC!</h2>
+        <p>
+          A inscrição prévia é muito importante para a emissão de certificados e para o controle do evento.
+        </p>
+        <a class="btn btn-primary" href="https://qrcheck.io/evento/demonstracao-qrcheck" target="_blank" rel="noopener">
+          Faça agora a sua incrição!
+        </a>
+        <a class="btn btn-ghost" href="https://qrcheck.distrito28.com.br/login" target="_blank" rel="noopener">Já se inscreveu? Faça seu login!</a>
+      </div>
+    </section>
+
+    <section id="sponsorship" class="section-alt">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Exposição e patrocínio</p>
+          <h2>Seja um parceiro da JACITEC</h2>
+        </div>
+
+        <p class="about-lead">
+          A Jornada Acadêmica de Ciência, Tecnologia e Cultura do Ifes Campus Cachoeiro de Itapemirim é uma oportunidade
+          única para empresas, instituições e organizações se conectarem com a comunidade acadêmica e o público em
+          geral. Ao se tornar um patrocinador ou expositor, você terá a chance de divulgar sua marca, produtos e
+          serviços, além de apoiar a disseminação do conhecimento científico e tecnológico.
+        </p>
+        <p class="about-lead">
+          A participação na JACITEC permite que sua empresa esteja presente em um ambiente de inovação e aprendizado,
+          fortalecendo sua imagem institucional e ampliando sua rede de contatos. Além disso, você estará contribuindo
+          para o desenvolvimento da ciência, tecnologia e cultura na região.
+        </p>
+
+        <div class="sponsorship-cta">
+          <a class="btn btn-primary" href="pdfs/XIV_JACITEC_Patrocinio.pdf" download>
+            Baixar proposta de patrocínio
+          </a>
+        </div>
+    </section>
+
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col footer-contact">
+        <h3>Contato</h3>
+        <a href="mailto:jacitec.ci@ifes.edu.br"><i class="fa-regular fa-envelope"></i>jacitec.ci@ifes.edu.br</a>
+        <a href="tel:+552835269034"><i class="fa-solid fa-phone"></i>+55 28 3526-9034</a>
+        <img class="footer-logo" src="img/logo-jacitec.png" alt="Ifes" loading="lazy">
+      </div>
+
+      <div class="footer-col">
+        <h3>Realização</h3>
+        <p>
+          Ifes Campus Cachoeiro de Itapemirim<br>
+          Diretoria de Pesquisa, Pós-Graduação e Extensão<br>
+          Comissão Organizadora<br>
+          Portaria nº 402, de 15 de setembro de 2025
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Redes sociais</h3>
+        <div class="social-row">
+          <a href="https://www.instagram.com/ifescachoeiro.oficial/" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.youtube.com/c/IfesCampusCachoeiro/featured" target="_blank" rel="noopener" aria-label="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="prefooter" id="prefooter-image">
-    <img src="/img/Patrocinio.svg"  alt="">
-  </div>
-  
-  <footer>
-    <p style="padding: 7px 0 0px">XIV Jornada Acadêmica de Ciência, Tecnologia e Cultura - IFES Campus Cachoeiro</p>
+    <div class="container">
+        <div class="section-head";"><br>
+          <h2 style="color: var(--white)">Como chegar</h2>
+        </div>
+
+      <div class="venue-grid">
+        <div class="venue-card">
+          <h3>Ifes Campus Cachoeiro</h3>
+          <address style="color: var(--ocean-950);">
+              Rod. Engenheiro Fabiano Vivácqua, nº 1568<br>
+              Localidade Morro Grande<br>
+              CEP 29.322-000 — Cachoeiro de Itapemirim - ES
+          </address>
+          <a class="btn btn-outline-venue" href="https://www.google.com/maps/place/Instituto+Federal+do+Esp%C3%ADrito+Santo+-+Campus+Cachoeiro+de+Itapemirim" target="_blank" rel="noopener">Abrir no Google Maps</a>
+        </div>
+        <div class="venue-map">
+          <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3729.703776110018!2d-41.15731314909455!3d-20.80326867136092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb9679f48da7bf9%3A0xb6b381296237b225!2sInstituto%20Federal%20do%20Esp%C3%ADrito%20Santo%20-%20Campus%20Cachoeiro%20de%20Itapemirim!5e0!3m2!1spt-BR!2sbr!4v1664279195432!5m2!1spt-BR!2sbr"
+              title="Mapa de localização do Ifes Campus Cachoeiro de Itapemirim"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="sponsors-strip container">
+      <img src="img/Patrocinio.svg" alt="Realização, patrocínio e apoio" loading="lazy">
+    </div>
+
+    <div class="footer-bottom">
+      <p>XIV Jornada Acadêmica de Ciência, Tecnologia e Cultura — Ifes Campus Cachoeiro de Itapemirim</p>
+    </div>
     
   </footer>
 
+  <script src="js/main.js" defer></script>
+  <script src="js/news.js" defer></script>
 </body>
 
 </html>
