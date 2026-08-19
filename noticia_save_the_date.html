@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Substitua estes dados para cada nova notícia -->
+  <title>Título da Notícia — XIV JACITEC</title>
+  <meta name="description" content="Resumo da notícia que vai aparecer no Google e nos compartilhamentos de redes sociais.">
+  
+  <meta name="author" content="Ifes Campus Cachoeiro de Itapemirim">
+  <meta name="theme-color" content="#0a2740">
+
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <!-- Usando a classe is-scrolled para páginas internas, como feito na agenda -->
+  <header class="site-header is-scrolled">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <img src="img/ifes-nav.png" alt="Ifes — Campus Cachoeiro de Itapemirim" width="106" height="42">
+        <span class="brand-name">JACITEC<span>XIV Jornada · 2025</span></span>
+      </a>
+
+      <div class="nav-scrim"></div>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <a href="index.html#overview">O Evento</a>
+        <a href="agenda.html">Programação</a>
+        <a href="index.html#registration">Submissões</a>
+        <a href="index.html#submission">Mostra Científica</a>
+        <a href="index.html#sponsorship">Exposição e Patrocínio</a>
+        <a href="index.html#venue">Local</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-primary btn-sm" href="https://qrcheck.distrito28.com.br" target="_blank" rel="noopener">
+          Inscreva-se
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="article-section">
+      <div class="container container-narrow"> <!-- container-narrow para limitar a largura do texto, melhorando a leitura -->
+        <article class="single-news">
+          <header class="article-header">
+            <p class="eyebrow">Categoria (Ex: Avisos, Mostra Científica, Programação)</p>
+            <h1>Título principal da notícia entra aqui em destaque</h1>
+            <br>
+            <div class="article-meta">
+              <span><i class="fa-regular fa-calendar"></i> 25 de Agosto de 2025</span>
+              <span><i class="fa-solid fa-pen-nib"></i> Comissão Organizadora</span>
+            </div>
+                <a class="back-link" href="index.html#news">
+            <i class="fa-solid fa-arrow-left"></i> Voltar para a página inicial
+            </a>
+          </header>
+
+          <figure class="article-cover">
+            <img src="img/logos-jacitec/imagem1.jpg" alt="Descrição acessível da imagem para leitores de tela" width="1200" height="600" loading="eager">
+            <figcaption>Legenda descritiva da imagem, caso seja necessário informar a fonte.</figcaption>
+          </figure>
+
+          <div class="article-body">
+            <p class="lead">Este é o lide (parágrafo inicial). Ele deve resumir o assunto principal da notícia e convidar o usuário para a leitura, usando uma fonte levemente maior ou com mais peso.</p>
+            
+            <p>Aqui começa o texto principal da sua notícia. A estrutura HTML dessa área é pensada para receber parágrafos comuns, negritos para destacar <strong>informações importantes</strong> e links contextuais para outras páginas.</p>
+
+            <h2>Subtítulo para organizar textos longos</h2>
+            
+            <p>Se a notícia tiver muitas informações, quebre o texto com subtítulos. Você também pode utilizar listas, que são excelentes para descrever etapas ou documentações exigidas:</p>
+            
+            <ul>
+              <li>Documento de identidade original;</li>
+              <li>Comprovante de submissão do trabalho impresso;</li>
+              <li>Assinatura do termo de responsabilidade no local.</li>
+            </ul>
+
+            <blockquote>
+              <p>"A JACITEC é uma oportunidade fundamental para apresentar soluções aos desafios de sustentabilidade da nossa região."</p>
+              <cite>— Nome do Palestrante, Especialista em Cultura Oceânica</cite>
+            </blockquote>
+
+            <p>Ao finalizar o texto, você pode convidar o leitor para alguma ação, como acessar o edital ou entrar no perfil do evento. Lembre-se sempre de testar os links em novas abas quando saírem do seu site.</p>
+          </div>
+          
+          <div class="article-footer">
+            <p><strong>Compartilhe esta notícia:</strong></p>
+            <div class="social-share">
+              <!-- Substitua URL_DA_PAGINA pelo link real quando for para produção -->
+              <a href="https://api.whatsapp.com/send?text=Confira%20esta%20notícia%20da%20JACITEC:%20URL_DA_PAGINA" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col footer-contact">
+        <h3>Contato</h3>
+        <a href="mailto:jacitec.ci@ifes.edu.br"><i class="fa-regular fa-envelope"></i>jacitec.ci@ifes.edu.br</a>
+        <a href="tel:+552835269034"><i class="fa-solid fa-phone"></i>+55 28 3526-9034</a>
+        <img class="footer-logo" src="img/logo-marca.png" alt="Ifes" loading="lazy">
+      </div>
+
+      <div class="footer-col">
+        <h3>Realização</h3>
+        <p>
+          Ifes Campus Cachoeiro de Itapemirim<br>
+          Diretoria de Pesquisa, Pós-Graduação e Extensão<br>
+          Comissão Organizadora
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Redes sociais</h3>
+        <div class="social-row">
+          <a href="https://www.instagram.com/ifescachoeiro.oficial/" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.youtube.com/c/IfesCampusCachoeiro/featured" target="_blank" rel="noopener" aria-label="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sponsors-strip container">
+      <img src="img/Patrocinio.svg" alt="Realização, patrocínio e apoio" loading="lazy">
+    </div>
+
+    <div class="footer-bottom">
+      <p>XIV Jornada Acadêmica de Ciência, Tecnologia e Cultura — Ifes Campus Cachoeiro de Itapemirim</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+
+</html>

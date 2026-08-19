@@ -1,194 +1,255 @@
-document.addEventListener("DOMContentLoaded", function () {
-    let days = {};
-    let content;
-    let theme = "Nenhum"
+(function () {
+  "use strict";
 
-    // Faz uma requisição para obter os dados da agenda de eventos
-    fetch("https://qrcheck.distrito28.com.br/evento/agenda")
-        .then((response) => response.json())
-        .then((data) => renderSchedule(data));
+  var API_URL = "https://script.google.com/macros/s/AKfycbzp_tHST6If8YnTFxjwCtuBDykwqpIyiV3I5DTyI1CTGdn7WImktrcG9tXInCU_D-Kyow/exec";
 
-    // Função que renderiza a agenda de eventos
-    function renderSchedule(palestras) {
-        // Ordena as palestras pelo horário de início
-        palestras.sort((a, b) =>
-            a.horario_inicio.localeCompare(b.horario_inicio)
-        );
+  var statusEl = document.getElementById("agenda-status");
+  var filtersEl = document.getElementById("agenda-filters");
+  var dayTabsEl = document.getElementById("day-tabs");
+  var tableWrapEl = document.getElementById("schedule-wrap");
+  var tableBodyEl = document.getElementById("schedule-body");
+  var modalOverlay = document.getElementById("activity-modal");
+  var modalClose = document.getElementById("modal-close");
 
-        // Organiza as palestras no objeto days por data e horário
-        palestras.forEach((palestra) => {
-            const date = palestra.data;
-            if (!days[date]) {
-                days[date] = [];
-            }
+  if (!statusEl) return;
 
-            // Adiciona a palestra no dia correspondente
-            days[date].push(palestra);
-        });
+  var days = {};
+  var activeTheme = "Nenhum";
+  var activeDay = null;
 
-        content = document.createElement("div");
-        content.className = "tab-content table-responsive";
+  function openModal(palestra) {
+    // 1. Preenche os textos
+    document.getElementById("modal-title").textContent = palestra.palestra;
+    document.getElementById("modal-time").textContent = formatTime(palestra.horario_inicio) + " – " + formatTime(palestra.horario_termino);
+    document.getElementById("modal-place").textContent = [palestra.bloco, palestra.sala].filter(Boolean).join(" ");
+    
+    // Se não tiver descrição, põe um texto padrão
+    document.getElementById("modal-desc").textContent = palestra.descricao || "Mais informações sobre esta atividade serão divulgadas em breve.";
 
-        const tabBar = document.createElement("div");
-        tabBar.className = "nav nav-tabs";
-
-        let firstTab = true;
-        let firstTheme = true;
-        const buttons = document.querySelectorAll(".filter-button");
-        buttons.forEach(button => {
-            if (firstTheme) {
-                button.classList.add("active");
-                firstTheme = false;
-            }
-            if (button.classList.contains("active")){
-                theme = button.value;
-            }
-        });
-
-        // Ordena os dias e percorre para criar uma aba para cada data
-        const sortedDays = Object.keys(days).sort(
-            (a, b) => new Date(a) - new Date(b)
-        );
-
-        sortedDays.forEach((date, index) => {
-            const tabButton = document.createElement("button");
-            tabButton.className = "nav-link";
-            tabButton.innerText = formatDate(date);
-            tabButton.id = `tab-${date}`;
-
-            if (firstTab) {
-                tabButton.classList.add("active");
-                firstTab = false;
-
-                const dayContent = document.createElement("div");
-                dayContent.id = `content-${date}`;
-                dayContent.className = "tab-pane fade show active";
-                dayContent.appendChild(createTable(days[date]));
-                content.appendChild(dayContent);
-            }
-
-            tabButton.addEventListener("click", () => openTab(date));
-            tabBar.appendChild(tabButton);
-        });
-
-        filterByThemeAndDate(theme);
-
-        const container = document.getElementById("tables-container");
-        container.appendChild(tabBar);
-        container.appendChild(content);
+    // 2. Controla os elementos opcionais (Foto, Tipo e Link)
+    var tipoEl = document.getElementById("modal-tipo");
+    if (palestra.tipo) {
+      tipoEl.textContent = palestra.tipo;
+      tipoEl.hidden = false;
+    } else {
+      tipoEl.hidden = true;
     }
 
-    function openTab(dayId) {
-        const allTabs = document.querySelectorAll(".nav-link");
-        const allContents = document.querySelectorAll(".tab-pane");
-
-        allTabs.forEach((tab) => {
-            tab.classList.remove("active");
-            if (tab.id === `tab-${dayId}`) {
-                tab.classList.add("active");
-            }
-        });
-
-        // if (button.id == `filter-${selectedTheme}`) {
-        //     button.classList.add("active");
-        // }
-
-        allContents.forEach((content) => {
-            content.classList.remove("show", "active");
-            if (content.id === `content-${dayId}`) {
-                content.classList.add("show", "active");
-                updateTableContent(dayId);
-            } else if (!document.getElementById(`content-${dayId}`)) {
-                const newContent = document.createElement("div");
-                newContent.id = `content-${dayId}`;
-                newContent.className = "tab-pane fade show active";
-                newContent.appendChild(createTable(days[dayId]));
-                document.querySelector(".tab-content").appendChild(newContent);
-            }
-        });
+    var imgEl = document.getElementById("modal-foto");
+    if (palestra.foto) {
+      imgEl.src = palestra.foto;
+      imgEl.hidden = false;
+    } else {
+      imgEl.hidden = true;
     }
 
-    // Função para criar a tabela de palestras para cada dia
-    function createTable(schedule) {
-        console.log(schedule)
-        console.log(theme)
-        const table = document.createElement("table");
-        table.className = "table table-hover table-fixed table-bordered schedule-table";
-
-        // Cria o cabeçalho da tabela
-        const thead = document.createElement("thead");
-        thead.className = "table-secondary";
-        thead.innerHTML = `
-            <tr>
-                <th>Horário</th>
-                <th>Atividade/Evento</th>
-                <th>Local</th>
-            </tr>`;
-        table.appendChild(thead);
-
-        // Cria o corpo da tabela
-        const tbody = document.createElement("tbody");
-
-        schedule.forEach((palestra) => {
-            if (theme === "Nenhum" || palestra.tema === theme) {
-                const row = document.createElement("tr");
-                row.classList.add(palestra.tipo); // Adiciona a classe com o tipo do evento
-                row.innerHTML = `
-                    <td>${formatTime(palestra.horario_inicio)} - ${formatTime(palestra.horario_termino)}</td>
-                    <td>${palestra.palestra}</td>
-                    <td>${palestra.bloco + " " + palestra.sala}</td>`;
-                tbody.appendChild(row);
-            }
-        });
-
-        table.appendChild(tbody);
-
-        return table;
+    var actionWrapEl = document.getElementById("modal-action-wrap");
+    var linkEl = document.getElementById("modal-link");
+    if (palestra.link_inscricao) {
+      linkEl.href = palestra.link_inscricao;
+      actionWrapEl.hidden = false;
+    } else {
+      actionWrapEl.hidden = true;
     }
 
-    function filterByThemeAndDate(selectedTheme) {
-        theme = selectedTheme;
-        const buttons = document.querySelectorAll(".filter-button");
+    // 3. Exibe o Modal e impede a tela de fundo de rolar
+    modalOverlay.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
 
-        buttons.forEach(button => {
-            button.classList.remove("active")
-            if (button.id == `filter-${selectedTheme}`) {
-                button.classList.add("active");
-            }
-        });
+  function closeModal() {
+    modalOverlay.hidden = true;
+    document.body.style.overflow = ""; // Libera o scroll da tela
+  }
 
-        const activeTab = document.querySelector(".nav-link.active");
-        const dayId = activeTab ? activeTab.id.replace("tab-", "") : null;
+  // Eventos de Fechar o Modal
+  if (modalClose) {
+    modalClose.addEventListener("click", closeModal);
+  }
+  // Fecha se clicar fora da caixa branca
+  if (modalOverlay) {
+    modalOverlay.addEventListener("click", function (e) {
+      if (e.target === modalOverlay) closeModal();
+    });
+  }
 
-        if (dayId) {
-            updateTableContent(dayId);
-        }
+  function setStatus(html) {
+    statusEl.hidden = false;
+    statusEl.innerHTML = html;
+  }
+
+  function hideStatus() {
+    statusEl.hidden = true;
+  }
+
+  function formatTime(time) {
+    if (!time) return "";
+    return time.split(":").slice(0, 2).join(":");
+  }
+
+  function formatDate(dateStr) {
+    var options = {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      timeZone: "UTC",
+    };
+    return new Date(dateStr).toLocaleDateString("pt-BR", options);
+  }
+
+  function buildDayIndex(palestras) {
+    days = {};
+    palestras.forEach(function (palestra) {
+      var date = palestra.data;
+      if (!days[date]) days[date] = [];
+      days[date].push(palestra);
+    });
+    Object.keys(days).forEach(function (date) {
+      days[date].sort(function (a, b) {
+        return a.horario_inicio.localeCompare(b.horario_inicio);
+      });
+    });
+  }
+
+  function sortedDates() {
+    return Object.keys(days).sort(function (a, b) {
+      return new Date(a) - new Date(b);
+    });
+  }
+
+  function renderDayTabs() {
+    var dates = sortedDates();
+    dayTabsEl.innerHTML = "";
+
+    if (!dates.length) {
+      dayTabsEl.hidden = true;
+      return;
     }
 
-    window.filterByThemeAndDate = filterByThemeAndDate;
+    dayTabsEl.hidden = false;
 
-    function updateTableContent(dayId) {
-        const dayContent = document.getElementById(`content-${dayId}`);
-        if (dayContent) {
-            dayContent.innerHTML = "";
-            dayContent.appendChild(createTable(days[dayId]));
-        }
+    dates.forEach(function (date, index) {
+      var tab = document.createElement("button");
+      tab.type = "button";
+      tab.className = "day-tab" + (date === activeDay ? " active" : "");
+      tab.textContent = formatDate(date);
+      tab.setAttribute("aria-pressed", date === activeDay ? "true" : "false");
+      tab.addEventListener("click", function () {
+        activeDay = date;
+        renderDayTabs();
+        renderTable();
+      });
+      dayTabsEl.appendChild(tab);
+
+      if (!activeDay && index === 0) {
+        activeDay = date;
+        tab.classList.add("active");
+        tab.setAttribute("aria-pressed", "true");
+      }
+    });
+  }
+
+  function renderTable() {
+    tableBodyEl.innerHTML = "";
+
+    if (!activeDay || !days[activeDay]) {
+      tableWrapEl.hidden = true;
+      return;
     }
 
-    // Função que formata o horário no formato hh:mm
-    function formatTime(time) {
-        return time.split(":").slice(0, 2).join(":");
+    var rows = days[activeDay].filter(function (palestra) {
+      return activeTheme === "Nenhum" || palestra.tema === activeTheme;
+    });
+
+    if (!rows.length) {
+      tableWrapEl.hidden = true;
+      setStatus(
+        '<i class="fa-solid fa-calendar-xmark"></i>Nenhuma atividade encontrada para este filtro neste dia.'
+      );
+      return;
     }
 
-    // Função que formata a data em um estilo longo (segunda-feira, 2 de outubro de 2024)
-    function formatDate(dateStr) {
-        const options = {
-            weekday: "long",
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-            timeZone: "UTC",
-        };
-        return new Date(dateStr).toLocaleDateString("pt-BR", options);
+    hideStatus();
+    tableWrapEl.hidden = false;
+
+    rows.forEach(function (palestra) {
+      var tr = document.createElement("tr");
+
+      var tdTime = document.createElement("td");
+      tdTime.textContent =
+        formatTime(palestra.horario_inicio) + " – " + formatTime(palestra.horario_termino);
+
+      var tdActivity = document.createElement("td");
+      tdActivity.textContent = palestra.palestra || "";
+
+      var tdPlace = document.createElement("td");
+      tdPlace.textContent = [palestra.bloco, palestra.sala].filter(Boolean).join(" ");
+
+      // -- NOVA COLUNA COM BOTÃO --
+      var tdAction = document.createElement("td");
+      var btnAction = document.createElement("button");
+      btnAction.className = "btn btn-outline btn-sm";
+      btnAction.innerHTML = '<i class="fa-solid fa-plus"></i> Detalhes';
+      
+      // Ao clicar, chama a função de abrir o modal passando os dados da palestra
+      btnAction.addEventListener("click", function() {
+        openModal(palestra);
+      });
+      tdAction.appendChild(btnAction);
+
+      tr.appendChild(tdTime);
+      tr.appendChild(tdActivity);
+      tr.appendChild(tdPlace);
+      tr.appendChild(tdAction); // Injeta o botão na linha
+      tableBodyEl.appendChild(tr);
+    });
+  }
+
+  function setActiveFilterButton() {
+    filtersEl.querySelectorAll(".filter-button").forEach(function (button) {
+      var isActive = button.dataset.theme === activeTheme;
+      button.classList.toggle("active", isActive);
+      button.setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+  }
+
+  function initFilters() {
+    filtersEl.querySelectorAll(".filter-button").forEach(function (button) {
+      button.addEventListener("click", function () {
+        activeTheme = button.dataset.theme;
+        setActiveFilterButton();
+        renderTable();
+      });
+    });
+    setActiveFilterButton();
+  }
+
+  function renderSchedule(palestras) {
+    if (!Array.isArray(palestras) || !palestras.length) {
+      setStatus(
+        '<i class="fa-solid fa-calendar-xmark"></i>A agenda ainda não foi publicada. Volte em breve!'
+      );
+      return;
     }
-});
+
+    buildDayIndex(palestras);
+    hideStatus();
+    renderDayTabs();
+    renderTable();
+  }
+
+  setStatus('<i class="fa-solid fa-circle-notch fa-spin"></i>Carregando agenda…');
+  initFilters();
+
+  fetch(API_URL)
+    .then(function (response) {
+      if (!response.ok) throw new Error("Falha na resposta da API");
+      return response.json();
+    })
+    .then(renderSchedule)
+    .catch(function () {
+      setStatus(
+        '<i class="fa-solid fa-triangle-exclamation"></i>Não foi possível carregar a agenda agora. Tente novamente mais tarde.'
+      );
+    });
+})();

@@ -2,63 +2,194 @@
 <html lang="pt-br">
 
 <head>
-    <title>XIII JACITEC</title>
-    <link rel="shortcut icon" href="img/title2.png">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="description" content="XIII Jacitec - Ifes Campus Cachoeiro de Itapemirim">
-    <meta name="author" content="Ifes Campus Cachoeiro de Itapemirim">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda — XV JACITEC</title>
+  <meta name="description" content="Agenda de atividades da XIV Jornada Acadêmica de Ciência, Tecnologia e Cultura — Ifes Campus Cachoeiro de Itapemirim.">
+  <meta name="author" content="Ifes Campus Cachoeiro de Itapemirim">
+  <meta name="theme-color" content="#0a2740">
 
-    <link rel="shortcut icon" href="img/favicon.ico">
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/eventos.css">
-
-    <!-- Ícone -->
-    <link rel="shortcut icon" href="/static/img/Logo JACITEC - BGVerde e FGBranco.ico" type="image/x-icon">
-
-    <script src="js/agenda.js"></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <!-- Barra de Navegação -->
-    <div class="container mt-3 mb-3 d-print-none">
-        <div class="container-fluid">
-            <a class="navbar-brand d-flex align-items-center" href="/">
-                <img src="img/Logo JACITEC - BGTransparente e FGVerde.svg" alt="Logo da JACITEC" width="75" height="75">
-                <h1 style="color: var(--primary-color);">JACITEC</h1>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <header class="site-header is-scrolled">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <img src="img/ifes-nav.png" alt="Ifes — Campus Cachoeiro de Itapemirim" width="106" height="42">
+        <span class="brand-name">JACITEC<span>XV Jornada · 2025</span></span>
+      </a>
+
+      <div class="nav-scrim"></div>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <a href="index.html#overview">O Evento</a>
+        <a href="agenda.html" style="color: var(--aqua-300);">Programação</a>
+        <a href="index.html#registration">Submissões</a>
+        <a href="mostra.html">Mostra Científica</a>
+        <a href="index.html#sponsorship">Exposição e Patrocínio</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-primary btn-sm" href="https://qrcheck.distrito28.com.br" target="_blank" rel="noopener">
+          Inscreva-se
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="agenda-hero">
+      <div class="container">
+        <a class="back-link" href="index.html"><i class="fa-solid fa-arrow-left"></i>Voltar para a home</a>
+        <h1>Agenda de atividades</h1>
+        <p>Confira os horários, palestras e locais de cada dia da XV JACITEC. <br>Use os filtros para encontrar as
+          atividades das semanas de curso e eventos dentro da nossa jornada.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="agenda-filters" id="agenda-filters">
+          <button type="button" class="filter-button active" data-theme="Nenhum">JACITEC</button>
+          <button type="button" class="filter-button" data-theme="SEMIN">SEMIN</button>
+          <button type="button" class="filter-button" data-theme="SINF">SINF</button>
+          <button type="button" class="filter-button" data-theme="SEMEC">SEMEC</button>
+          <button type="button" class="filter-button" data-theme="HUMANIDADES">HUMANIDADES</button>
+          <button type="button" class="filter-button" data-theme="MATEMATICA">MATEMÁTICA</button>
+          <button type="button" class="filter-button" data-theme="GENESIS">GÊNESIS</button>
+        </div>
+
+        <div id="agenda-status" class="agenda-status" role="status">
+          <i class="fa-solid fa-circle-notch fa-spin"></i>Carregando agenda…
+        </div>
+
+        <div class="day-tabs" id="day-tabs" hidden></div>
+
+        <div class="schedule-table-wrap" id="schedule-wrap" hidden>
+          <table class="schedule-table">
+            <caption class="visually-hidden">Programação por horário</caption>
+            <thead>
+              <tr>
+                <th scope="col">Horário</th>
+                <th scope="col">Atividade / Evento</th>
+                <th scope="col">Local</th>
+                <th scope="col">Detalhes</th>
+              </tr>
+            </thead>
+            <tbody id="schedule-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <div id="activity-modal" class="modal-overlay" hidden>
+      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" id="modal-close" aria-label="Fechar modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        
+        <img id="modal-foto" src="" alt="Imagem representativa da atividade" class="modal-img" hidden>
+        
+        <div class="modal-body">
+          <span id="modal-tipo" class="eyebrow"></span>
+          <h3 id="modal-title"></h3>
+          
+          <ul class="modal-meta">
+            <li><i class="fa-regular fa-clock"></i> <span id="modal-time"></span></li>
+            <li><i class="fa-solid fa-location-dot"></i> <span id="modal-place"></span></li>
+          </ul>
+          
+          <p id="modal-desc" class="modal-desc"></p>
+          
+          <div id="modal-action-wrap" style="margin-top: 28px; text-align: center;" hidden>
+            <a id="modal-link" href="#" target="_blank" rel="noopener" class="btn btn-primary">
+              Inscreva-se na atividade
             </a>
+          </div>
         </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col footer-contact">
+        <h3>Contato</h3>
+        <a href="mailto:jacitec.ci@ifes.edu.br"><i class="fa-regular fa-envelope"></i>jacitec.ci@ifes.edu.br</a>
+        <a href="tel:+552835269034"><i class="fa-solid fa-phone"></i>+55 28 3526-9034</a>
+        <img class="footer-logo" src="img/logo-jacitec.png" alt="Ifes" loading="lazy">
+      </div>
+
+      <div class="footer-col">
+        <h3>Realização</h3>
+        <p>
+          Ifes Campus Cachoeiro de Itapemirim<br>
+          Diretoria de Pesquisa, Pós-Graduação e Extensão<br>
+          Comissão Organizadora<br>
+          Portaria nº 402, de 15 de setembro de 2025
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Redes sociais</h3>
+        <div class="social-row">
+          <a href="https://www.instagram.com/ifescachoeiro.oficial/" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.youtube.com/c/IfesCampusCachoeiro/featured" target="_blank" rel="noopener" aria-label="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+        <div class="section-head";"><br>
+          <h2 style="color: var(--white)">Como chegar</h2>
+        </div>
+
+      <div class="venue-grid">
+        <div class="venue-card">
+          <h3>Ifes Campus Cachoeiro</h3>
+          <address style="color: var(--ocean-950);">
+              Rod. Engenheiro Fabiano Vivácqua, nº 1568<br>
+              Localidade Morro Grande<br>
+              CEP 29.322-000 — Cachoeiro de Itapemirim - ES
+          </address>
+          <a class="btn btn-outline-venue" href="https://www.google.com/maps/place/Instituto+Federal+do+Esp%C3%ADrito+Santo+-+Campus+Cachoeiro+de+Itapemirim" target="_blank" rel="noopener">Abrir no Google Maps</a>
+        </div>
+        <div class="venue-map">
+          <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3729.703776110018!2d-41.15731314909455!3d-20.80326867136092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb9679f48da7bf9%3A0xb6b381296237b225!2sInstituto%20Federal%20do%20Esp%C3%ADrito%20Santo%20-%20Campus%20Cachoeiro%20de%20Itapemirim!5e0!3m2!1spt-BR!2sbr!4v1664279195432!5m2!1spt-BR!2sbr"
+              title="Mapa de localização do Ifes Campus Cachoeiro de Itapemirim"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="sponsors-strip container">
+      <img src="img/Patrocinio.svg" alt="Realização, patrocínio e apoio" loading="lazy">
     </div>
 
-    <!-- Conteúdo da Página -->
-    <div class="container mb-3 p-3">
-        <h1>Atividades</h1>
-        <hr>
-        <p class="fs-4">Listagem de Atividades da JACITEC.</p>
-
-        <div id="tables-container">
-            <div class="filters">
-
-                <button value="Nenhum" id="filter-Nenhum" class="filter-button"
-                    onclick="filterByThemeAndDate('Nenhum')">Jacitec</button>
-                <button value="SEMIN" id="filter-SEMIN" class="filter-button"
-                    onclick="filterByThemeAndDate('SEMIN')">SEMIN</button>
-                <button value="SINF" id="filter-SINF" class="filter-button"
-                    onclick="filterByThemeAndDate('SINF')">SINF</button>
-                <button value="SEMEC" id="filter-SEMEC" class="filter-button"
-                    onclick="filterByThemeAndDate('SEMEC')">SEMEC</button>
-            </div>
-        </div>
-
+    <div class="footer-bottom">
+      <p>XIV Jornada Acadêmica de Ciência, Tecnologia e Cultura — Ifes Campus Cachoeiro de Itapemirim</p>
     </div>
+    
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/agenda.js" defer></script>
 </body>
 
 </html>
