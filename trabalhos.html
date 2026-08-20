@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projetos da Mostra Científica — XIV JACITEC</title>
+  <meta name="description" content="Listagem de projetos em exposição na Mostra Científica da XIV Jornada Acadêmica de Ciência, Tecnologia e Cultura do Ifes.">
+  <meta name="author" content="Ifes Campus Cachoeiro de Itapemirim">
+  <meta name="theme-color" content="#0a2740">
+  <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+  <header class="site-header is-scrolled">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <img src="img/ifes-nav.png" alt="Ifes — Campus Cachoeiro de Itapemirim" width="106" height="42">
+        <span class="brand-name">JACITEC<span>XV Jornada · 2026</span></span>
+      </a>
+      <div class="nav-scrim"></div>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <a href="index.html#overview">O Evento</a>
+        <a href="agenda.html">Programação</a>
+        <a href="index.html#registration">Submissões</a>
+        <a href="mostra.html#overview" style="color: var(--aqua-300);">Mostra Científica</a>
+        <a href="index.html#sponsorship">Exposição e Patrocínio</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-primary btn-sm" href="https://qrcheck.distrito28.com.br" target="_blank" rel="noopener">
+          Inscreva-se
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <section class="agenda-hero">
+      <div class="container">
+        <a class="back-link" href="index.html"><i class="fa-solid fa-arrow-left"></i>Voltar para a home</a>
+        <h1>Projetos da Mostra Científica</h1>
+        <p>Conheça os projetos de pesquisa, inovação e extensão em exposição na nossa jornada.</p>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div id="mostra-filters" style="display: flex; flex-direction: column; align-items: center; gap: 16px; margin-bottom: 32px;" hidden>
+          <div id="mostra-dia-filtros" class="day-tabs"></div>
+          <div id="mostra-turno-filtros" class="agenda-filters" style="margin: 0;"></div>
+        </div>
+        <div id="projects-status" class="agenda-status" role="status">
+          <i class="fa-solid fa-circle-notch fa-spin"></i>Carregando projetos…
+        </div>
+        <div id="projects-container" class="schedule-table-wrap"></div>
+      </div>
+    </section>
+    <div id="project-modal" class="modal-overlay" hidden>
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-projeto">
+      <button class="modal-close" id="modal-close" aria-label="Fechar modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-body">
+        <span id="modal-stand" class="eyebrow"></span> <!-- Ex: "Stand 12" -->
+        <h3 id="modal-projeto"></h3>
+        <ul class="modal-meta" style="flex-direction: column; gap: 10px;">
+          <li><i class="fa-solid fa-users"></i> <strong>Alunos:</strong> <span id="modal-alunos"></span></li>
+          <li><i class="fa-solid fa-chalkboard-user"></i> <strong>Orientador:</strong> <span id="modal-orientador"></span></li>
+          <li><i class="fa-solid fa-building-columns"></i> <strong>Instituição:</strong> <span id="modal-instituicao"></span></li>
+        </ul>
+        <hr style="border: none; border-top: 1px solid var(--sand-100); margin: 24px 0;">
+        <p id="modal-descricao" class="modal-desc"></p>
+      </div>
+    </div>
+  </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col footer-contact">
+        <h3>Contato</h3>
+        <a href="mailto:jacitec.ci@ifes.edu.br"><i class="fa-regular fa-envelope"></i>jacitec.ci@ifes.edu.br</a>
+        <a href="tel:+552835269034"><i class="fa-solid fa-phone"></i>+55 28 3526-9034</a>
+        <img class="footer-logo" src="img/logo-jacitec.png" alt="Ifes" loading="lazy">
+      </div>
+
+      <div class="footer-col">
+        <h3>Realização</h3>
+        <p>
+          Ifes Campus Cachoeiro de Itapemirim<br>
+          Diretoria de Pesquisa, Pós-Graduação e Extensão<br>
+          Comissão Organizadora<br>
+          Portaria nº 402, de 15 de setembro de 2025
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Redes sociais</h3>
+        <div class="social-row">
+          <a href="https://www.instagram.com/ifescachoeiro.oficial/" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.youtube.com/c/IfesCampusCachoeiro/featured" target="_blank" rel="noopener" aria-label="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+        <div class="section-head";"><br>
+          <h2 style="color: var(--white)">Como chegar</h2>
+        </div>
+
+      <div class="venue-grid">
+        <div class="venue-card">
+          <h3>Ifes Campus Cachoeiro</h3>
+          <address style="color: var(--ocean-950);">
+              Rod. Engenheiro Fabiano Vivácqua, nº 1568<br>
+              Localidade Morro Grande<br>
+              CEP 29.322-000 — Cachoeiro de Itapemirim - ES
+          </address>
+          <a class="btn btn-outline-venue" href="https://www.google.com/maps/place/Instituto+Federal+do+Esp%C3%ADrito+Santo+-+Campus+Cachoeiro+de+Itapemirim" target="_blank" rel="noopener">Abrir no Google Maps</a>
+        </div>
+        <div class="venue-map">
+          <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3729.703776110018!2d-41.15731314909455!3d-20.80326867136092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb9679f48da7bf9%3A0xb6b381296237b225!2sInstituto%20Federal%20do%20Esp%C3%ADrito%20Santo%20-%20Campus%20Cachoeiro%20de%20Itapemirim!5e0!3m2!1spt-BR!2sbr!4v1664279195432!5m2!1spt-BR!2sbr"
+              title="Mapa de localização do Ifes Campus Cachoeiro de Itapemirim"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="sponsors-strip container">
+      <img src="img/Patrocinio.png" alt="Realização, patrocínio e apoio" loading="lazy">
+    </div>
+
+    <div class="footer-bottom">
+      <p>XIV Jornada Acadêmica de Ciência, Tecnologia e Cultura — Ifes Campus Cachoeiro de Itapemirim</p>
+    </div>
+    
+  </footer>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
