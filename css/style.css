@@ -343,7 +343,7 @@ section {
   position: relative;
   z-index: 1;
   width: auto;
-  height: 540px;
+  height: 100%;
   margin: 0 auto 28px;
 }
 
@@ -947,7 +947,9 @@ section {
    Agenda page
    ========================================================================== */
 .agenda-hero {
-  background: linear-gradient(160deg, var(--ocean-950), var(--ocean-700));
+  background-image: linear-gradient(rgba(64, 10, 60, 0.72), rgba(117, 0, 133, 0.86)), url("../img/logos-jacitec/imagem4.jpg");
+  background-position: center;
+  background-size: cover;
   color: var(--white);
   padding: calc(var(--header-h) + 60px) 0 60px;
   text-align: center;
