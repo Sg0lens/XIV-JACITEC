@@ -1,0 +1,23 @@
+name: Deploy to FTP
+
+on:
+  push:
+    branches:
+      - main
+      
+jobs:
+  deploy:
+    name: Enviar para o servidor
+    runs-on: ubuntu-latest
+    steps:
+    - name: Obter os arquivos do repositório
+      uses: actions/checkout@v4
+      
+    - name: Sincronizar arquivos via FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        port: 21
+        server-dir: public_html/ 
