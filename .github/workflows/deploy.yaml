@@ -1,0 +1,23 @@
+- name: Enviar arquivos via FTP Local
+            shell: powershell
+            env:
+              FTP_USER: ${{ secrets.USERNAME_FTP }}
+              FTP_PASS: ${{ secrets.PASSWORD_FTP }}
+            run: |
+              $ftpServer = "ftp://172.16.48.16/public_html"
+
+              # Coleta todos os arquivos ignorando metadados do git
+              $files = Get-ChildItem -Recurse -File | Where-Object {
+                  $_.FullName -notmatch '\\\.git($|\\)' -and
+                  $_.FullName -notmatch '\\\.github($|\\)'
+              }
+
+              foreach ($file in $files) {
+                  $relativePath = Resolve-Path -Path $file.FullName -Relative
+                  $cleanPath = $relativePath.TrimStart(".\").Replace("\", "/")
+                  $destUrl = "$ftpServer/$cleanPath"
+
+                  Write-Host "Enviando: $cleanPath ..."
+                  curl.exe -s --ftp-create-dirs -u "$($env:FTP_USER):$($env:FTP_PASS)" -T "$($file.FullName)" "$destUrl"
+              }
+              Write-Host "Deploy finalizado com sucesso no 172.16.48.16!"
