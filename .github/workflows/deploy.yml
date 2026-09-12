@@ -29,7 +29,11 @@ jobs:
               $cleanPath = $relativePath.TrimStart(".\").Replace("\", "/")
               $destUrl = "$ftpServer/$cleanPath"
               Write-Host "Enviando: $cleanPath ..."
-              curl.exe -s --ftp-create-dirs -u "$($env:FTP_USER):$($env:FTP_PASS)" -T "$($file.FullName)" "$destUrl"
+              curl.exe --fail-with-body --ftp-create-dirs -u "$($env:FTP_USER):$($env:FTP_PASS)" -T "$($file.FullName)" "$destUrl"
+              if ($LASTEXITCODE -ne 0) {
+                  Write-Error "Falha ao enviar o arquivo: $cleanPath"
+                  exit 1
+              }
           }
           Write-Host "Deploy finalizado com sucesso no 172.16.48.16!"
           
