@@ -27,7 +27,8 @@ jobs:
           foreach ($file in $files) {
               $relativePath = Resolve-Path -Path $file.FullName -Relative
               $cleanPath = $relativePath.TrimStart(".\").Replace("\", "/")
-              $destUrl = "$ftpServer/$cleanPath"
+              $cleanUrlPath = $cleanPath.Replace(" ", "%20")
+              $destUrl = "$ftpServer/$cleanUrlPath"
               Write-Host "Enviando: $cleanPath ..."
               curl.exe --fail-with-body --ftp-create-dirs -u "$($env:FTP_USER):$($env:FTP_PASS)" -T "$($file.FullName)" "$destUrl"
               if ($LASTEXITCODE -ne 0) {
