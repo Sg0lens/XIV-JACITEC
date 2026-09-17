@@ -1,0 +1,221 @@
+/* ==========================================================================
+   Pages Extra: Notícias e Artigos (JACITEC)
+   Estilos específicos para leitura de notícias e carrossel de novidades.
+   ========================================================================== */
+
+/* Container mais estreito para focar na leitura */
+.container-narrow {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Seção do Artigo de Notícia */
+.article-section {
+  padding: 4rem 0;
+}
+
+.article-header {
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.article-header h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.article-meta {
+  display: flex;
+  gap: 1.5rem;
+  color: #666;
+  font-size: 0.875rem;
+}
+
+.article-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.article-cover {
+  margin-bottom: 2.5rem;
+}
+
+.article-cover img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.article-cover figcaption {
+  font-size: 0.875rem;
+  color: #777;
+  text-align: justify;
+  margin-top: 0.5rem;
+}
+
+.article-body p {
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+.article-body .lead {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--ocean-950, #750085);
+  margin-bottom: 2rem;
+}
+
+.article-body h2 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.article-body blockquote {
+  border-left: 4px solid var(--coral-500, #b62aa3);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+.article-body blockquote cite {
+  display: block;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  color: #555;
+  font-weight: 600;
+}
+
+.article-footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #ddd;
+}
+
+/* Controles de Cabeçalho do Carrossel */
+.section-head-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.carousel-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-icon {
+  background: var(--ocean-700, #731273);
+  color: #fff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+/* Container do Carrossel usando CSS Scroll Snap */
+.news-carousel {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 1rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.news-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* O Card da Notícia */
+.news-card {
+  flex: 0 0 calc(33.333% - 1rem);
+  scroll-snap-align: start;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.news-media img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.news-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.news-date {
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.news-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--ocean-950, #750085);
+}
+
+.news-summary {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.news-read-more {
+  font-weight: 600;
+  color: var(--coral-500, #b62aa3);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Responsividade do Carrossel */
+@media (max-width: 992px) {
+  .news-card {
+    flex: 0 0 calc(50% - 0.75rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .news-card {
+    flex: 0 0 85%;
+  }
+
+  .section-head-flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .news-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+}

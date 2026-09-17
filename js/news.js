@@ -30,6 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const track = document.getElementById('news-track');
 
+  if (!track) return;
+
   // 2. Função para renderizar as notícias na tela
   function renderNews() {
     // Limpa o "Carregando..."
@@ -62,14 +64,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnPrev = document.getElementById('news-prev');
     const btnNext = document.getElementById('news-next');
 
+    if (!btnPrev || !btnNext) return;
+
     // Avança ou recua o scroll baseado no tamanho de um card
     btnNext.addEventListener('click', () => {
-      const cardWidth = track.querySelector('.news-card').offsetWidth;
+      const card = track.querySelector('.news-card');
+      if (!card) return;
+      const cardWidth = card.offsetWidth;
       track.scrollBy({ left: cardWidth + 24, behavior: 'smooth' }); // 24 é o gap (espaçamento)
     });
 
     btnPrev.addEventListener('click', () => {
-      const cardWidth = track.querySelector('.news-card').offsetWidth;
+      const card = track.querySelector('.news-card');
+      if (!card) return;
+      const cardWidth = card.offsetWidth;
       track.scrollBy({ left: -(cardWidth + 24), behavior: 'smooth' });
     });
   }
