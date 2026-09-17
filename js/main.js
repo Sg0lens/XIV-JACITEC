@@ -15,24 +15,73 @@
   var navToggle = document.querySelector(".nav-toggle");
   var mainNav = document.querySelector(".main-nav");
   var scrim = document.querySelector(".nav-scrim");
+  var lastFocusedBeforeNav = null;
 
-  function closeNav() {
+  function getFocusableNavItems() {
+    if (!mainNav) return [];
+    return Array.prototype.slice.call(
+      mainNav.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')
+    );
+  }
+
+  function closeNav(options) {
+    var shouldRestoreFocus = !options || options.restoreFocus !== false;
     if (!mainNav) return;
     mainNav.classList.remove("is-open");
     if (scrim) scrim.classList.remove("is-open");
+    document.body.classList.remove("nav-open");
     if (navToggle) {
       navToggle.setAttribute("aria-expanded", "false");
+      navToggle.setAttribute("aria-label", "Abrir menu");
       navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
     }
+    if (shouldRestoreFocus && lastFocusedBeforeNav && typeof lastFocusedBeforeNav.focus === "function") {
+      lastFocusedBeforeNav.focus();
+    }
+    lastFocusedBeforeNav = null;
   }
 
   function openNav() {
     if (!mainNav) return;
+    lastFocusedBeforeNav = document.activeElement;
     mainNav.classList.add("is-open");
     if (scrim) scrim.classList.add("is-open");
+    document.body.classList.add("nav-open");
     if (navToggle) {
       navToggle.setAttribute("aria-expanded", "true");
+      navToggle.setAttribute("aria-label", "Fechar menu");
       navToggle.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+    }
+    var firstNavItem = getFocusableNavItems()[0];
+    if (firstNavItem) firstNavItem.focus();
+  }
+
+  function trapNavFocus(event) {
+    if (!mainNav || !mainNav.classList.contains("is-open")) return;
+
+    if (event.key === "Escape") {
+      event.preventDefault();
+      closeNav();
+      return;
+    }
+
+    if (event.key !== "Tab") return;
+
+    var focusableItems = getFocusableNavItems();
+    if (!focusableItems.length) {
+      event.preventDefault();
+      return;
+    }
+
+    var firstItem = focusableItems[0];
+    var lastItem = focusableItems[focusableItems.length - 1];
+
+    if (event.shiftKey && document.activeElement === firstItem) {
+      event.preventDefault();
+      lastItem.focus();
+    } else if (!event.shiftKey && document.activeElement === lastItem) {
+      event.preventDefault();
+      firstItem.focus();
     }
   }
 
@@ -51,12 +100,16 @@
     }
 
     mainNav.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", closeNav);
+      link.addEventListener("click", function () {
+        closeNav({ restoreFocus: false });
+      });
     });
 
+    document.addEventListener("keydown", trapNavFocus);
+
     window.addEventListener("resize", function () {
-      if (window.innerWidth > 860) {
-        closeNav();
+      if (window.innerWidth > 992) {
+        closeNav({ restoreFocus: false });
       }
     });
   }
