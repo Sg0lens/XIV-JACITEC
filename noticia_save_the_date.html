@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   
   <!-- Substitua estes dados para cada nova notícia -->
   <title>Título da Notícia — XIV JACITEC</title>
@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages-extra.css">
 </head>
 
 <body>
@@ -36,8 +37,8 @@
       </a>
 
       <div class="nav-scrim"></div>
-      <nav class="main-nav" aria-label="Navegação principal">
-        <a href="index.html#overview">O Evento</a>
+      <nav id="main-nav" class="main-nav" aria-label="Navegação principal">
+        <a href="index.html#overview">Evento</a>
         <a href="agenda.html">Programação</a>
         <a href="index.html#registration">Submissões</a>
         <a href="index.html#submission">Mostra Científica</a>
@@ -117,32 +118,34 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-col footer-contact">
-        <h3>Contato</h3>
-        <a href="mailto:jacitec.ci@ifes.edu.br"><i class="fa-regular fa-envelope"></i>jacitec.ci@ifes.edu.br</a>
-        <a href="tel:+552835269034"><i class="fa-solid fa-phone"></i>+55 28 3526-9034</a>
-        <img class="footer-logo" src="img/logo-marca.png" alt="Ifes" loading="lazy">
-      </div>
+    <div class="footer-top">
+      <img class="footer-logo" src="img/logo-jacitec-xv-branco.svg" alt="" aria-hidden="true" loading="lazy">
+      <div class="container footer-grid">
+        <div class="footer-col footer-contact">
+          <h3>Contato</h3>
+          <a href="mailto:jacitec.ci@ifes.edu.br"><i class="fa-regular fa-envelope"></i>jacitec.ci@ifes.edu.br</a>
+          <a href="tel:+552835269034"><i class="fa-solid fa-phone"></i>+55 28 3526-9034</a>
+        </div>
 
-      <div class="footer-col">
-        <h3>Realização</h3>
-        <p>
-          Ifes Campus Cachoeiro de Itapemirim<br>
-          Diretoria de Pesquisa, Pós-Graduação e Extensão<br>
-          Comissão Organizadora
-        </p>
-      </div>
+        <div class="footer-col">
+          <h3>Realização</h3>
+          <p>
+            Ifes Campus Cachoeiro de Itapemirim<br>
+            Diretoria de Pesquisa, Pós-Graduação e Extensão<br>
+            Comissão Organizadora
+          </p>
+        </div>
 
-      <div class="footer-col">
-        <h3>Redes sociais</h3>
-        <div class="social-row">
-          <a href="https://www.instagram.com/ifescachoeiro.oficial/" target="_blank" rel="noopener" aria-label="Instagram">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-          <a href="https://www.youtube.com/c/IfesCampusCachoeiro/featured" target="_blank" rel="noopener" aria-label="YouTube">
-            <i class="fa-brands fa-youtube"></i>
-          </a>
+        <div class="footer-col">
+          <h3>Redes sociais</h3>
+          <div class="social-row">
+            <a href="https://www.instagram.com/ifescachoeiro.oficial/" target="_blank" rel="noopener" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/c/IfesCampusCachoeiro/featured" target="_blank" rel="noopener" aria-label="YouTube">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -152,7 +155,7 @@
     </div>
 
     <div class="footer-bottom">
-      <p>XIV Jornada Acadêmica de Ciência, Tecnologia e Cultura — Ifes Campus Cachoeiro de Itapemirim</p>
+      <p>XV Jornada Acadêmica de Ciência, Tecnologia e Cultura — Ifes Campus Cachoeiro de Itapemirim</p>
     </div>
   </footer>
 
