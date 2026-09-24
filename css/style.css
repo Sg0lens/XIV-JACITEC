@@ -1714,6 +1714,12 @@ section {
     grid-template-columns: 1fr;
   }
 
+  .criteria-card strong {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
   .this-year {
     padding: 32px 20px;
     border-radius: var(--radius-md);
@@ -1864,6 +1870,44 @@ section {
 
   .hero-actions .btn {
     width: 100%;
+  }
+
+  .mostra-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .mostra-actions .btn {
+    width: 100%;
+  }
+
+  .projetin-box {
+    padding: 24px 20px;
+  }
+
+  .projetin-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .projetin-header .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .criteria-card {
+    padding: 20px 16px;
+  }
+
+  .timeline-card {
+    padding: 20px 16px;
+  }
+
+  .timeline-grid,
+  .docs-grid {
+    grid-template-columns: 1fr;
   }
 
   .btn {
