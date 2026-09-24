@@ -1109,7 +1109,7 @@ section {
   color: var(--ink-700);
   border-bottom: 1px solid var(--sand-100);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
 }
 
@@ -1120,6 +1120,7 @@ section {
 .segment-card li i {
   color: var(--aqua-400);
   font-size: 0.8rem;
+  margin-top: 5px;
 }
 
 .downloads {
@@ -1902,6 +1903,10 @@ section {
   }
 
   .timeline-card {
+    padding: 20px 16px;
+  }
+
+  .segment-card {
     padding: 20px 16px;
   }
 
