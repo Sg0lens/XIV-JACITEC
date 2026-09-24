@@ -710,10 +710,11 @@ section {
 }
 
 .register-band p {
-  max-width: 560px;
+  max-width: 860px;
   margin: 0 auto 30px;
   color: rgba(255, 255, 255, 0.85);
   font-size: 1.05rem;
+  padding: 0 16px;
 }
 
 .register-actions {
@@ -755,7 +756,7 @@ section {
   color: var(--aqua-300);
 }
 
-/* ProjetIn Highlight Box */
+/* Projetin Highlight Box */
 .projetin-box {
   background: linear-gradient(135deg, var(--ocean-900) 0%, var(--ocean-950) 100%);
   color: var(--white);
@@ -1199,9 +1200,11 @@ section {
   .steps-grid {
     grid-template-columns: 1fr;
   }
+
   .criteria-grid {
     grid-template-columns: 1fr;
   }
+
   .segments-grid {
     grid-template-columns: 1fr;
   }
