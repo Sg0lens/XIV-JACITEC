@@ -48,44 +48,21 @@
       <div class="container">
         <a class="back-link" href="index.html"><i class="fa-solid fa-arrow-left"></i>Voltar para a home</a>
         <h1>Agenda de atividades</h1>
-        <p>
-          Ainda não disponível. Fique ligado em nossas redes sociais para acompanhar a divulgação da programação completa da XV JACITEC.
-        </p>
-        <!--<p>Confira os horários, palestras e locais de cada dia da XV JACITEC. <br>Use os filtros para encontrar as
-          atividades das semanas de curso e eventos dentro da nossa jornada.</p>-->
+        <p>Confira as atividades da XV JACITEC organizadas por horário e área.</p>
       </div>
     </section>
-    <!--<section>
+    <section class="agenda-section">
       <div class="container">
-        <div class="agenda-filters" id="agenda-filters">
-          <button type="button" class="filter-button active" data-theme="Nenhum">JACITEC</button>
-          <button type="button" class="filter-button" data-theme="SEMIN">SEMIN</button>
-          <button type="button" class="filter-button" data-theme="SINF">SINF</button>
-          <button type="button" class="filter-button" data-theme="SEMEC">SEMEC</button>
-          <button type="button" class="filter-button" data-theme="HUMANIDADES">HUMANIDADES</button>
-          <button type="button" class="filter-button" data-theme="MATEMATICA">MATEMÁTICA</button>
-          <button type="button" class="filter-button" data-theme="GENESIS">GÊNESIS</button>
-        </div>
         <div id="agenda-status" class="agenda-status" role="status">
           <i class="fa-solid fa-circle-notch fa-spin"></i>Carregando agenda…
         </div>
         <div class="day-tabs" id="day-tabs" hidden></div>
-        <div class="schedule-table-wrap" id="schedule-wrap" hidden>
-          <table class="schedule-table">
-            <caption class="visually-hidden">Programação por horário</caption>
-            <thead>
-              <tr>
-                <th scope="col">Horário</th>
-                <th scope="col">Atividade / Evento</th>
-                <th scope="col">Local</th>
-                <th scope="col">Detalhes</th>
-              </tr>
-            </thead>
-            <tbody id="schedule-body"></tbody>
-          </table>
+        <div class="agenda-filters" id="agenda-filters" role="group" aria-label="Filtrar programação por sigla" hidden></div>
+        <div class="agenda-board-wrap" id="schedule-wrap" hidden>
+          <div class="agenda-board" id="schedule-board" aria-label="Programação por horário e área"></div>
         </div>
       </div>
-    </section>-->
+    </section>
     <div id="activity-modal" class="modal-overlay" hidden>
       <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <button class="modal-close" id="modal-close" aria-label="Fechar modal">
