@@ -334,7 +334,7 @@
   }
 
   setStatus('<i class="fa-solid fa-circle-notch fa-spin"></i>Carregando agenda…');
-  fetch("agenda.json")
+  fetch("agenda.json?v=" + Date.now())
     .then(function (response) {
       if (!response.ok) throw new Error("Falha ao carregar agenda.json");
       return response.json();

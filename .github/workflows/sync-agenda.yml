@@ -1,0 +1,85 @@
+name: Sincronizar Agenda do QRCheck
+
+on:
+  repository_dispatch:
+    types: [agenda-updated]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 * * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-agenda
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Baixar Agenda e Publicar no FTP
+    runs-on: self-hosted
+    steps:
+      - name: Baixar codigo atualizado
+        uses: actions/checkout@v4
+
+      - name: Baixar e Validar Agenda do QRCheck
+        shell: powershell
+        env:
+          QRCHECK_URL: ${{ vars.QRCHECK_AGENDA_URL || 'https://qrcheck.io/api/public/eventos/xv-jornada-academica-de-ciencia-tecnologia-cultura/agenda' }}
+        run: |
+          try {
+              $resp = Invoke-WebRequest -Uri $env:QRCHECK_URL -UseBasicParsing -TimeoutSec 15
+          } catch {
+              Write-Error "Falha ao consultar a API do QRCheck: $_"
+              exit 1
+          }
+
+          $raw = [System.Text.Encoding]::UTF8.GetString($resp.RawContentStream.ToArray())
+
+          try {
+              $parsed = $raw | ConvertFrom-Json
+          } catch {
+              Write-Error "A resposta nao e um JSON valido."
+              exit 1
+          }
+
+          $total = @($parsed.data).Count
+          if (-not $parsed.data -or $total -lt 1) {
+              Write-Error "A resposta nao contem atividades em 'data'."
+              exit 1
+          }
+
+          $utf8SemBom = New-Object System.Text.UTF8Encoding($false)
+          [System.IO.File]::WriteAllText("$PWD\agenda.json", $raw, $utf8SemBom)
+          Write-Host "agenda.json atualizado. Total de atividades: $total"
+
+      - name: Publicar agenda.json no FTP Local
+        shell: powershell
+        env:
+          FTP_USER: ${{ secrets.USERNAME_FTP }}
+          FTP_PASS: ${{ secrets.PASSWORD_FTP }}
+        run: |
+          $destUrl = "ftp://172.16.48.16/public_html/agenda.json"
+          curl.exe --fail-with-body -u "$($env:FTP_USER):$($env:FTP_PASS)" -T "agenda.json" "$destUrl"
+          if ($LASTEXITCODE -ne 0) {
+              Write-Error "Falha ao enviar agenda.json para o FTP local."
+              exit 1
+          }
+          Write-Host "agenda.json publicado no FTP."
+
+      - name: Salvar alteracoes no historico do Git
+        shell: powershell
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add agenda.json
+          if (git status --porcelain agenda.json) {
+              git commit -m "chore(agenda): sincronizar dados com QRCheck [skip ci]"
+              git pull --rebase --autostash
+              if ($LASTEXITCODE -ne 0) { exit 1 }
+              git push
+              if ($LASTEXITCODE -ne 0) { exit 1 }
+              Write-Host "Historico do Git atualizado."
+          } else {
+              Write-Host "Sem alteracoes em relacao ao Git."
+          }
