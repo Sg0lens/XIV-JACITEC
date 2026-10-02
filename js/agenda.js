@@ -12,8 +12,6 @@
   var listEl = document.getElementById("schedule-list");
   var emptyEl = document.getElementById("agenda-empty");
   var btnResetFilters = document.getElementById("btn-reset-filters");
-  var modalOverlay = document.getElementById("activity-modal");
-  var modalClose = document.getElementById("modal-close");
 
   if (!statusEl) return;
 
@@ -41,74 +39,6 @@
     "--coral-500",
     "--coral-600"
   ];
-
-  function openModal(activity) {
-    // 1. Preenche os textos
-    document.getElementById("modal-title").textContent = activity.nome || "Atividade";
-    document.getElementById("modal-time").textContent = formatTime(activity.hora_inicio) + " – " + formatTime(activity.hora_fim);
-    document.getElementById("modal-place").textContent = activity.place || "Local a confirmar";
-
-    // Se não tiver descrição, põe um texto padrão
-    document.getElementById("modal-desc").textContent = activity.descricao || activity.palestrante_nome || "Mais informações sobre esta atividade serão divulgadas em breve.";
-
-    // 2. Controla os elementos opcionais (Foto, Tipo e Link)
-    var tipoEl = document.getElementById("modal-tipo");
-    if (activity.tipo) {
-      tipoEl.textContent = activity.tipo;
-      tipoEl.hidden = false;
-    } else {
-      tipoEl.hidden = true;
-    }
-
-    var imgEl = document.getElementById("modal-foto");
-    var imagePath = activity.foto || activity.imagem || (activity.evento && (activity.evento.imagem_promocional_url || activity.evento.logo_url));
-    imgEl.hidden = true;
-    imgEl.onload = function () {
-      imgEl.hidden = false;
-    };
-    imgEl.onerror = function () {
-      imgEl.hidden = true;
-      imgEl.onload = null;
-      imgEl.onerror = null;
-      imgEl.removeAttribute("src");
-    };
-    imgEl.alt = "Imagem de " + (activity.nome || "atividade");
-
-    if (imagePath) {
-      imgEl.src = /^(https?:)?\/\//i.test(imagePath)
-        ? imagePath
-        : new URL(imagePath.replace(/^\/+/, ""), "https://qrcheck.io/api/static/").href;
-    } else {
-      imgEl.onload = null;
-      imgEl.onerror = null;
-      imgEl.removeAttribute("src");
-    }
-
-    var actionWrapEl = document.getElementById("modal-action-wrap");
-    actionWrapEl.hidden = true;
-
-    // 3. Exibe o Modal e impede a tela de fundo de rolar
-    modalOverlay.hidden = false;
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeModal() {
-    modalOverlay.hidden = true;
-    document.body.style.overflow = "";
-  }
-
-  // Eventos de Fechar o Modal
-  if (modalClose) {
-    modalClose.addEventListener("click", closeModal);
-  }
-  if (modalOverlay) {
-    modalOverlay.addEventListener("click", function (e) {
-      if (e.target === modalOverlay) closeModal();
-    });
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && !modalOverlay.hidden) closeModal();
-    });
-  }
 
   function setStatus(html) {
     statusEl.hidden = false;
@@ -139,67 +69,14 @@
     return Number(parts[0]) * 60 + Number(parts[1]);
   }
 
-  function formatLabName(sala) {
-    if (!sala) return "";
-    var trimmed = sala.trim();
-    // Ex: "LAB10" -> "Laboratório 10", "LAB7A" -> "Laboratório 7A", "Lab 10" -> "Laboratório 10"
-    var labMatch = trimmed.match(/^LAB\s*([0-9]+[A-Za-z]?)$/i);
-    if (labMatch) {
-      return "Laboratório " + labMatch[1].toUpperCase();
-    }
-    return trimmed;
-  }
-
-  function getPlace(local, activity) {
-    if (!local) return "Local a confirmar";
-
+  function getPlace(local) {
+    if (!local) return "";
     var parts = [];
-
-    // 1. Sala / Lugar
-    var sala = local.sala ? local.sala.trim() : "";
-    // Ignora termos de modalidade genéricos (o evento é 100% presencial, então "Presencial" não é local)
-    if (/^(presencial|online|hibrid[oa]|remoto)$/i.test(sala)) {
-      sala = "";
-    } else if (sala) {
-      sala = formatLabName(sala);
-    }
-
-    // 2. Bloco
-    var bloco = local.bloco ? local.bloco.trim() : "";
-    if (bloco && !/^bloco/i.test(bloco)) {
-      bloco = "Bloco " + bloco;
-    }
-
-    // 3. Andar
-    var andar = local.andar ? local.andar.trim() : "";
-    if (andar && /^[0-9]+$/.test(andar)) {
-      andar = andar + "º andar";
-    }
-
-    // 4. Outro
-    var outro = local.outro ? local.outro.trim() : "";
-    if (/^(presencial|online|hibrid[oa]|remoto)$/i.test(outro)) {
-      outro = "";
-    }
-
-    if (sala) parts.push(sala);
-    if (bloco) parts.push(bloco);
-    if (andar) parts.push(andar);
-    if (outro) parts.push(outro);
-
-    if (parts.length > 0) {
-      return parts.join(" · ");
-    }
-
-    // Fallback inteligente para eventos sem sala preenchida no cadastro
-    if (activity && activity.nome) {
-      var lower = activity.nome.toLowerCase();
-      if (lower.indexOf("abertura") !== -1 || lower.indexOf("encerramento") !== -1) {
-        return "Auditório";
-      }
-    }
-
-    return "Local a confirmar";
+    if (local.sala && String(local.sala).trim()) parts.push(String(local.sala).trim());
+    if (local.bloco && String(local.bloco).trim()) parts.push(String(local.bloco).trim());
+    if (local.andar && String(local.andar).trim()) parts.push(String(local.andar).trim());
+    if (local.outro && String(local.outro).trim()) parts.push(String(local.outro).trim());
+    return parts.join(" · ");
   }
 
   function getActivitySections(activity) {
@@ -294,7 +171,7 @@
     palestras.forEach(function (activity) {
       if (!activity.data_inicio || !activity.hora_inicio || !activity.hora_fim || !activity.nome) return;
 
-      activity.place = getPlace(activity.local, activity);
+      activity.place = getPlace(activity.local);
       var date = activity.data_inicio;
       var lastDate = activity.data_fim || date;
       var currentDate = new Date(date + "T00:00:00Z");
@@ -507,8 +384,7 @@
           var colWidth = 100 / count;
           var leftOffset = colIndex * colWidth;
 
-          var event = document.createElement("button");
-          event.type = "button";
+          var event = document.createElement("div");
           event.className = "agenda-event";
           if (durationMin < 35) {
             event.classList.add("is-compact");
@@ -537,16 +413,13 @@
           event.appendChild(timeSpan);
           event.appendChild(titleSpan);
 
-          if (activity.place && activity.place !== "Local a confirmar") {
+          if (activity.place) {
             var placeSpan = document.createElement("span");
             placeSpan.className = "agenda-event-place";
             placeSpan.innerHTML = '<i class="fa-solid fa-location-dot"></i> ' + activity.place;
             event.appendChild(placeSpan);
           }
 
-          event.addEventListener("click", function () {
-            openModal(activity);
-          });
           lane.appendChild(event);
         });
       });
@@ -581,9 +454,6 @@
       var sections = getActivitySections(activity);
       var mainSection = sections[0] || "GERAL";
       card.style.setProperty("--lane-color", getSectionColor(mainSection));
-      card.setAttribute("tabindex", "0");
-      card.setAttribute("role", "button");
-      card.setAttribute("aria-label", activity.nome + ", " + formatTime(activity.hora_inicio) + " às " + formatTime(activity.hora_fim));
 
       // Header: Badges (Área e Tipo) + Horário
       var header = document.createElement("div");
@@ -641,22 +511,12 @@
 
       card.appendChild(meta);
 
-      // CTA
-      var cta = document.createElement("span");
-      cta.className = "agenda-card-cta";
-      cta.innerHTML = 'Ver detalhes <i class="fa-solid fa-arrow-right"></i>';
-      card.appendChild(cta);
-
-      // Eventos de clique e acessibilidade por teclado
-      card.addEventListener("click", function () {
-        openModal(activity);
-      });
-      card.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          openModal(activity);
-        }
-      });
+      if (activity.descricao && activity.descricao.trim()) {
+        var desc = document.createElement("p");
+        desc.className = "agenda-card-desc";
+        desc.textContent = activity.descricao.trim();
+        card.appendChild(desc);
+      }
 
       listEl.appendChild(card);
     });

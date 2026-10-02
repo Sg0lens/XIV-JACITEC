@@ -13,8 +13,8 @@
             "local": {
                 "id": 48,
                 "evento_id": 13,
-                "sala": "Auditório",
-                "bloco": "Bloco Central",
+                "sala": "Presencial",
+                "bloco": null,
                 "andar": null,
                 "outro": null
             },
@@ -116,8 +116,8 @@
             "local": {
                 "id": 48,
                 "evento_id": 13,
-                "sala": "Auditório",
-                "bloco": "Bloco Central",
+                "sala": "Presencial",
+                "bloco": null,
                 "andar": null,
                 "outro": null
             },
@@ -220,8 +220,8 @@
                 "id": 49,
                 "evento_id": 13,
                 "sala": "LAB10",
-                "bloco": "Bloco 1",
-                "andar": "1",
+                "bloco": null,
+                "andar": null,
                 "outro": null
             },
             "carga_horaria_minutos": null,
@@ -323,8 +323,8 @@
                 "id": 50,
                 "evento_id": 13,
                 "sala": "LAB7A",
-                "bloco": "Bloco 1",
-                "andar": "1",
+                "bloco": null,
+                "andar": null,
                 "outro": null
             },
             "carga_horaria_minutos": null,
@@ -425,8 +425,8 @@
             "local": {
                 "id": 46,
                 "evento_id": 13,
-                "sala": "Miniauditório",
-                "bloco": "Bloco 2",
+                "sala": "Online",
+                "bloco": null,
                 "andar": null,
                 "outro": null
             },
@@ -528,8 +528,8 @@
             "local": {
                 "id": 48,
                 "evento_id": 13,
-                "sala": "Auditório",
-                "bloco": "Bloco Central",
+                "sala": "Presencial",
+                "bloco": null,
                 "andar": null,
                 "outro": null
             },
