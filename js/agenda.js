@@ -20,7 +20,11 @@
   var days = {};
   var activeDay = null;
   var activeSection = "Todas";
-  var currentView = window.innerWidth <= 768 ? "lista" : "grade";
+  var savedViewPref = null;
+  try {
+    savedViewPref = localStorage.getItem("jacitec_agenda_view");
+  } catch (e) {}
+  var currentView = savedViewPref || (window.innerWidth <= 768 ? "lista" : "grade");
   var scheduleDates = [];
   var predefinedSections = ["JACITEC", "SINF", "SEMIN", "SEMEC", "HUM", "SEMAT"];
   var allSections = [];
@@ -176,11 +180,27 @@
     filtersEl.innerHTML = "";
     filtersEl.hidden = false;
 
+    var currentDayActivities = (activeDay && days[activeDay]) ? days[activeDay] : [];
+
     ["Todas"].concat(sections).forEach(function (section) {
+      var count = 0;
+      if (section === "Todas") {
+        count = currentDayActivities.length;
+      } else {
+        currentDayActivities.forEach(function (act) {
+          if (getActivitySections(act).indexOf(section) !== -1) {
+            count++;
+          }
+        });
+      }
+
       var button = document.createElement("button");
       button.type = "button";
       button.className = "agenda-filter" + (section === activeSection ? " active" : "");
-      button.textContent = section;
+      if (count === 0 && currentDayActivities.length > 0) {
+        button.classList.add("is-empty");
+      }
+      button.innerHTML = section + ' <span class="agenda-filter-count">' + count + '</span>';
       button.setAttribute("aria-pressed", section === activeSection ? "true" : "false");
       button.style.setProperty("--lane-color", section === "Todas" ? "var(--ocean-900)" : getSectionColor(section));
       button.addEventListener("click", function () {
@@ -238,6 +258,18 @@
     });
   }
 
+  function findDefaultActiveDay() {
+    var todayStr = new Date().toISOString().slice(0, 10);
+    if (days[todayStr] && days[todayStr].length > 0) return todayStr;
+    for (var i = 0; i < scheduleDates.length; i++) {
+      var d = scheduleDates[i];
+      if (days[d] && days[d].length > 0) {
+        return d;
+      }
+    }
+    return scheduleDates[0] || null;
+  }
+
   function renderDayTabs() {
     dayTabsEl.innerHTML = "";
 
@@ -257,6 +289,7 @@
       tab.addEventListener("click", function () {
         activeDay = date;
         renderDayTabs();
+        renderFilters(allSections);
         renderCurrentView();
       });
       dayTabsEl.appendChild(tab);
@@ -301,10 +334,32 @@
   function renderBoard(activities) {
     boardEl.innerHTML = "";
     var bounds = getDayTimeBounds(activities);
-    var sectionNames = activeSection === "Todas" ? allSections : [activeSection];
 
-    boardEl.style.gridTemplateColumns = "76px repeat(" + sectionNames.length + ", minmax(170px, 1fr))";
-    boardEl.style.gridTemplateRows = "48px calc(var(--hour-height, 72px) * " + bounds.totalHours + ")";
+    // Quando "Todas" estiver ativo, exibe apenas as trilhas que realmente possuem atividades no dia ativo.
+    // Isso evita colunas vazias gigantes que espremem as atividades reais em corredores estreitos.
+    var activeSectionsToday = [];
+    activities.forEach(function (act) {
+      getActivitySections(act).forEach(function (sec) {
+        if (activeSectionsToday.indexOf(sec) === -1) {
+          activeSectionsToday.push(sec);
+        }
+      });
+    });
+    activeSectionsToday.sort(function (a, b) {
+      var ia = predefinedSections.indexOf(a);
+      var ib = predefinedSections.indexOf(b);
+      if (ia !== -1 && ib !== -1) return ia - ib;
+      if (ia !== -1) return -1;
+      if (ib !== -1) return 1;
+      return a.localeCompare(b);
+    });
+
+    var sectionNames = activeSection === "Todas"
+      ? (activeSectionsToday.length ? activeSectionsToday : allSections)
+      : [activeSection];
+
+    boardEl.style.gridTemplateColumns = "76px repeat(" + sectionNames.length + ", minmax(280px, 1fr))";
+    boardEl.style.gridTemplateRows = "48px calc(var(--hour-height, 110px) * " + bounds.totalHours + ")";
 
     var corner = document.createElement("div");
     corner.className = "agenda-board-corner";
@@ -321,7 +376,7 @@
 
     var timeAxis = document.createElement("div");
     timeAxis.className = "agenda-time-axis";
-    timeAxis.style.height = "calc(var(--hour-height, 72px) * " + bounds.totalHours + ")";
+    timeAxis.style.height = "calc(var(--hour-height, 110px) * " + bounds.totalHours + ")";
 
     for (var hour = bounds.startHour; hour <= bounds.endHour; hour += 1) {
       var tick = document.createElement("div");
@@ -337,40 +392,125 @@
     sectionNames.forEach(function (section) {
       var lane = document.createElement("div");
       lane.className = "agenda-lane";
-      lane.style.height = "calc(var(--hour-height, 72px) * " + bounds.totalHours + ")";
+      lane.style.height = "calc(var(--hour-height, 110px) * " + bounds.totalHours + ")";
 
-      activities.forEach(function (activity) {
-        if (getActivitySections(activity).indexOf(section) === -1) return;
+      var totalMinutes = Math.max(60, bounds.endMin - bounds.startMin);
 
-        var start = minutesFromTime(activity.hora_inicio);
-        var end = minutesFromTime(activity.hora_fim);
-        var visibleStart = Math.max(start, bounds.startMin);
-        var visibleEnd = Math.min(end, bounds.endMin);
-        if (visibleEnd <= visibleStart) return;
+      // Filtra e ordena atividades da seção por horário
+      var laneActivities = activities.filter(function (activity) {
+        return getActivitySections(activity).indexOf(section) !== -1;
+      }).sort(function (a, b) {
+        return minutesFromTime(a.hora_inicio) - minutesFromTime(b.hora_inicio);
+      });
 
-        var event = document.createElement("button");
-        event.type = "button";
-        event.className = "agenda-event";
-        event.style.top = (((visibleStart - bounds.startMin) / (bounds.endMin - bounds.startMin)) * 100) + "%";
-        event.style.height = Math.max(22, (((visibleEnd - visibleStart) / (bounds.endMin - bounds.startMin)) * 100)) + "%";
-        event.style.setProperty("--lane-color", getSectionColor(section));
-        event.title = activity.nome + " · " + formatTime(activity.hora_inicio) + "–" + formatTime(activity.hora_fim);
-        event.setAttribute("aria-label", activity.nome + ", " + formatTime(activity.hora_inicio) + " às " + formatTime(activity.hora_fim));
-        event.textContent = activity.nome;
-        event.addEventListener("click", function () {
-          openModal(activity);
+      // Agrupa eventos simultâneos para que dividam a largura caso ocorram no mesmo horário
+      var clusters = [];
+      laneActivities.forEach(function (act) {
+        var s = minutesFromTime(act.hora_inicio);
+        var e = minutesFromTime(act.hora_fim);
+        if (e <= s) e = s + 30;
+        act._start = s;
+        act._end = e;
+
+        var placed = false;
+        for (var i = 0; i < clusters.length; i++) {
+          var c = clusters[i];
+          if (s < c.end && e > c.start) {
+            c.events.push(act);
+            c.start = Math.min(c.start, s);
+            c.end = Math.max(c.end, e);
+            placed = true;
+            break;
+          }
+        }
+        if (!placed) {
+          clusters.push({ start: s, end: e, events: [act] });
+        }
+      });
+
+      clusters.forEach(function (cluster) {
+        var count = cluster.events.length;
+        cluster.events.forEach(function (activity, colIndex) {
+          var visibleStart = Math.max(activity._start, bounds.startMin);
+          var visibleEnd = Math.min(activity._end, bounds.endMin);
+          if (visibleEnd <= visibleStart) return;
+
+          var durationMin = visibleEnd - visibleStart;
+          var topPercent = ((visibleStart - bounds.startMin) / totalMinutes) * 100;
+          var heightPercent = (durationMin / totalMinutes) * 100;
+
+          var colWidth = 100 / count;
+          var leftOffset = colIndex * colWidth;
+
+          var event = document.createElement("button");
+          event.type = "button";
+          event.className = "agenda-event";
+          if (durationMin < 35) {
+            event.classList.add("is-compact");
+          }
+          if (count > 1) {
+            event.classList.add("is-parallel");
+          }
+          event.style.top = topPercent + "%";
+          event.style.height = "calc(" + heightPercent + "% - 4px)";
+          event.style.left = "calc(" + leftOffset + "% + 4px)";
+          event.style.width = "calc(" + colWidth + "% - 8px)";
+          event.style.setProperty("--lane-color", getSectionColor(section));
+          event.setAttribute(
+            "aria-label",
+            activity.nome + ", " + formatTime(activity.hora_inicio) + " às " + formatTime(activity.hora_fim)
+          );
+
+          var timeSpan = document.createElement("span");
+          timeSpan.className = "agenda-event-time";
+          timeSpan.textContent = formatTime(activity.hora_inicio) + " – " + formatTime(activity.hora_fim);
+
+          var titleSpan = document.createElement("span");
+          titleSpan.className = "agenda-event-title";
+          titleSpan.textContent = activity.nome;
+
+          event.appendChild(timeSpan);
+          event.appendChild(titleSpan);
+
+          if (activity.place && activity.place !== "Local a confirmar") {
+            var placeSpan = document.createElement("span");
+            placeSpan.className = "agenda-event-place";
+            placeSpan.innerHTML = '<i class="fa-solid fa-location-dot"></i> ' + activity.place;
+            event.appendChild(placeSpan);
+          }
+
+          event.addEventListener("click", function () {
+            openModal(activity);
+          });
+          lane.appendChild(event);
         });
-        lane.appendChild(event);
       });
 
       boardEl.appendChild(lane);
     });
   }
 
+  function getPeriodInfo(horaStr) {
+    var min = minutesFromTime(horaStr);
+    if (min < 12 * 60) return { key: "manha", label: "Manhã", icon: "fa-regular fa-sun" };
+    if (min < 18 * 60) return { key: "tarde", label: "Tarde", icon: "fa-solid fa-cloud-sun" };
+    return { key: "noite", label: "Noite", icon: "fa-regular fa-moon" };
+  }
+
   function renderList(activities) {
     listEl.innerHTML = "";
+    var lastPeriod = null;
 
     activities.forEach(function (activity) {
+      var period = getPeriodInfo(activity.hora_inicio);
+      if (period.key !== lastPeriod) {
+        lastPeriod = period.key;
+        var heading = document.createElement("div");
+        heading.className = "agenda-period-heading";
+        heading.innerHTML = '<i class="' + period.icon + '"></i> <span>' + period.label + '</span>';
+        listEl.appendChild(heading);
+      }
+
       var card = document.createElement("article");
       card.className = "agenda-card";
       var sections = getActivitySections(activity);
@@ -522,6 +662,7 @@
 
     buildDayIndex(palestras);
     allSections = buildSectionColors(palestras);
+    activeDay = findDefaultActiveDay();
     renderFilters(allSections);
     renderDayTabs();
     updateViewSwitchButtons();
@@ -532,6 +673,7 @@
   if (btnViewBoard) {
     btnViewBoard.addEventListener("click", function () {
       currentView = "grade";
+      try { localStorage.setItem("jacitec_agenda_view", "grade"); } catch (e) {}
       updateViewSwitchButtons();
       renderCurrentView();
     });
@@ -539,6 +681,7 @@
   if (btnViewList) {
     btnViewList.addEventListener("click", function () {
       currentView = "lista";
+      try { localStorage.setItem("jacitec_agenda_view", "lista"); } catch (e) {}
       updateViewSwitchButtons();
       renderCurrentView();
     });
