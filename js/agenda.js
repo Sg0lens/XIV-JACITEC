@@ -212,9 +212,9 @@
     });
   }
 
-  // Extrai datas dinamicamente das atividades + garante o período oficial da JACITEC (20 a 24 de outubro)
+  // Extrai datas dinamicamente das atividades + garante o período oficial da JACITEC (20 a 23 de outubro)
   function extractDates(activities) {
-    var baseDates = ["2026-10-20", "2026-10-21", "2026-10-22", "2026-10-23", "2026-10-24"];
+    var baseDates = ["2026-10-20", "2026-10-21", "2026-10-22", "2026-10-23"];
     var set = {};
     baseDates.forEach(function (d) { set[d] = true; });
 
@@ -302,10 +302,12 @@
     });
   }
 
-  // Calcula limites dinâmicos de horário para o modo grade do dia ativo
+  // Calcula limites dinâmicos de horário para o modo grade do dia ativo.
+  // Adiciona 1h de margem antes e depois das atividades para evitar que
+  // o primeiro e o último horário fiquem colados nas bordas da grade.
   function getDayTimeBounds(activities) {
     if (!activities || !activities.length) {
-      return { startMin: 9 * 60, endMin: 20 * 60, startHour: 9, endHour: 20, totalHours: 11 };
+      return { startMin: 8 * 60, endMin: 19 * 60, startHour: 8, endHour: 19, totalHours: 11 };
     }
     var minMin = 24 * 60;
     var maxMin = 0;
@@ -316,11 +318,16 @@
       if (!isNaN(e) && e > maxMin) maxMin = e;
     });
 
-    var startHour = Math.min(9, Math.floor(minMin / 60));
-    var endHour = Math.max(18, Math.ceil(maxMin / 60));
+    // 1h antes da primeira atividade, 1h depois da última
+    var startHour = Math.floor(minMin / 60) - 1;
+    var endHour = Math.ceil(maxMin / 60) + 1;
 
-    startHour = Math.max(7, Math.min(startHour, 9));
-    endHour = Math.min(23, Math.max(endHour, 19));
+    // Clamp entre 7h e 23h
+    startHour = Math.max(7, startHour);
+    endHour = Math.min(23, endHour);
+
+    // Garante mínimo de diferença razoável
+    if (endHour - startHour < 4) endHour = startHour + 4;
 
     return {
       startMin: startHour * 60,
