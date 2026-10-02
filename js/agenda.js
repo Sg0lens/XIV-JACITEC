@@ -139,9 +139,67 @@
     return Number(parts[0]) * 60 + Number(parts[1]);
   }
 
-  function getPlace(local) {
+  function formatLabName(sala) {
+    if (!sala) return "";
+    var trimmed = sala.trim();
+    // Ex: "LAB10" -> "Laboratório 10", "LAB7A" -> "Laboratório 7A", "Lab 10" -> "Laboratório 10"
+    var labMatch = trimmed.match(/^LAB\s*([0-9]+[A-Za-z]?)$/i);
+    if (labMatch) {
+      return "Laboratório " + labMatch[1].toUpperCase();
+    }
+    return trimmed;
+  }
+
+  function getPlace(local, activity) {
     if (!local) return "Local a confirmar";
-    return [local.bloco, local.sala, local.andar, local.outro].filter(Boolean).join(" · ") || "Local a confirmar";
+
+    var parts = [];
+
+    // 1. Sala / Lugar
+    var sala = local.sala ? local.sala.trim() : "";
+    // Ignora termos de modalidade genéricos (o evento é 100% presencial, então "Presencial" não é local)
+    if (/^(presencial|online|hibrid[oa]|remoto)$/i.test(sala)) {
+      sala = "";
+    } else if (sala) {
+      sala = formatLabName(sala);
+    }
+
+    // 2. Bloco
+    var bloco = local.bloco ? local.bloco.trim() : "";
+    if (bloco && !/^bloco/i.test(bloco)) {
+      bloco = "Bloco " + bloco;
+    }
+
+    // 3. Andar
+    var andar = local.andar ? local.andar.trim() : "";
+    if (andar && /^[0-9]+$/.test(andar)) {
+      andar = andar + "º andar";
+    }
+
+    // 4. Outro
+    var outro = local.outro ? local.outro.trim() : "";
+    if (/^(presencial|online|hibrid[oa]|remoto)$/i.test(outro)) {
+      outro = "";
+    }
+
+    if (sala) parts.push(sala);
+    if (bloco) parts.push(bloco);
+    if (andar) parts.push(andar);
+    if (outro) parts.push(outro);
+
+    if (parts.length > 0) {
+      return parts.join(" · ");
+    }
+
+    // Fallback inteligente para eventos sem sala preenchida no cadastro
+    if (activity && activity.nome) {
+      var lower = activity.nome.toLowerCase();
+      if (lower.indexOf("abertura") !== -1 || lower.indexOf("encerramento") !== -1) {
+        return "Auditório";
+      }
+    }
+
+    return "Local a confirmar";
   }
 
   function getActivitySections(activity) {
@@ -236,7 +294,7 @@
     palestras.forEach(function (activity) {
       if (!activity.data_inicio || !activity.hora_inicio || !activity.hora_fim || !activity.nome) return;
 
-      activity.place = getPlace(activity.local);
+      activity.place = getPlace(activity.local, activity);
       var date = activity.data_inicio;
       var lastDate = activity.data_fim || date;
       var currentDate = new Date(date + "T00:00:00Z");
