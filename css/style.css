@@ -1626,6 +1626,10 @@ section {
   max-width: 860px;
 }
 
+.agenda-list[hidden] {
+  display: none !important;
+}
+
 .agenda-card {
   display: flex;
   flex-direction: column;
@@ -1850,7 +1854,7 @@ section {
 
 .agenda-board-wrap {
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: visible;
   border: 1px solid #d8e0e5;
   border-radius: 8px;
   background: var(--white);
@@ -1949,15 +1953,14 @@ section {
   flex-direction: column;
   gap: 2px;
   box-sizing: border-box;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, z-index 0.15s ease, background-color 0.15s ease;
+  transition: box-shadow 0.15s ease, background-color 0.15s ease;
 }
 
 .agenda-event:hover,
 .agenda-event:focus-visible {
   z-index: 20;
-  transform: scale(1.02);
   background: color-mix(in srgb, var(--lane-color, var(--ocean-700)) 28%, var(--white));
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
   outline: 2px solid var(--lane-color, var(--ocean-700));
   outline-offset: 1px;
 }
