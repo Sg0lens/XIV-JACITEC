@@ -975,6 +975,94 @@ section {
   transform: translateY(-1px);
 }
 
+.doc-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.doc-btn-outline {
+  background: transparent;
+  color: var(--ocean-900);
+  border: 1.5px solid var(--ocean-900);
+}
+
+.doc-btn-outline:hover {
+  background: var(--ocean-900);
+  color: var(--white);
+}
+
+.doc-badge-portal {
+  background: rgba(0, 255, 235, 0.15);
+  color: var(--aqua-300);
+  border: 1px solid rgba(0, 255, 235, 0.3);
+}
+
+/* Banner de acesso a todos os editais no portal Ifes */
+.edital-ifes-banner {
+  background: linear-gradient(135deg, var(--ocean-900) 0%, var(--ocean-950) 100%);
+  color: var(--white);
+  border-radius: var(--radius-md);
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 24px;
+  border: 1px solid rgba(0, 255, 235, 0.2);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+
+.edital-ifes-banner::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(0, 255, 235, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.edital-ifes-icon {
+  font-size: 2.2rem;
+  color: var(--aqua-300);
+  background: rgba(0, 255, 235, 0.1);
+  border-radius: 50%;
+  width: 62px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 255, 235, 0.25);
+}
+
+.edital-ifes-content {
+  flex-grow: 1;
+}
+
+.edital-ifes-content h3 {
+  font-family: var(--font-heading);
+  font-size: 1.22rem;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.edital-ifes-content p {
+  font-size: 0.9rem;
+  color: var(--sand-100);
+  margin-bottom: 0;
+  line-height: 1.55;
+}
+
+.edital-ifes-action {
+  flex-shrink: 0;
+}
+
 /* Criteria Styles */
 .criteria-fase-header {
   display: flex;
@@ -1156,6 +1244,11 @@ section {
 }
 
 .submit-cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
   text-align: center;
   margin-top: 40px;
 }
@@ -1707,6 +1800,20 @@ section {
     text-align: center;
   }
 
+  .submit-cta {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 360px;
+    margin: 40px auto 0;
+    gap: 14px;
+  }
+
+  .submit-cta .btn {
+    width: 100%;
+    text-align: center;
+  }
+
   .timeline {
     grid-template-columns: 1fr;
   }
@@ -1883,6 +1990,16 @@ section {
     width: 100%;
   }
 
+  .submit-cta {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .submit-cta .btn {
+    width: 100%;
+  }
+
   .projetin-box {
     padding: 24px 20px;
   }
@@ -1913,6 +2030,22 @@ section {
   .timeline-grid,
   .docs-grid {
     grid-template-columns: 1fr;
+  }
+
+  .edital-ifes-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 20px;
+    gap: 16px;
+  }
+
+  .edital-ifes-action {
+    width: 100%;
+  }
+
+  .edital-ifes-action .btn {
+    width: 100%;
+    justify-content: center;
   }
 
   .btn {
