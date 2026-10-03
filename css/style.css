@@ -11,13 +11,13 @@
   --coral-500: #b62aa3;
   --coral-600: #fd00c6;
 
-  /* Cores das Semanas / Áreas na Grade (Tons de Roxo/Magenta Contrastantes) */
+  /* Cores das Semanas / Áreas na Grade (Exclusivamente Tons de Roxo Harmoniosos e Distintos) */
   --lane-jacitec: #3b0764; /* Roxo Berinjela Escuro Institucional */
-  --lane-sinf:    #c026d3; /* Magenta / Fúcsia Tecnológico */
-  --lane-semin:   #e11d48; /* Rosa Carmim / Framboesa Quente (Mineração) */
-  --lane-semec:   #581c87; /* Roxo Ameixa / Vinho Fechado */
-  --lane-hum:     #6d28d9; /* Violeta Púrpura Profundo */
-  --lane-semat:   #8b5cf6; /* Ametista / Lilás Luminoso Elétrico (Matemática) */
+  --lane-sinf:    #7928ca; /* Violeta Elétrico Tecnológico (SINF) */
+  --lane-semin:   #701a75; /* Roxo Ameixa / Púrpura Fechado (SEMIN) */
+  --lane-semec:   #431475; /* Roxo Índigo Noite / Profundo (SEMEC) */
+  --lane-hum:     #5b21b6; /* Violeta Real Nobre (HUM) */
+  --lane-semat:   #9c27b0; /* Roxo Ametista / Lilás Radiante (SEMAT) */
 
   --sand-100: #f6f1e6;
   --sand-50: #fbf8f2;

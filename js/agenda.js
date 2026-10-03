@@ -680,18 +680,22 @@
     }
   }
 
-  function renderSyncFooter(updatedAtStr) {
+  function renderSyncFooter(updatedAtStr, isLive, fallbackReason) {
     if (!syncFooterEl || !updatedTimeEl) return;
     var formatted = formatUpdatedAt(updatedAtStr);
     if (formatted) {
       updatedTimeEl.textContent = formatted;
+      var sourceEl = syncFooterEl.querySelector(".agenda-sync-source");
+      if (sourceEl) {
+        sourceEl.innerHTML = '<i class="fa-solid fa-circle-check"></i> Sincronizado com QRCheck' + (fallbackReason || '');
+      }
       syncFooterEl.hidden = false;
     } else {
       syncFooterEl.hidden = true;
     }
   }
 
-  function renderSchedule(palestras, updatedAt) {
+  function renderSchedule(palestras, updatedAt, isLive, fallbackReason) {
     if (!Array.isArray(palestras)) {
       setStatus(
         '<i class="fa-solid fa-calendar-xmark"></i>Os dados da agenda não estão no formato esperado.'
@@ -706,7 +710,7 @@
     renderDayTabs();
     updateViewSwitchButtons();
     renderCurrentView();
-    renderSyncFooter(updatedAt);
+    renderSyncFooter(updatedAt, isLive, fallbackReason);
   }
 
   // Eventos dos botões de alternância de visão
@@ -781,23 +785,49 @@
 
   setupDragToScroll();
 
-  // Carregamento de dados com anti-cache
-  setStatus('<i class="fa-solid fa-circle-notch fa-spin"></i>Carregando agenda…');
-  var lastModifiedHeader = null;
-  fetch("agenda.json?v=" + Date.now())
+  // Carregamento de dados: prioriza a API oficial do QRCheck em tempo real, com fallback local
+  setStatus('<i class="fa-solid fa-circle-notch fa-spin"></i>Carregando programação…');
+
+  var QRCHECK_API_URL = "https://qrcheck.io/api/atividades/publico/xv-jornada-academica-de-ciencia-tecnologia-cultura/agenda";
+  var LOCAL_BACKUP_URL = "agenda.json";
+
+  function loadLocalBackup(fallbackReason) {
+    var lastModifiedHeader = null;
+    return fetch(LOCAL_BACKUP_URL + "?v=" + Date.now())
+      .then(function (response) {
+        if (!response.ok) throw new Error("Falha ao carregar backup local");
+        lastModifiedHeader = response.headers.get("last-modified");
+        return response.json();
+      })
+      .then(function (payload) {
+        var data = Array.isArray(payload) ? payload : (payload.data || []);
+        var updatedAt = payload.updated_at || payload.atualizado_em || lastModifiedHeader || null;
+        renderSchedule(data, updatedAt, false, fallbackReason);
+      });
+  }
+
+  var controller = typeof AbortController !== "undefined" ? new AbortController() : null;
+  var timeoutTimer = controller ? setTimeout(function () { controller.abort(); }, 6000) : null;
+
+  fetch(QRCHECK_API_URL, controller ? { signal: controller.signal } : {})
     .then(function (response) {
-      if (!response.ok) throw new Error("Falha ao carregar agenda.json");
-      lastModifiedHeader = response.headers.get("last-modified");
-      return response.json();
+      if (timeoutTimer) clearTimeout(timeoutTimer);
+      if (!response.ok) throw new Error("API retornou HTTP " + response.status);
+      var serverDate = response.headers.get("date");
+      return response.json().then(function (payload) {
+        var data = Array.isArray(payload) ? payload : (payload.data || []);
+        if (!data || !data.length) throw new Error("Lista de atividades vazia");
+        var updatedAt = payload.updated_at || serverDate || new Date().toISOString();
+        renderSchedule(data, updatedAt, true);
+      });
     })
-    .then(function (payload) {
-      var data = Array.isArray(payload) ? payload : (payload.data || []);
-      var updatedAt = payload.updated_at || payload.atualizado_em || lastModifiedHeader || null;
-      renderSchedule(data, updatedAt);
-    })
-    .catch(function () {
-      setStatus(
-        '<i class="fa-solid fa-triangle-exclamation"></i>Não foi possível carregar a agenda. Tente novamente mais tarde.'
-      );
+    .catch(function (apiErr) {
+      if (timeoutTimer) clearTimeout(timeoutTimer);
+      console.warn("QRCheck API em tempo real inacessível, recorrendo ao backup local:", apiErr);
+      loadLocalBackup().catch(function () {
+        setStatus(
+          '<i class="fa-solid fa-triangle-exclamation"></i>Não foi possível carregar a agenda. Tente novamente mais tarde.'
+        );
+      });
     });
 })();
