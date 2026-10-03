@@ -2107,6 +2107,60 @@ section {
   color: var(--aqua-400);
 }
 
+.agenda-sync-footer {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 10px 18px;
+  background: var(--sand-100);
+  border: 1px solid color-mix(in srgb, var(--ocean-700) 12%, var(--white));
+  border-radius: 8px;
+  font-size: 0.78rem;
+  color: var(--ink-700);
+}
+
+.agenda-sync-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.agenda-sync-badge i {
+  color: var(--ocean-700);
+  font-size: 0.78rem;
+}
+
+.agenda-sync-badge strong {
+  color: var(--ink-900);
+  font-weight: 700;
+}
+
+.agenda-sync-source {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.74rem;
+  color: var(--ocean-800);
+  font-weight: 600;
+}
+
+.agenda-sync-source i {
+  color: #10b981;
+}
+
+@media (max-width: 600px) {
+  .agenda-sync-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 8px 12px;
+    font-size: 0.74rem;
+  }
+}
+
 .modal-action-wrap {
   margin-top: 24px;
   text-align: center;

@@ -12,6 +12,8 @@
   var listEl = document.getElementById("schedule-list");
   var emptyEl = document.getElementById("agenda-empty");
   var btnResetFilters = document.getElementById("btn-reset-filters");
+  var syncFooterEl = document.getElementById("agenda-sync-footer");
+  var updatedTimeEl = document.getElementById("agenda-updated-time");
 
   if (!statusEl) return;
 
@@ -653,7 +655,38 @@
     }
   }
 
-  function renderSchedule(palestras) {
+  function formatUpdatedAt(isoOrDateStr) {
+    if (!isoOrDateStr) return null;
+    try {
+      var d = new Date(isoOrDateStr);
+      if (isNaN(d.getTime())) return null;
+      var datePart = d.toLocaleDateString("pt-BR", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric"
+      });
+      var timePart = d.toLocaleTimeString("pt-BR", {
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+      return datePart + " às " + timePart;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function renderSyncFooter(updatedAtStr) {
+    if (!syncFooterEl || !updatedTimeEl) return;
+    var formatted = formatUpdatedAt(updatedAtStr);
+    if (formatted) {
+      updatedTimeEl.textContent = formatted;
+      syncFooterEl.hidden = false;
+    } else {
+      syncFooterEl.hidden = true;
+    }
+  }
+
+  function renderSchedule(palestras, updatedAt) {
     if (!Array.isArray(palestras)) {
       setStatus(
         '<i class="fa-solid fa-calendar-xmark"></i>Os dados da agenda não estão no formato esperado.'
@@ -668,6 +701,7 @@
     renderDayTabs();
     updateViewSwitchButtons();
     renderCurrentView();
+    renderSyncFooter(updatedAt);
   }
 
   // Eventos dos botões de alternância de visão
@@ -744,13 +778,17 @@
 
   // Carregamento de dados com anti-cache
   setStatus('<i class="fa-solid fa-circle-notch fa-spin"></i>Carregando agenda…');
+  var lastModifiedHeader = null;
   fetch("agenda.json?v=" + Date.now())
     .then(function (response) {
       if (!response.ok) throw new Error("Falha ao carregar agenda.json");
+      lastModifiedHeader = response.headers.get("last-modified");
       return response.json();
     })
     .then(function (payload) {
-      renderSchedule(payload.data);
+      var data = Array.isArray(payload) ? payload : (payload.data || []);
+      var updatedAt = payload.updated_at || payload.atualizado_em || lastModifiedHeader || null;
+      renderSchedule(data, updatedAt);
     })
     .catch(function () {
       setStatus(

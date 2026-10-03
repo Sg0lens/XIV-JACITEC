@@ -49,9 +49,13 @@ jobs:
               exit 1
           }
 
+          $nowIso = (Get-Date).ToString("yyyy-MM-ddTHH:mm:sszzz")
+          $parsed | Add-Member -NotePropertyName "updated_at" -NotePropertyValue $nowIso -Force
+          $jsonToSave = $parsed | ConvertTo-Json -Depth 20
+
           $utf8SemBom = New-Object System.Text.UTF8Encoding($false)
-          [System.IO.File]::WriteAllText("$PWD\agenda.json", $raw, $utf8SemBom)
-          Write-Host "agenda.json atualizado. Total de atividades: $total"
+          [System.IO.File]::WriteAllText("$PWD\agenda.json", $jsonToSave, $utf8SemBom)
+          Write-Host "agenda.json atualizado em $nowIso. Total de atividades: $total"
 
       - name: Publicar agenda.json no FTP Local
         shell: powershell
