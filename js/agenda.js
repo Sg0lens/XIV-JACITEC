@@ -30,17 +30,21 @@
   var allSections = [];
   var sectionColors = {};
   var paletteVariables = [
-    "--ocean-950",
-    "--ocean-900",
-    "--ocean-800",
-    "--ocean-700",
-    "--ocean-600",
-    "--ocean-500",
-    "--aqua-400",
-    "--aqua-300",
-    "--coral-500",
-    "--coral-600"
+    "--lane-jacitec",
+    "--lane-sinf",
+    "--lane-semin",
+    "--lane-semec",
+    "--lane-hum",
+    "--lane-semat"
   ];
+  var sectionVariableMap = {
+    "JACITEC": "--lane-jacitec",
+    "SINF":    "--lane-sinf",
+    "SEMIN":   "--lane-semin",
+    "SEMEC":   "--lane-semec",
+    "HUM":     "--lane-hum",
+    "SEMAT":   "--lane-semat"
+  };
 
   function setStatus(html) {
     statusEl.hidden = false;
@@ -89,7 +93,7 @@
   }
 
   function getSectionColor(section) {
-    return sectionColors[section] || "var(--ocean-900)";
+    return sectionColors[section] || "var(--lane-jacitec, #4a044e)";
   }
 
   function buildSectionColors(activities) {
@@ -107,8 +111,9 @@
 
     var rootStyles = getComputedStyle(document.documentElement);
     sections.forEach(function (section, index) {
-      var variable = paletteVariables[index % paletteVariables.length];
-      sectionColors[section] = rootStyles.getPropertyValue(variable).trim();
+      var variable = sectionVariableMap[section] || paletteVariables[index % paletteVariables.length];
+      var val = rootStyles.getPropertyValue(variable).trim();
+      sectionColors[section] = val || "#4a044e";
     });
     return sections;
   }
