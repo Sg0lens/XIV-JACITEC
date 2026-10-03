@@ -1,6 +1,1242 @@
 {
     "data": [
         {
+            "id_public": "93132213-5604-4955-a4f4-c48964c915ff",
+            "tipo": "Apresentação Científica",
+            "nome": "Mostra Científica",
+            "palestrante_nome": "Jacitec",
+            "descricao": null,
+            "data_inicio": "2026-10-20",
+            "data_fim": "2026-10-21",
+            "hora_inicio": "08:00:00",
+            "hora_fim": "12:00:00",
+            "local": {
+                "id": 51,
+                "evento_id": 13,
+                "sala": "Pátio Central",
+                "bloco": null,
+                "andar": null,
+                "outro": null
+            },
+            "carga_horaria_minutos": 480,
+            "evento": {
+                "id_public": "942740b7-60a0-461f-8534-2fa502a44ed2",
+                "nome": "XV Jornada Acadêmica de Ciência, Tecnologia e Cultura do Ifes - Campus Cachoeiro de Itapemirim",
+                "descricao": "A Jornada Acadêmica de Ciência, Tecnologia e Cultura — JACITEC do Ifes - Campus Cachoeiro de Itapemirim é um evento de extensão cujo principal objetivo é divulgar as atividades de ensino, pesquisa e extensão desenvolvidas no campus para a comunidade interna e externa, além de promover a integração entre os participantes de diversas áreas. Integrando a 23ª Semana Nacional de Ciência e Tecnologia (SNCT), a XV JACITEC traz como tema central \"Ciência Delas: Mulheres em Ciência, Tecnologia e Inovação\", convidando toda a comunidade a reconhecer o potencial transformador da participação feminina e valorizar referências em todas as áreas do conhecimento.\n\nA JACITEC busca disseminar à comunidade interna e externa, as atividades de integração ensino, pesquisa e extensão dos diferentes e diversos cursos e programas ofertados pelo campus, além de integrar participantes de áreas distintas a partir de uma programação variada e proposta pelos cursos em ativa no Ifes - Campus Cachoeiro.",
+                "data_inicio": "2026-10-20T03:00:00Z",
+                "data_fim": "2026-10-24T02:59:59Z",
+                "slug": "xv-jornada-academica-de-ciencia-tecnologia-cultura",
+                "inscricoes_abertas": true,
+                "logo_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/logo.png",
+                "banner_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/banner.mp4",
+                "banner_tipo": "video",
+                "imagem_promocional_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/imagem-promocional.jpg",
+                "enderecos": [
+                    {
+                        "nome": "IFES Campus Cachoeiro de Itapemirim",
+                        "cep": "29311-970",
+                        "rua": "Rodovia Engenheiro Fabiano Vivácqua",
+                        "numero": 1568,
+                        "complemento": "Caixa Postal 727",
+                        "bairro": "Morro Grande",
+                        "cidade": "Cachoeiro de Itapemirim",
+                        "estado": "ES"
+                    }
+                ],
+                "categorias": [
+                    {
+                        "nome": "Acadêmico e Científico"
+                    },
+                    {
+                        "nome": "Cultural e Esportivo"
+                    },
+                    {
+                        "nome": "Extensão e Inovação"
+                    },
+                    {
+                        "nome": "Social e Comunitário"
+                    }
+                ],
+                "campos_extra": [
+                    {
+                        "nome": "Instituição ou Organização de Origem",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "IFES - Campus Cachoeiro de Itapemirim",
+                            "IFES - Outro Campus",
+                            "Outra Instituição de Ensino Pública (Municipal, Estadual ou Federal)",
+                            "Instituição de Ensino Privada (Escola ou Faculdade)",
+                            "Empresa Privada / Setor Produtivo",
+                            "Órgão Público / Governamental (Exceto IFES)",
+                            "Comunidade em Geral / Sem vínculo institucional"
+                        ],
+                        "permite_outro": false
+                    },
+                    {
+                        "nome": "Escolaridade",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "Ensino Fundamental",
+                            "Ensino Médio",
+                            "Técnico / Profissionalizante",
+                            "Superior Incompleto",
+                            "Superior Completo",
+                            "Pós-Graduação (Especialização / Mestrado / Doutorado)"
+                        ],
+                        "permite_outro": false
+                    }
+                ],
+                "carga_horaria_minutos": null
+            },
+            "secoes": [
+                {
+                    "id_public": "0a960b77-56d5-47e9-a93c-93a2a2f2ba0d",
+                    "nome": "JACITEC",
+                    "sigla": "JACITEC",
+                    "descricao": null,
+                    "ordem": 5
+                }
+            ],
+            "is_deleted": false
+        },
+        {
+            "id_public": "a6054d58-0cc1-41b6-b512-c0bfd4972230",
+            "tipo": "Palestra",
+            "nome": "Cerimônia de Abertura da XV JACITEC — “Ciência Delas: Mulheres em Ciência, Tecnologia e Inovação”",
+            "palestrante_nome": "Comissão Organizadora/Direção-Geral",
+            "descricao": null,
+            "data_inicio": "2026-10-20",
+            "data_fim": "2026-10-20",
+            "hora_inicio": "09:00:00",
+            "hora_fim": "10:00:00",
+            "local": {
+                "id": 51,
+                "evento_id": 13,
+                "sala": "Pátio Central",
+                "bloco": null,
+                "andar": null,
+                "outro": null
+            },
+            "carga_horaria_minutos": 60,
+            "evento": {
+                "id_public": "942740b7-60a0-461f-8534-2fa502a44ed2",
+                "nome": "XV Jornada Acadêmica de Ciência, Tecnologia e Cultura do Ifes - Campus Cachoeiro de Itapemirim",
+                "descricao": "A Jornada Acadêmica de Ciência, Tecnologia e Cultura — JACITEC do Ifes - Campus Cachoeiro de Itapemirim é um evento de extensão cujo principal objetivo é divulgar as atividades de ensino, pesquisa e extensão desenvolvidas no campus para a comunidade interna e externa, além de promover a integração entre os participantes de diversas áreas. Integrando a 23ª Semana Nacional de Ciência e Tecnologia (SNCT), a XV JACITEC traz como tema central \"Ciência Delas: Mulheres em Ciência, Tecnologia e Inovação\", convidando toda a comunidade a reconhecer o potencial transformador da participação feminina e valorizar referências em todas as áreas do conhecimento.\n\nA JACITEC busca disseminar à comunidade interna e externa, as atividades de integração ensino, pesquisa e extensão dos diferentes e diversos cursos e programas ofertados pelo campus, além de integrar participantes de áreas distintas a partir de uma programação variada e proposta pelos cursos em ativa no Ifes - Campus Cachoeiro.",
+                "data_inicio": "2026-10-20T03:00:00Z",
+                "data_fim": "2026-10-24T02:59:59Z",
+                "slug": "xv-jornada-academica-de-ciencia-tecnologia-cultura",
+                "inscricoes_abertas": true,
+                "logo_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/logo.png",
+                "banner_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/banner.mp4",
+                "banner_tipo": "video",
+                "imagem_promocional_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/imagem-promocional.jpg",
+                "enderecos": [
+                    {
+                        "nome": "IFES Campus Cachoeiro de Itapemirim",
+                        "cep": "29311-970",
+                        "rua": "Rodovia Engenheiro Fabiano Vivácqua",
+                        "numero": 1568,
+                        "complemento": "Caixa Postal 727",
+                        "bairro": "Morro Grande",
+                        "cidade": "Cachoeiro de Itapemirim",
+                        "estado": "ES"
+                    }
+                ],
+                "categorias": [
+                    {
+                        "nome": "Acadêmico e Científico"
+                    },
+                    {
+                        "nome": "Cultural e Esportivo"
+                    },
+                    {
+                        "nome": "Extensão e Inovação"
+                    },
+                    {
+                        "nome": "Social e Comunitário"
+                    }
+                ],
+                "campos_extra": [
+                    {
+                        "nome": "Instituição ou Organização de Origem",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "IFES - Campus Cachoeiro de Itapemirim",
+                            "IFES - Outro Campus",
+                            "Outra Instituição de Ensino Pública (Municipal, Estadual ou Federal)",
+                            "Instituição de Ensino Privada (Escola ou Faculdade)",
+                            "Empresa Privada / Setor Produtivo",
+                            "Órgão Público / Governamental (Exceto IFES)",
+                            "Comunidade em Geral / Sem vínculo institucional"
+                        ],
+                        "permite_outro": false
+                    },
+                    {
+                        "nome": "Escolaridade",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "Ensino Fundamental",
+                            "Ensino Médio",
+                            "Técnico / Profissionalizante",
+                            "Superior Incompleto",
+                            "Superior Completo",
+                            "Pós-Graduação (Especialização / Mestrado / Doutorado)"
+                        ],
+                        "permite_outro": false
+                    }
+                ],
+                "carga_horaria_minutos": null
+            },
+            "secoes": [
+                {
+                    "id_public": "0a960b77-56d5-47e9-a93c-93a2a2f2ba0d",
+                    "nome": "JACITEC",
+                    "sigla": "JACITEC",
+                    "descricao": null,
+                    "ordem": 5
+                }
+            ],
+            "is_deleted": false
+        },
+        {
+            "id_public": "8a157ad6-8a29-43ff-ac2c-81e23d54d842",
+            "tipo": "Palestra",
+            "nome": "Engenharia de Minas sem Fronteiras: Carreira, Desafios e Oportunidades no Brasil e no Exterior",
+            "palestrante_nome": "Thais Janine - AngloAmerican Australia",
+            "descricao": null,
+            "data_inicio": "2026-10-20",
+            "data_fim": "2026-10-20",
+            "hora_inicio": "09:00:00",
+            "hora_fim": "10:00:00",
+            "local": {
+                "id": 46,
+                "evento_id": 13,
+                "sala": "Online",
+                "bloco": null,
+                "andar": null,
+                "outro": null
+            },
+            "carga_horaria_minutos": null,
+            "evento": {
+                "id_public": "942740b7-60a0-461f-8534-2fa502a44ed2",
+                "nome": "XV Jornada Acadêmica de Ciência, Tecnologia e Cultura do Ifes - Campus Cachoeiro de Itapemirim",
+                "descricao": "A Jornada Acadêmica de Ciência, Tecnologia e Cultura — JACITEC do Ifes - Campus Cachoeiro de Itapemirim é um evento de extensão cujo principal objetivo é divulgar as atividades de ensino, pesquisa e extensão desenvolvidas no campus para a comunidade interna e externa, além de promover a integração entre os participantes de diversas áreas. Integrando a 23ª Semana Nacional de Ciência e Tecnologia (SNCT), a XV JACITEC traz como tema central \"Ciência Delas: Mulheres em Ciência, Tecnologia e Inovação\", convidando toda a comunidade a reconhecer o potencial transformador da participação feminina e valorizar referências em todas as áreas do conhecimento.\n\nA JACITEC busca disseminar à comunidade interna e externa, as atividades de integração ensino, pesquisa e extensão dos diferentes e diversos cursos e programas ofertados pelo campus, além de integrar participantes de áreas distintas a partir de uma programação variada e proposta pelos cursos em ativa no Ifes - Campus Cachoeiro.",
+                "data_inicio": "2026-10-20T03:00:00Z",
+                "data_fim": "2026-10-24T02:59:59Z",
+                "slug": "xv-jornada-academica-de-ciencia-tecnologia-cultura",
+                "inscricoes_abertas": true,
+                "logo_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/logo.png",
+                "banner_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/banner.mp4",
+                "banner_tipo": "video",
+                "imagem_promocional_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/imagem-promocional.jpg",
+                "enderecos": [
+                    {
+                        "nome": "IFES Campus Cachoeiro de Itapemirim",
+                        "cep": "29311-970",
+                        "rua": "Rodovia Engenheiro Fabiano Vivácqua",
+                        "numero": 1568,
+                        "complemento": "Caixa Postal 727",
+                        "bairro": "Morro Grande",
+                        "cidade": "Cachoeiro de Itapemirim",
+                        "estado": "ES"
+                    }
+                ],
+                "categorias": [
+                    {
+                        "nome": "Acadêmico e Científico"
+                    },
+                    {
+                        "nome": "Cultural e Esportivo"
+                    },
+                    {
+                        "nome": "Extensão e Inovação"
+                    },
+                    {
+                        "nome": "Social e Comunitário"
+                    }
+                ],
+                "campos_extra": [
+                    {
+                        "nome": "Instituição ou Organização de Origem",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "IFES - Campus Cachoeiro de Itapemirim",
+                            "IFES - Outro Campus",
+                            "Outra Instituição de Ensino Pública (Municipal, Estadual ou Federal)",
+                            "Instituição de Ensino Privada (Escola ou Faculdade)",
+                            "Empresa Privada / Setor Produtivo",
+                            "Órgão Público / Governamental (Exceto IFES)",
+                            "Comunidade em Geral / Sem vínculo institucional"
+                        ],
+                        "permite_outro": false
+                    },
+                    {
+                        "nome": "Escolaridade",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "Ensino Fundamental",
+                            "Ensino Médio",
+                            "Técnico / Profissionalizante",
+                            "Superior Incompleto",
+                            "Superior Completo",
+                            "Pós-Graduação (Especialização / Mestrado / Doutorado)"
+                        ],
+                        "permite_outro": false
+                    }
+                ],
+                "carga_horaria_minutos": null
+            },
+            "secoes": [
+                {
+                    "id_public": "dab48870-a2da-4022-89e8-dda911632310",
+                    "nome": "Semana de Estudos de Mineração",
+                    "sigla": "SEMIN",
+                    "descricao": "X Seminário de Estudos da Mineração (SEMIN) do Ifes Campus Cachoeiro.",
+                    "ordem": 0
+                }
+            ],
+            "is_deleted": false
+        },
+        {
+            "id_public": "f175bd5c-7efd-4709-acd7-bea69391f615",
+            "tipo": "Palestra",
+            "nome": "Geometalurgia",
+            "palestrante_nome": "Fernanda Gontijo - UFRGS",
+            "descricao": null,
+            "data_inicio": "2026-10-20",
+            "data_fim": "2026-10-20",
+            "hora_inicio": "10:00:00",
+            "hora_fim": "11:00:00",
+            "local": {
+                "id": 46,
+                "evento_id": 13,
+                "sala": "Online",
+                "bloco": null,
+                "andar": null,
+                "outro": null
+            },
+            "carga_horaria_minutos": null,
+            "evento": {
+                "id_public": "942740b7-60a0-461f-8534-2fa502a44ed2",
+                "nome": "XV Jornada Acadêmica de Ciência, Tecnologia e Cultura do Ifes - Campus Cachoeiro de Itapemirim",
+                "descricao": "A Jornada Acadêmica de Ciência, Tecnologia e Cultura — JACITEC do Ifes - Campus Cachoeiro de Itapemirim é um evento de extensão cujo principal objetivo é divulgar as atividades de ensino, pesquisa e extensão desenvolvidas no campus para a comunidade interna e externa, além de promover a integração entre os participantes de diversas áreas. Integrando a 23ª Semana Nacional de Ciência e Tecnologia (SNCT), a XV JACITEC traz como tema central \"Ciência Delas: Mulheres em Ciência, Tecnologia e Inovação\", convidando toda a comunidade a reconhecer o potencial transformador da participação feminina e valorizar referências em todas as áreas do conhecimento.\n\nA JACITEC busca disseminar à comunidade interna e externa, as atividades de integração ensino, pesquisa e extensão dos diferentes e diversos cursos e programas ofertados pelo campus, além de integrar participantes de áreas distintas a partir de uma programação variada e proposta pelos cursos em ativa no Ifes - Campus Cachoeiro.",
+                "data_inicio": "2026-10-20T03:00:00Z",
+                "data_fim": "2026-10-24T02:59:59Z",
+                "slug": "xv-jornada-academica-de-ciencia-tecnologia-cultura",
+                "inscricoes_abertas": true,
+                "logo_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/logo.png",
+                "banner_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/banner.mp4",
+                "banner_tipo": "video",
+                "imagem_promocional_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/imagem-promocional.jpg",
+                "enderecos": [
+                    {
+                        "nome": "IFES Campus Cachoeiro de Itapemirim",
+                        "cep": "29311-970",
+                        "rua": "Rodovia Engenheiro Fabiano Vivácqua",
+                        "numero": 1568,
+                        "complemento": "Caixa Postal 727",
+                        "bairro": "Morro Grande",
+                        "cidade": "Cachoeiro de Itapemirim",
+                        "estado": "ES"
+                    }
+                ],
+                "categorias": [
+                    {
+                        "nome": "Acadêmico e Científico"
+                    },
+                    {
+                        "nome": "Cultural e Esportivo"
+                    },
+                    {
+                        "nome": "Extensão e Inovação"
+                    },
+                    {
+                        "nome": "Social e Comunitário"
+                    }
+                ],
+                "campos_extra": [
+                    {
+                        "nome": "Instituição ou Organização de Origem",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "IFES - Campus Cachoeiro de Itapemirim",
+                            "IFES - Outro Campus",
+                            "Outra Instituição de Ensino Pública (Municipal, Estadual ou Federal)",
+                            "Instituição de Ensino Privada (Escola ou Faculdade)",
+                            "Empresa Privada / Setor Produtivo",
+                            "Órgão Público / Governamental (Exceto IFES)",
+                            "Comunidade em Geral / Sem vínculo institucional"
+                        ],
+                        "permite_outro": false
+                    },
+                    {
+                        "nome": "Escolaridade",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "Ensino Fundamental",
+                            "Ensino Médio",
+                            "Técnico / Profissionalizante",
+                            "Superior Incompleto",
+                            "Superior Completo",
+                            "Pós-Graduação (Especialização / Mestrado / Doutorado)"
+                        ],
+                        "permite_outro": false
+                    }
+                ],
+                "carga_horaria_minutos": null
+            },
+            "secoes": [
+                {
+                    "id_public": "dab48870-a2da-4022-89e8-dda911632310",
+                    "nome": "Semana de Estudos de Mineração",
+                    "sigla": "SEMIN",
+                    "descricao": "X Seminário de Estudos da Mineração (SEMIN) do Ifes Campus Cachoeiro.",
+                    "ordem": 0
+                }
+            ],
+            "is_deleted": false
+        },
+        {
+            "id_public": "bc5cea1d-c18c-46c3-b3e5-f25fa81f0bc5",
+            "tipo": "Palestra",
+            "nome": "Rochas Ornamentais",
+            "palestrante_nome": "Bárbara Fardim - MAGBAN",
+            "descricao": null,
+            "data_inicio": "2026-10-20",
+            "data_fim": "2026-10-20",
+            "hora_inicio": "11:00:00",
+            "hora_fim": "12:00:00",
+            "local": {
+                "id": 48,
+                "evento_id": 13,
+                "sala": "Presencial",
+                "bloco": null,
+                "andar": null,
+                "outro": null
+            },
+            "carga_horaria_minutos": null,
+            "evento": {
+                "id_public": "942740b7-60a0-461f-8534-2fa502a44ed2",
+                "nome": "XV Jornada Acadêmica de Ciência, Tecnologia e Cultura do Ifes - Campus Cachoeiro de Itapemirim",
+                "descricao": "A Jornada Acadêmica de Ciência, Tecnologia e Cultura — JACITEC do Ifes - Campus Cachoeiro de Itapemirim é um evento de extensão cujo principal objetivo é divulgar as atividades de ensino, pesquisa e extensão desenvolvidas no campus para a comunidade interna e externa, além de promover a integração entre os participantes de diversas áreas. Integrando a 23ª Semana Nacional de Ciência e Tecnologia (SNCT), a XV JACITEC traz como tema central \"Ciência Delas: Mulheres em Ciência, Tecnologia e Inovação\", convidando toda a comunidade a reconhecer o potencial transformador da participação feminina e valorizar referências em todas as áreas do conhecimento.\n\nA JACITEC busca disseminar à comunidade interna e externa, as atividades de integração ensino, pesquisa e extensão dos diferentes e diversos cursos e programas ofertados pelo campus, além de integrar participantes de áreas distintas a partir de uma programação variada e proposta pelos cursos em ativa no Ifes - Campus Cachoeiro.",
+                "data_inicio": "2026-10-20T03:00:00Z",
+                "data_fim": "2026-10-24T02:59:59Z",
+                "slug": "xv-jornada-academica-de-ciencia-tecnologia-cultura",
+                "inscricoes_abertas": true,
+                "logo_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/logo.png",
+                "banner_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/banner.mp4",
+                "banner_tipo": "video",
+                "imagem_promocional_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/imagem-promocional.jpg",
+                "enderecos": [
+                    {
+                        "nome": "IFES Campus Cachoeiro de Itapemirim",
+                        "cep": "29311-970",
+                        "rua": "Rodovia Engenheiro Fabiano Vivácqua",
+                        "numero": 1568,
+                        "complemento": "Caixa Postal 727",
+                        "bairro": "Morro Grande",
+                        "cidade": "Cachoeiro de Itapemirim",
+                        "estado": "ES"
+                    }
+                ],
+                "categorias": [
+                    {
+                        "nome": "Acadêmico e Científico"
+                    },
+                    {
+                        "nome": "Cultural e Esportivo"
+                    },
+                    {
+                        "nome": "Extensão e Inovação"
+                    },
+                    {
+                        "nome": "Social e Comunitário"
+                    }
+                ],
+                "campos_extra": [
+                    {
+                        "nome": "Instituição ou Organização de Origem",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "IFES - Campus Cachoeiro de Itapemirim",
+                            "IFES - Outro Campus",
+                            "Outra Instituição de Ensino Pública (Municipal, Estadual ou Federal)",
+                            "Instituição de Ensino Privada (Escola ou Faculdade)",
+                            "Empresa Privada / Setor Produtivo",
+                            "Órgão Público / Governamental (Exceto IFES)",
+                            "Comunidade em Geral / Sem vínculo institucional"
+                        ],
+                        "permite_outro": false
+                    },
+                    {
+                        "nome": "Escolaridade",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "Ensino Fundamental",
+                            "Ensino Médio",
+                            "Técnico / Profissionalizante",
+                            "Superior Incompleto",
+                            "Superior Completo",
+                            "Pós-Graduação (Especialização / Mestrado / Doutorado)"
+                        ],
+                        "permite_outro": false
+                    }
+                ],
+                "carga_horaria_minutos": null
+            },
+            "secoes": [
+                {
+                    "id_public": "dab48870-a2da-4022-89e8-dda911632310",
+                    "nome": "Semana de Estudos de Mineração",
+                    "sigla": "SEMIN",
+                    "descricao": "X Seminário de Estudos da Mineração (SEMIN) do Ifes Campus Cachoeiro.",
+                    "ordem": 0
+                }
+            ],
+            "is_deleted": false
+        },
+        {
+            "id_public": "df8d0c47-d45f-4eff-af81-f5dfbbc62217",
+            "tipo": "Palestra",
+            "nome": "Geofísica Aplicada à Mineração",
+            "palestrante_nome": "Emilio Garcia Moreno - MineMindAi",
+            "descricao": null,
+            "data_inicio": "2026-10-20",
+            "data_fim": "2026-10-20",
+            "hora_inicio": "13:00:00",
+            "hora_fim": "14:00:00",
+            "local": {
+                "id": 47,
+                "evento_id": 13,
+                "sala": "-",
+                "bloco": null,
+                "andar": null,
+                "outro": null
+            },
+            "carga_horaria_minutos": null,
+            "evento": {
+                "id_public": "942740b7-60a0-461f-8534-2fa502a44ed2",
+                "nome": "XV Jornada Acadêmica de Ciência, Tecnologia e Cultura do Ifes - Campus Cachoeiro de Itapemirim",
+                "descricao": "A Jornada Acadêmica de Ciência, Tecnologia e Cultura — JACITEC do Ifes - Campus Cachoeiro de Itapemirim é um evento de extensão cujo principal objetivo é divulgar as atividades de ensino, pesquisa e extensão desenvolvidas no campus para a comunidade interna e externa, além de promover a integração entre os participantes de diversas áreas. Integrando a 23ª Semana Nacional de Ciência e Tecnologia (SNCT), a XV JACITEC traz como tema central \"Ciência Delas: Mulheres em Ciência, Tecnologia e Inovação\", convidando toda a comunidade a reconhecer o potencial transformador da participação feminina e valorizar referências em todas as áreas do conhecimento.\n\nA JACITEC busca disseminar à comunidade interna e externa, as atividades de integração ensino, pesquisa e extensão dos diferentes e diversos cursos e programas ofertados pelo campus, além de integrar participantes de áreas distintas a partir de uma programação variada e proposta pelos cursos em ativa no Ifes - Campus Cachoeiro.",
+                "data_inicio": "2026-10-20T03:00:00Z",
+                "data_fim": "2026-10-24T02:59:59Z",
+                "slug": "xv-jornada-academica-de-ciencia-tecnologia-cultura",
+                "inscricoes_abertas": true,
+                "logo_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/logo.png",
+                "banner_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/banner.mp4",
+                "banner_tipo": "video",
+                "imagem_promocional_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/imagem-promocional.jpg",
+                "enderecos": [
+                    {
+                        "nome": "IFES Campus Cachoeiro de Itapemirim",
+                        "cep": "29311-970",
+                        "rua": "Rodovia Engenheiro Fabiano Vivácqua",
+                        "numero": 1568,
+                        "complemento": "Caixa Postal 727",
+                        "bairro": "Morro Grande",
+                        "cidade": "Cachoeiro de Itapemirim",
+                        "estado": "ES"
+                    }
+                ],
+                "categorias": [
+                    {
+                        "nome": "Acadêmico e Científico"
+                    },
+                    {
+                        "nome": "Cultural e Esportivo"
+                    },
+                    {
+                        "nome": "Extensão e Inovação"
+                    },
+                    {
+                        "nome": "Social e Comunitário"
+                    }
+                ],
+                "campos_extra": [
+                    {
+                        "nome": "Instituição ou Organização de Origem",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "IFES - Campus Cachoeiro de Itapemirim",
+                            "IFES - Outro Campus",
+                            "Outra Instituição de Ensino Pública (Municipal, Estadual ou Federal)",
+                            "Instituição de Ensino Privada (Escola ou Faculdade)",
+                            "Empresa Privada / Setor Produtivo",
+                            "Órgão Público / Governamental (Exceto IFES)",
+                            "Comunidade em Geral / Sem vínculo institucional"
+                        ],
+                        "permite_outro": false
+                    },
+                    {
+                        "nome": "Escolaridade",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "Ensino Fundamental",
+                            "Ensino Médio",
+                            "Técnico / Profissionalizante",
+                            "Superior Incompleto",
+                            "Superior Completo",
+                            "Pós-Graduação (Especialização / Mestrado / Doutorado)"
+                        ],
+                        "permite_outro": false
+                    }
+                ],
+                "carga_horaria_minutos": null
+            },
+            "secoes": [
+                {
+                    "id_public": "dab48870-a2da-4022-89e8-dda911632310",
+                    "nome": "Semana de Estudos de Mineração",
+                    "sigla": "SEMIN",
+                    "descricao": "X Seminário de Estudos da Mineração (SEMIN) do Ifes Campus Cachoeiro.",
+                    "ordem": 0
+                }
+            ],
+            "is_deleted": false
+        },
+        {
+            "id_public": "e0f4245a-6425-4d99-9e2a-da285f5fdc94",
+            "tipo": "Oficina",
+            "nome": "Ofina, Palestras e Apresentações",
+            "palestrante_nome": "Geral/Jacitec",
+            "descricao": null,
+            "data_inicio": "2026-10-20",
+            "data_fim": "2026-10-20",
+            "hora_inicio": "13:00:00",
+            "hora_fim": "15:00:00",
+            "local": {
+                "id": 51,
+                "evento_id": 13,
+                "sala": "Pátio Central",
+                "bloco": null,
+                "andar": null,
+                "outro": null
+            },
+            "carga_horaria_minutos": 120,
+            "evento": {
+                "id_public": "942740b7-60a0-461f-8534-2fa502a44ed2",
+                "nome": "XV Jornada Acadêmica de Ciência, Tecnologia e Cultura do Ifes - Campus Cachoeiro de Itapemirim",
+                "descricao": "A Jornada Acadêmica de Ciência, Tecnologia e Cultura — JACITEC do Ifes - Campus Cachoeiro de Itapemirim é um evento de extensão cujo principal objetivo é divulgar as atividades de ensino, pesquisa e extensão desenvolvidas no campus para a comunidade interna e externa, além de promover a integração entre os participantes de diversas áreas. Integrando a 23ª Semana Nacional de Ciência e Tecnologia (SNCT), a XV JACITEC traz como tema central \"Ciência Delas: Mulheres em Ciência, Tecnologia e Inovação\", convidando toda a comunidade a reconhecer o potencial transformador da participação feminina e valorizar referências em todas as áreas do conhecimento.\n\nA JACITEC busca disseminar à comunidade interna e externa, as atividades de integração ensino, pesquisa e extensão dos diferentes e diversos cursos e programas ofertados pelo campus, além de integrar participantes de áreas distintas a partir de uma programação variada e proposta pelos cursos em ativa no Ifes - Campus Cachoeiro.",
+                "data_inicio": "2026-10-20T03:00:00Z",
+                "data_fim": "2026-10-24T02:59:59Z",
+                "slug": "xv-jornada-academica-de-ciencia-tecnologia-cultura",
+                "inscricoes_abertas": true,
+                "logo_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/logo.png",
+                "banner_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/banner.mp4",
+                "banner_tipo": "video",
+                "imagem_promocional_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/imagem-promocional.jpg",
+                "enderecos": [
+                    {
+                        "nome": "IFES Campus Cachoeiro de Itapemirim",
+                        "cep": "29311-970",
+                        "rua": "Rodovia Engenheiro Fabiano Vivácqua",
+                        "numero": 1568,
+                        "complemento": "Caixa Postal 727",
+                        "bairro": "Morro Grande",
+                        "cidade": "Cachoeiro de Itapemirim",
+                        "estado": "ES"
+                    }
+                ],
+                "categorias": [
+                    {
+                        "nome": "Acadêmico e Científico"
+                    },
+                    {
+                        "nome": "Cultural e Esportivo"
+                    },
+                    {
+                        "nome": "Extensão e Inovação"
+                    },
+                    {
+                        "nome": "Social e Comunitário"
+                    }
+                ],
+                "campos_extra": [
+                    {
+                        "nome": "Instituição ou Organização de Origem",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "IFES - Campus Cachoeiro de Itapemirim",
+                            "IFES - Outro Campus",
+                            "Outra Instituição de Ensino Pública (Municipal, Estadual ou Federal)",
+                            "Instituição de Ensino Privada (Escola ou Faculdade)",
+                            "Empresa Privada / Setor Produtivo",
+                            "Órgão Público / Governamental (Exceto IFES)",
+                            "Comunidade em Geral / Sem vínculo institucional"
+                        ],
+                        "permite_outro": false
+                    },
+                    {
+                        "nome": "Escolaridade",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "Ensino Fundamental",
+                            "Ensino Médio",
+                            "Técnico / Profissionalizante",
+                            "Superior Incompleto",
+                            "Superior Completo",
+                            "Pós-Graduação (Especialização / Mestrado / Doutorado)"
+                        ],
+                        "permite_outro": false
+                    }
+                ],
+                "carga_horaria_minutos": null
+            },
+            "secoes": [
+                {
+                    "id_public": "0a960b77-56d5-47e9-a93c-93a2a2f2ba0d",
+                    "nome": "JACITEC",
+                    "sigla": "JACITEC",
+                    "descricao": null,
+                    "ordem": 5
+                }
+            ],
+            "is_deleted": false
+        },
+        {
+            "id_public": "5c96993a-28c4-48f4-888e-f64091fe94aa",
+            "tipo": "Palestra",
+            "nome": "Mulheres na Pós-Graduação em Matemática: desafios e perspectivas em um campo de dominação masculina",
+            "palestrante_nome": "Dra. Alana Nunes Pereira",
+            "descricao": null,
+            "data_inicio": "2026-10-20",
+            "data_fim": "2026-10-20",
+            "hora_inicio": "14:00:00",
+            "hora_fim": "15:00:00",
+            "local": {
+                "id": 48,
+                "evento_id": 13,
+                "sala": "Presencial",
+                "bloco": null,
+                "andar": null,
+                "outro": null
+            },
+            "carga_horaria_minutos": 60,
+            "evento": {
+                "id_public": "942740b7-60a0-461f-8534-2fa502a44ed2",
+                "nome": "XV Jornada Acadêmica de Ciência, Tecnologia e Cultura do Ifes - Campus Cachoeiro de Itapemirim",
+                "descricao": "A Jornada Acadêmica de Ciência, Tecnologia e Cultura — JACITEC do Ifes - Campus Cachoeiro de Itapemirim é um evento de extensão cujo principal objetivo é divulgar as atividades de ensino, pesquisa e extensão desenvolvidas no campus para a comunidade interna e externa, além de promover a integração entre os participantes de diversas áreas. Integrando a 23ª Semana Nacional de Ciência e Tecnologia (SNCT), a XV JACITEC traz como tema central \"Ciência Delas: Mulheres em Ciência, Tecnologia e Inovação\", convidando toda a comunidade a reconhecer o potencial transformador da participação feminina e valorizar referências em todas as áreas do conhecimento.\n\nA JACITEC busca disseminar à comunidade interna e externa, as atividades de integração ensino, pesquisa e extensão dos diferentes e diversos cursos e programas ofertados pelo campus, além de integrar participantes de áreas distintas a partir de uma programação variada e proposta pelos cursos em ativa no Ifes - Campus Cachoeiro.",
+                "data_inicio": "2026-10-20T03:00:00Z",
+                "data_fim": "2026-10-24T02:59:59Z",
+                "slug": "xv-jornada-academica-de-ciencia-tecnologia-cultura",
+                "inscricoes_abertas": true,
+                "logo_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/logo.png",
+                "banner_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/banner.mp4",
+                "banner_tipo": "video",
+                "imagem_promocional_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/imagem-promocional.jpg",
+                "enderecos": [
+                    {
+                        "nome": "IFES Campus Cachoeiro de Itapemirim",
+                        "cep": "29311-970",
+                        "rua": "Rodovia Engenheiro Fabiano Vivácqua",
+                        "numero": 1568,
+                        "complemento": "Caixa Postal 727",
+                        "bairro": "Morro Grande",
+                        "cidade": "Cachoeiro de Itapemirim",
+                        "estado": "ES"
+                    }
+                ],
+                "categorias": [
+                    {
+                        "nome": "Acadêmico e Científico"
+                    },
+                    {
+                        "nome": "Cultural e Esportivo"
+                    },
+                    {
+                        "nome": "Extensão e Inovação"
+                    },
+                    {
+                        "nome": "Social e Comunitário"
+                    }
+                ],
+                "campos_extra": [
+                    {
+                        "nome": "Instituição ou Organização de Origem",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "IFES - Campus Cachoeiro de Itapemirim",
+                            "IFES - Outro Campus",
+                            "Outra Instituição de Ensino Pública (Municipal, Estadual ou Federal)",
+                            "Instituição de Ensino Privada (Escola ou Faculdade)",
+                            "Empresa Privada / Setor Produtivo",
+                            "Órgão Público / Governamental (Exceto IFES)",
+                            "Comunidade em Geral / Sem vínculo institucional"
+                        ],
+                        "permite_outro": false
+                    },
+                    {
+                        "nome": "Escolaridade",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "Ensino Fundamental",
+                            "Ensino Médio",
+                            "Técnico / Profissionalizante",
+                            "Superior Incompleto",
+                            "Superior Completo",
+                            "Pós-Graduação (Especialização / Mestrado / Doutorado)"
+                        ],
+                        "permite_outro": false
+                    }
+                ],
+                "carga_horaria_minutos": null
+            },
+            "secoes": [
+                {
+                    "id_public": "6c5d0d52-4bde-4f04-8074-a4ea7a2ba61c",
+                    "nome": "Semana da Matemática",
+                    "sigla": "SEMAT",
+                    "descricao": "Semana da Licenciatura em Matemática do Ifes Campus Cachoeiro",
+                    "ordem": 4
+                }
+            ],
+            "is_deleted": false
+        },
+        {
+            "id_public": "919286a9-ed81-471b-935c-9d2a142271b0",
+            "tipo": "Palestra",
+            "nome": "Planejamento Estocástico de Mina",
+            "palestrante_nome": "Douglas Alegre - KPI Solutions",
+            "descricao": null,
+            "data_inicio": "2026-10-20",
+            "data_fim": "2026-10-20",
+            "hora_inicio": "14:30:00",
+            "hora_fim": "15:30:00",
+            "local": {
+                "id": 46,
+                "evento_id": 13,
+                "sala": "Online",
+                "bloco": null,
+                "andar": null,
+                "outro": null
+            },
+            "carga_horaria_minutos": null,
+            "evento": {
+                "id_public": "942740b7-60a0-461f-8534-2fa502a44ed2",
+                "nome": "XV Jornada Acadêmica de Ciência, Tecnologia e Cultura do Ifes - Campus Cachoeiro de Itapemirim",
+                "descricao": "A Jornada Acadêmica de Ciência, Tecnologia e Cultura — JACITEC do Ifes - Campus Cachoeiro de Itapemirim é um evento de extensão cujo principal objetivo é divulgar as atividades de ensino, pesquisa e extensão desenvolvidas no campus para a comunidade interna e externa, além de promover a integração entre os participantes de diversas áreas. Integrando a 23ª Semana Nacional de Ciência e Tecnologia (SNCT), a XV JACITEC traz como tema central \"Ciência Delas: Mulheres em Ciência, Tecnologia e Inovação\", convidando toda a comunidade a reconhecer o potencial transformador da participação feminina e valorizar referências em todas as áreas do conhecimento.\n\nA JACITEC busca disseminar à comunidade interna e externa, as atividades de integração ensino, pesquisa e extensão dos diferentes e diversos cursos e programas ofertados pelo campus, além de integrar participantes de áreas distintas a partir de uma programação variada e proposta pelos cursos em ativa no Ifes - Campus Cachoeiro.",
+                "data_inicio": "2026-10-20T03:00:00Z",
+                "data_fim": "2026-10-24T02:59:59Z",
+                "slug": "xv-jornada-academica-de-ciencia-tecnologia-cultura",
+                "inscricoes_abertas": true,
+                "logo_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/logo.png",
+                "banner_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/banner.mp4",
+                "banner_tipo": "video",
+                "imagem_promocional_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/imagem-promocional.jpg",
+                "enderecos": [
+                    {
+                        "nome": "IFES Campus Cachoeiro de Itapemirim",
+                        "cep": "29311-970",
+                        "rua": "Rodovia Engenheiro Fabiano Vivácqua",
+                        "numero": 1568,
+                        "complemento": "Caixa Postal 727",
+                        "bairro": "Morro Grande",
+                        "cidade": "Cachoeiro de Itapemirim",
+                        "estado": "ES"
+                    }
+                ],
+                "categorias": [
+                    {
+                        "nome": "Acadêmico e Científico"
+                    },
+                    {
+                        "nome": "Cultural e Esportivo"
+                    },
+                    {
+                        "nome": "Extensão e Inovação"
+                    },
+                    {
+                        "nome": "Social e Comunitário"
+                    }
+                ],
+                "campos_extra": [
+                    {
+                        "nome": "Instituição ou Organização de Origem",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "IFES - Campus Cachoeiro de Itapemirim",
+                            "IFES - Outro Campus",
+                            "Outra Instituição de Ensino Pública (Municipal, Estadual ou Federal)",
+                            "Instituição de Ensino Privada (Escola ou Faculdade)",
+                            "Empresa Privada / Setor Produtivo",
+                            "Órgão Público / Governamental (Exceto IFES)",
+                            "Comunidade em Geral / Sem vínculo institucional"
+                        ],
+                        "permite_outro": false
+                    },
+                    {
+                        "nome": "Escolaridade",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "Ensino Fundamental",
+                            "Ensino Médio",
+                            "Técnico / Profissionalizante",
+                            "Superior Incompleto",
+                            "Superior Completo",
+                            "Pós-Graduação (Especialização / Mestrado / Doutorado)"
+                        ],
+                        "permite_outro": false
+                    }
+                ],
+                "carga_horaria_minutos": null
+            },
+            "secoes": [
+                {
+                    "id_public": "dab48870-a2da-4022-89e8-dda911632310",
+                    "nome": "Semana de Estudos de Mineração",
+                    "sigla": "SEMIN",
+                    "descricao": "X Seminário de Estudos da Mineração (SEMIN) do Ifes Campus Cachoeiro.",
+                    "ordem": 0
+                }
+            ],
+            "is_deleted": false
+        },
+        {
+            "id_public": "9c9c97c4-998f-4f91-8737-def69226c8f0",
+            "tipo": "Palestra",
+            "nome": "Noções de Comércio Exterior",
+            "palestrante_nome": "Wana Dorigo - IFES",
+            "descricao": null,
+            "data_inicio": "2026-10-20",
+            "data_fim": "2026-10-20",
+            "hora_inicio": "16:00:00",
+            "hora_fim": "17:00:00",
+            "local": {
+                "id": 48,
+                "evento_id": 13,
+                "sala": "Presencial",
+                "bloco": null,
+                "andar": null,
+                "outro": null
+            },
+            "carga_horaria_minutos": null,
+            "evento": {
+                "id_public": "942740b7-60a0-461f-8534-2fa502a44ed2",
+                "nome": "XV Jornada Acadêmica de Ciência, Tecnologia e Cultura do Ifes - Campus Cachoeiro de Itapemirim",
+                "descricao": "A Jornada Acadêmica de Ciência, Tecnologia e Cultura — JACITEC do Ifes - Campus Cachoeiro de Itapemirim é um evento de extensão cujo principal objetivo é divulgar as atividades de ensino, pesquisa e extensão desenvolvidas no campus para a comunidade interna e externa, além de promover a integração entre os participantes de diversas áreas. Integrando a 23ª Semana Nacional de Ciência e Tecnologia (SNCT), a XV JACITEC traz como tema central \"Ciência Delas: Mulheres em Ciência, Tecnologia e Inovação\", convidando toda a comunidade a reconhecer o potencial transformador da participação feminina e valorizar referências em todas as áreas do conhecimento.\n\nA JACITEC busca disseminar à comunidade interna e externa, as atividades de integração ensino, pesquisa e extensão dos diferentes e diversos cursos e programas ofertados pelo campus, além de integrar participantes de áreas distintas a partir de uma programação variada e proposta pelos cursos em ativa no Ifes - Campus Cachoeiro.",
+                "data_inicio": "2026-10-20T03:00:00Z",
+                "data_fim": "2026-10-24T02:59:59Z",
+                "slug": "xv-jornada-academica-de-ciencia-tecnologia-cultura",
+                "inscricoes_abertas": true,
+                "logo_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/logo.png",
+                "banner_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/banner.mp4",
+                "banner_tipo": "video",
+                "imagem_promocional_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/imagem-promocional.jpg",
+                "enderecos": [
+                    {
+                        "nome": "IFES Campus Cachoeiro de Itapemirim",
+                        "cep": "29311-970",
+                        "rua": "Rodovia Engenheiro Fabiano Vivácqua",
+                        "numero": 1568,
+                        "complemento": "Caixa Postal 727",
+                        "bairro": "Morro Grande",
+                        "cidade": "Cachoeiro de Itapemirim",
+                        "estado": "ES"
+                    }
+                ],
+                "categorias": [
+                    {
+                        "nome": "Acadêmico e Científico"
+                    },
+                    {
+                        "nome": "Cultural e Esportivo"
+                    },
+                    {
+                        "nome": "Extensão e Inovação"
+                    },
+                    {
+                        "nome": "Social e Comunitário"
+                    }
+                ],
+                "campos_extra": [
+                    {
+                        "nome": "Instituição ou Organização de Origem",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "IFES - Campus Cachoeiro de Itapemirim",
+                            "IFES - Outro Campus",
+                            "Outra Instituição de Ensino Pública (Municipal, Estadual ou Federal)",
+                            "Instituição de Ensino Privada (Escola ou Faculdade)",
+                            "Empresa Privada / Setor Produtivo",
+                            "Órgão Público / Governamental (Exceto IFES)",
+                            "Comunidade em Geral / Sem vínculo institucional"
+                        ],
+                        "permite_outro": false
+                    },
+                    {
+                        "nome": "Escolaridade",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "Ensino Fundamental",
+                            "Ensino Médio",
+                            "Técnico / Profissionalizante",
+                            "Superior Incompleto",
+                            "Superior Completo",
+                            "Pós-Graduação (Especialização / Mestrado / Doutorado)"
+                        ],
+                        "permite_outro": false
+                    }
+                ],
+                "carga_horaria_minutos": null
+            },
+            "secoes": [
+                {
+                    "id_public": "dab48870-a2da-4022-89e8-dda911632310",
+                    "nome": "Semana de Estudos de Mineração",
+                    "sigla": "SEMIN",
+                    "descricao": "X Seminário de Estudos da Mineração (SEMIN) do Ifes Campus Cachoeiro.",
+                    "ordem": 0
+                }
+            ],
+            "is_deleted": false
+        },
+        {
+            "id_public": "35c77a69-e785-47d3-b56a-ce7c556dc459",
+            "tipo": "Palestra",
+            "nome": "Roda de Conversa - Mulheres na Engenharia",
+            "palestrante_nome": "Jorgeana",
+            "descricao": null,
+            "data_inicio": "2026-10-20",
+            "data_fim": "2026-10-20",
+            "hora_inicio": "17:00:00",
+            "hora_fim": "18:00:00",
+            "local": {
+                "id": 48,
+                "evento_id": 13,
+                "sala": "Presencial",
+                "bloco": null,
+                "andar": null,
+                "outro": null
+            },
+            "carga_horaria_minutos": null,
+            "evento": {
+                "id_public": "942740b7-60a0-461f-8534-2fa502a44ed2",
+                "nome": "XV Jornada Acadêmica de Ciência, Tecnologia e Cultura do Ifes - Campus Cachoeiro de Itapemirim",
+                "descricao": "A Jornada Acadêmica de Ciência, Tecnologia e Cultura — JACITEC do Ifes - Campus Cachoeiro de Itapemirim é um evento de extensão cujo principal objetivo é divulgar as atividades de ensino, pesquisa e extensão desenvolvidas no campus para a comunidade interna e externa, além de promover a integração entre os participantes de diversas áreas. Integrando a 23ª Semana Nacional de Ciência e Tecnologia (SNCT), a XV JACITEC traz como tema central \"Ciência Delas: Mulheres em Ciência, Tecnologia e Inovação\", convidando toda a comunidade a reconhecer o potencial transformador da participação feminina e valorizar referências em todas as áreas do conhecimento.\n\nA JACITEC busca disseminar à comunidade interna e externa, as atividades de integração ensino, pesquisa e extensão dos diferentes e diversos cursos e programas ofertados pelo campus, além de integrar participantes de áreas distintas a partir de uma programação variada e proposta pelos cursos em ativa no Ifes - Campus Cachoeiro.",
+                "data_inicio": "2026-10-20T03:00:00Z",
+                "data_fim": "2026-10-24T02:59:59Z",
+                "slug": "xv-jornada-academica-de-ciencia-tecnologia-cultura",
+                "inscricoes_abertas": true,
+                "logo_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/logo.png",
+                "banner_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/banner.mp4",
+                "banner_tipo": "video",
+                "imagem_promocional_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/imagem-promocional.jpg",
+                "enderecos": [
+                    {
+                        "nome": "IFES Campus Cachoeiro de Itapemirim",
+                        "cep": "29311-970",
+                        "rua": "Rodovia Engenheiro Fabiano Vivácqua",
+                        "numero": 1568,
+                        "complemento": "Caixa Postal 727",
+                        "bairro": "Morro Grande",
+                        "cidade": "Cachoeiro de Itapemirim",
+                        "estado": "ES"
+                    }
+                ],
+                "categorias": [
+                    {
+                        "nome": "Acadêmico e Científico"
+                    },
+                    {
+                        "nome": "Cultural e Esportivo"
+                    },
+                    {
+                        "nome": "Extensão e Inovação"
+                    },
+                    {
+                        "nome": "Social e Comunitário"
+                    }
+                ],
+                "campos_extra": [
+                    {
+                        "nome": "Instituição ou Organização de Origem",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "IFES - Campus Cachoeiro de Itapemirim",
+                            "IFES - Outro Campus",
+                            "Outra Instituição de Ensino Pública (Municipal, Estadual ou Federal)",
+                            "Instituição de Ensino Privada (Escola ou Faculdade)",
+                            "Empresa Privada / Setor Produtivo",
+                            "Órgão Público / Governamental (Exceto IFES)",
+                            "Comunidade em Geral / Sem vínculo institucional"
+                        ],
+                        "permite_outro": false
+                    },
+                    {
+                        "nome": "Escolaridade",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "Ensino Fundamental",
+                            "Ensino Médio",
+                            "Técnico / Profissionalizante",
+                            "Superior Incompleto",
+                            "Superior Completo",
+                            "Pós-Graduação (Especialização / Mestrado / Doutorado)"
+                        ],
+                        "permite_outro": false
+                    }
+                ],
+                "carga_horaria_minutos": null
+            },
+            "secoes": [
+                {
+                    "id_public": "dab48870-a2da-4022-89e8-dda911632310",
+                    "nome": "Semana de Estudos de Mineração",
+                    "sigla": "SEMIN",
+                    "descricao": "X Seminário de Estudos da Mineração (SEMIN) do Ifes Campus Cachoeiro.",
+                    "ordem": 0
+                }
+            ],
+            "is_deleted": false
+        },
+        {
+            "id_public": "65264dad-eff8-4e02-b807-6070303acc89",
+            "tipo": "Apresentação Científica",
+            "nome": "Minerais no Cotidiano",
+            "palestrante_nome": "Projeto de Extensão",
+            "descricao": null,
+            "data_inicio": "2026-10-21",
+            "data_fim": "2026-10-21",
+            "hora_inicio": "09:00:00",
+            "hora_fim": "09:20:00",
+            "local": {
+                "id": 48,
+                "evento_id": 13,
+                "sala": "Presencial",
+                "bloco": null,
+                "andar": null,
+                "outro": null
+            },
+            "carga_horaria_minutos": null,
+            "evento": {
+                "id_public": "942740b7-60a0-461f-8534-2fa502a44ed2",
+                "nome": "XV Jornada Acadêmica de Ciência, Tecnologia e Cultura do Ifes - Campus Cachoeiro de Itapemirim",
+                "descricao": "A Jornada Acadêmica de Ciência, Tecnologia e Cultura — JACITEC do Ifes - Campus Cachoeiro de Itapemirim é um evento de extensão cujo principal objetivo é divulgar as atividades de ensino, pesquisa e extensão desenvolvidas no campus para a comunidade interna e externa, além de promover a integração entre os participantes de diversas áreas. Integrando a 23ª Semana Nacional de Ciência e Tecnologia (SNCT), a XV JACITEC traz como tema central \"Ciência Delas: Mulheres em Ciência, Tecnologia e Inovação\", convidando toda a comunidade a reconhecer o potencial transformador da participação feminina e valorizar referências em todas as áreas do conhecimento.\n\nA JACITEC busca disseminar à comunidade interna e externa, as atividades de integração ensino, pesquisa e extensão dos diferentes e diversos cursos e programas ofertados pelo campus, além de integrar participantes de áreas distintas a partir de uma programação variada e proposta pelos cursos em ativa no Ifes - Campus Cachoeiro.",
+                "data_inicio": "2026-10-20T03:00:00Z",
+                "data_fim": "2026-10-24T02:59:59Z",
+                "slug": "xv-jornada-academica-de-ciencia-tecnologia-cultura",
+                "inscricoes_abertas": true,
+                "logo_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/logo.png",
+                "banner_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/banner.mp4",
+                "banner_tipo": "video",
+                "imagem_promocional_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/imagem-promocional.jpg",
+                "enderecos": [
+                    {
+                        "nome": "IFES Campus Cachoeiro de Itapemirim",
+                        "cep": "29311-970",
+                        "rua": "Rodovia Engenheiro Fabiano Vivácqua",
+                        "numero": 1568,
+                        "complemento": "Caixa Postal 727",
+                        "bairro": "Morro Grande",
+                        "cidade": "Cachoeiro de Itapemirim",
+                        "estado": "ES"
+                    }
+                ],
+                "categorias": [
+                    {
+                        "nome": "Acadêmico e Científico"
+                    },
+                    {
+                        "nome": "Cultural e Esportivo"
+                    },
+                    {
+                        "nome": "Extensão e Inovação"
+                    },
+                    {
+                        "nome": "Social e Comunitário"
+                    }
+                ],
+                "campos_extra": [
+                    {
+                        "nome": "Instituição ou Organização de Origem",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "IFES - Campus Cachoeiro de Itapemirim",
+                            "IFES - Outro Campus",
+                            "Outra Instituição de Ensino Pública (Municipal, Estadual ou Federal)",
+                            "Instituição de Ensino Privada (Escola ou Faculdade)",
+                            "Empresa Privada / Setor Produtivo",
+                            "Órgão Público / Governamental (Exceto IFES)",
+                            "Comunidade em Geral / Sem vínculo institucional"
+                        ],
+                        "permite_outro": false
+                    },
+                    {
+                        "nome": "Escolaridade",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "Ensino Fundamental",
+                            "Ensino Médio",
+                            "Técnico / Profissionalizante",
+                            "Superior Incompleto",
+                            "Superior Completo",
+                            "Pós-Graduação (Especialização / Mestrado / Doutorado)"
+                        ],
+                        "permite_outro": false
+                    }
+                ],
+                "carga_horaria_minutos": null
+            },
+            "secoes": [
+                {
+                    "id_public": "dab48870-a2da-4022-89e8-dda911632310",
+                    "nome": "Semana de Estudos de Mineração",
+                    "sigla": "SEMIN",
+                    "descricao": "X Seminário de Estudos da Mineração (SEMIN) do Ifes Campus Cachoeiro.",
+                    "ordem": 0
+                }
+            ],
+            "is_deleted": false
+        },
+        {
             "id_public": "d8144866-ebbd-496e-9fcf-9210a65d6f80",
             "tipo": "Apresentação Científica",
             "nome": "Descobrindo a Engenharia de Minas",
@@ -617,9 +1853,730 @@
                 }
             ],
             "is_deleted": false
+        },
+        {
+            "id_public": "2f6ee0cc-8286-4824-b700-af9b77734a8a",
+            "tipo": "Palestra",
+            "nome": "A Matemática não é Neutra, é Masculina",
+            "palestrante_nome": "Dra. Yasmin Cartaxo Lima",
+            "descricao": null,
+            "data_inicio": "2026-10-21",
+            "data_fim": "2026-10-21",
+            "hora_inicio": "19:00:00",
+            "hora_fim": "20:00:00",
+            "local": {
+                "id": 46,
+                "evento_id": 13,
+                "sala": "Online",
+                "bloco": null,
+                "andar": null,
+                "outro": null
+            },
+            "carga_horaria_minutos": 60,
+            "evento": {
+                "id_public": "942740b7-60a0-461f-8534-2fa502a44ed2",
+                "nome": "XV Jornada Acadêmica de Ciência, Tecnologia e Cultura do Ifes - Campus Cachoeiro de Itapemirim",
+                "descricao": "A Jornada Acadêmica de Ciência, Tecnologia e Cultura — JACITEC do Ifes - Campus Cachoeiro de Itapemirim é um evento de extensão cujo principal objetivo é divulgar as atividades de ensino, pesquisa e extensão desenvolvidas no campus para a comunidade interna e externa, além de promover a integração entre os participantes de diversas áreas. Integrando a 23ª Semana Nacional de Ciência e Tecnologia (SNCT), a XV JACITEC traz como tema central \"Ciência Delas: Mulheres em Ciência, Tecnologia e Inovação\", convidando toda a comunidade a reconhecer o potencial transformador da participação feminina e valorizar referências em todas as áreas do conhecimento.\n\nA JACITEC busca disseminar à comunidade interna e externa, as atividades de integração ensino, pesquisa e extensão dos diferentes e diversos cursos e programas ofertados pelo campus, além de integrar participantes de áreas distintas a partir de uma programação variada e proposta pelos cursos em ativa no Ifes - Campus Cachoeiro.",
+                "data_inicio": "2026-10-20T03:00:00Z",
+                "data_fim": "2026-10-24T02:59:59Z",
+                "slug": "xv-jornada-academica-de-ciencia-tecnologia-cultura",
+                "inscricoes_abertas": true,
+                "logo_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/logo.png",
+                "banner_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/banner.mp4",
+                "banner_tipo": "video",
+                "imagem_promocional_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/imagem-promocional.jpg",
+                "enderecos": [
+                    {
+                        "nome": "IFES Campus Cachoeiro de Itapemirim",
+                        "cep": "29311-970",
+                        "rua": "Rodovia Engenheiro Fabiano Vivácqua",
+                        "numero": 1568,
+                        "complemento": "Caixa Postal 727",
+                        "bairro": "Morro Grande",
+                        "cidade": "Cachoeiro de Itapemirim",
+                        "estado": "ES"
+                    }
+                ],
+                "categorias": [
+                    {
+                        "nome": "Acadêmico e Científico"
+                    },
+                    {
+                        "nome": "Cultural e Esportivo"
+                    },
+                    {
+                        "nome": "Extensão e Inovação"
+                    },
+                    {
+                        "nome": "Social e Comunitário"
+                    }
+                ],
+                "campos_extra": [
+                    {
+                        "nome": "Instituição ou Organização de Origem",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "IFES - Campus Cachoeiro de Itapemirim",
+                            "IFES - Outro Campus",
+                            "Outra Instituição de Ensino Pública (Municipal, Estadual ou Federal)",
+                            "Instituição de Ensino Privada (Escola ou Faculdade)",
+                            "Empresa Privada / Setor Produtivo",
+                            "Órgão Público / Governamental (Exceto IFES)",
+                            "Comunidade em Geral / Sem vínculo institucional"
+                        ],
+                        "permite_outro": false
+                    },
+                    {
+                        "nome": "Escolaridade",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "Ensino Fundamental",
+                            "Ensino Médio",
+                            "Técnico / Profissionalizante",
+                            "Superior Incompleto",
+                            "Superior Completo",
+                            "Pós-Graduação (Especialização / Mestrado / Doutorado)"
+                        ],
+                        "permite_outro": false
+                    }
+                ],
+                "carga_horaria_minutos": null
+            },
+            "secoes": [
+                {
+                    "id_public": "6c5d0d52-4bde-4f04-8074-a4ea7a2ba61c",
+                    "nome": "Semana da Matemática",
+                    "sigla": "SEMAT",
+                    "descricao": "Semana da Licenciatura em Matemática do Ifes Campus Cachoeiro",
+                    "ordem": 4
+                }
+            ],
+            "is_deleted": false
+        },
+        {
+            "id_public": "93d67030-5018-4c82-b8b0-abf3e42d597f",
+            "tipo": "Palestra",
+            "nome": "Não sou eu uma mulher? Entre invisibilidade e resistência, os desafios da mulher negra",
+            "palestrante_nome": "Luciene Carla Correa Francelino",
+            "descricao": null,
+            "data_inicio": "2026-10-22",
+            "data_fim": "2026-10-22",
+            "hora_inicio": "10:00:00",
+            "hora_fim": "12:20:00",
+            "local": {
+                "id": 51,
+                "evento_id": 13,
+                "sala": "Pátio Central",
+                "bloco": null,
+                "andar": null,
+                "outro": null
+            },
+            "carga_horaria_minutos": 140,
+            "evento": {
+                "id_public": "942740b7-60a0-461f-8534-2fa502a44ed2",
+                "nome": "XV Jornada Acadêmica de Ciência, Tecnologia e Cultura do Ifes - Campus Cachoeiro de Itapemirim",
+                "descricao": "A Jornada Acadêmica de Ciência, Tecnologia e Cultura — JACITEC do Ifes - Campus Cachoeiro de Itapemirim é um evento de extensão cujo principal objetivo é divulgar as atividades de ensino, pesquisa e extensão desenvolvidas no campus para a comunidade interna e externa, além de promover a integração entre os participantes de diversas áreas. Integrando a 23ª Semana Nacional de Ciência e Tecnologia (SNCT), a XV JACITEC traz como tema central \"Ciência Delas: Mulheres em Ciência, Tecnologia e Inovação\", convidando toda a comunidade a reconhecer o potencial transformador da participação feminina e valorizar referências em todas as áreas do conhecimento.\n\nA JACITEC busca disseminar à comunidade interna e externa, as atividades de integração ensino, pesquisa e extensão dos diferentes e diversos cursos e programas ofertados pelo campus, além de integrar participantes de áreas distintas a partir de uma programação variada e proposta pelos cursos em ativa no Ifes - Campus Cachoeiro.",
+                "data_inicio": "2026-10-20T03:00:00Z",
+                "data_fim": "2026-10-24T02:59:59Z",
+                "slug": "xv-jornada-academica-de-ciencia-tecnologia-cultura",
+                "inscricoes_abertas": true,
+                "logo_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/logo.png",
+                "banner_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/banner.mp4",
+                "banner_tipo": "video",
+                "imagem_promocional_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/imagem-promocional.jpg",
+                "enderecos": [
+                    {
+                        "nome": "IFES Campus Cachoeiro de Itapemirim",
+                        "cep": "29311-970",
+                        "rua": "Rodovia Engenheiro Fabiano Vivácqua",
+                        "numero": 1568,
+                        "complemento": "Caixa Postal 727",
+                        "bairro": "Morro Grande",
+                        "cidade": "Cachoeiro de Itapemirim",
+                        "estado": "ES"
+                    }
+                ],
+                "categorias": [
+                    {
+                        "nome": "Acadêmico e Científico"
+                    },
+                    {
+                        "nome": "Cultural e Esportivo"
+                    },
+                    {
+                        "nome": "Extensão e Inovação"
+                    },
+                    {
+                        "nome": "Social e Comunitário"
+                    }
+                ],
+                "campos_extra": [
+                    {
+                        "nome": "Instituição ou Organização de Origem",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "IFES - Campus Cachoeiro de Itapemirim",
+                            "IFES - Outro Campus",
+                            "Outra Instituição de Ensino Pública (Municipal, Estadual ou Federal)",
+                            "Instituição de Ensino Privada (Escola ou Faculdade)",
+                            "Empresa Privada / Setor Produtivo",
+                            "Órgão Público / Governamental (Exceto IFES)",
+                            "Comunidade em Geral / Sem vínculo institucional"
+                        ],
+                        "permite_outro": false
+                    },
+                    {
+                        "nome": "Escolaridade",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "Ensino Fundamental",
+                            "Ensino Médio",
+                            "Técnico / Profissionalizante",
+                            "Superior Incompleto",
+                            "Superior Completo",
+                            "Pós-Graduação (Especialização / Mestrado / Doutorado)"
+                        ],
+                        "permite_outro": false
+                    }
+                ],
+                "carga_horaria_minutos": null
+            },
+            "secoes": [
+                {
+                    "id_public": "5d0fcd6c-a51d-4724-9283-c1282abc9a9a",
+                    "nome": "Seminário de Humanidades",
+                    "sigla": "HUM",
+                    "descricao": "V Seminário de Humanidades",
+                    "ordem": 3
+                }
+            ],
+            "is_deleted": false
+        },
+        {
+            "id_public": "fd0e6fe6-f336-455e-861b-e2659a4a0f05",
+            "tipo": "Mesa Redonda / Painel",
+            "nome": "Quem pode fazer ciência? Gênero, poder e permanência nas áreas de Ciência, Tecnologia e Inovação",
+            "palestrante_nome": "Dra. Janaína Dutra Silvestre Mendes",
+            "descricao": null,
+            "data_inicio": "2026-10-22",
+            "data_fim": "2026-10-22",
+            "hora_inicio": "13:30:00",
+            "hora_fim": "15:30:00",
+            "local": {
+                "id": 51,
+                "evento_id": 13,
+                "sala": "Pátio Central",
+                "bloco": null,
+                "andar": null,
+                "outro": null
+            },
+            "carga_horaria_minutos": 120,
+            "evento": {
+                "id_public": "942740b7-60a0-461f-8534-2fa502a44ed2",
+                "nome": "XV Jornada Acadêmica de Ciência, Tecnologia e Cultura do Ifes - Campus Cachoeiro de Itapemirim",
+                "descricao": "A Jornada Acadêmica de Ciência, Tecnologia e Cultura — JACITEC do Ifes - Campus Cachoeiro de Itapemirim é um evento de extensão cujo principal objetivo é divulgar as atividades de ensino, pesquisa e extensão desenvolvidas no campus para a comunidade interna e externa, além de promover a integração entre os participantes de diversas áreas. Integrando a 23ª Semana Nacional de Ciência e Tecnologia (SNCT), a XV JACITEC traz como tema central \"Ciência Delas: Mulheres em Ciência, Tecnologia e Inovação\", convidando toda a comunidade a reconhecer o potencial transformador da participação feminina e valorizar referências em todas as áreas do conhecimento.\n\nA JACITEC busca disseminar à comunidade interna e externa, as atividades de integração ensino, pesquisa e extensão dos diferentes e diversos cursos e programas ofertados pelo campus, além de integrar participantes de áreas distintas a partir de uma programação variada e proposta pelos cursos em ativa no Ifes - Campus Cachoeiro.",
+                "data_inicio": "2026-10-20T03:00:00Z",
+                "data_fim": "2026-10-24T02:59:59Z",
+                "slug": "xv-jornada-academica-de-ciencia-tecnologia-cultura",
+                "inscricoes_abertas": true,
+                "logo_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/logo.png",
+                "banner_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/banner.mp4",
+                "banner_tipo": "video",
+                "imagem_promocional_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/imagem-promocional.jpg",
+                "enderecos": [
+                    {
+                        "nome": "IFES Campus Cachoeiro de Itapemirim",
+                        "cep": "29311-970",
+                        "rua": "Rodovia Engenheiro Fabiano Vivácqua",
+                        "numero": 1568,
+                        "complemento": "Caixa Postal 727",
+                        "bairro": "Morro Grande",
+                        "cidade": "Cachoeiro de Itapemirim",
+                        "estado": "ES"
+                    }
+                ],
+                "categorias": [
+                    {
+                        "nome": "Acadêmico e Científico"
+                    },
+                    {
+                        "nome": "Cultural e Esportivo"
+                    },
+                    {
+                        "nome": "Extensão e Inovação"
+                    },
+                    {
+                        "nome": "Social e Comunitário"
+                    }
+                ],
+                "campos_extra": [
+                    {
+                        "nome": "Instituição ou Organização de Origem",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "IFES - Campus Cachoeiro de Itapemirim",
+                            "IFES - Outro Campus",
+                            "Outra Instituição de Ensino Pública (Municipal, Estadual ou Federal)",
+                            "Instituição de Ensino Privada (Escola ou Faculdade)",
+                            "Empresa Privada / Setor Produtivo",
+                            "Órgão Público / Governamental (Exceto IFES)",
+                            "Comunidade em Geral / Sem vínculo institucional"
+                        ],
+                        "permite_outro": false
+                    },
+                    {
+                        "nome": "Escolaridade",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "Ensino Fundamental",
+                            "Ensino Médio",
+                            "Técnico / Profissionalizante",
+                            "Superior Incompleto",
+                            "Superior Completo",
+                            "Pós-Graduação (Especialização / Mestrado / Doutorado)"
+                        ],
+                        "permite_outro": false
+                    }
+                ],
+                "carga_horaria_minutos": null
+            },
+            "secoes": [
+                {
+                    "id_public": "5d0fcd6c-a51d-4724-9283-c1282abc9a9a",
+                    "nome": "Seminário de Humanidades",
+                    "sigla": "HUM",
+                    "descricao": "V Seminário de Humanidades",
+                    "ordem": 3
+                }
+            ],
+            "is_deleted": false
+        },
+        {
+            "id_public": "9a6ec8b8-2c9c-42e7-934f-abd88b8f64d5",
+            "tipo": "Palestra",
+            "nome": "O Segredo das Questões Objetivas: o que você erra, mas você não sabe",
+            "palestrante_nome": "Profa. Dra. Elda Alvarenga e Prof. Dr. João Jerry Tononi",
+            "descricao": null,
+            "data_inicio": "2026-10-22",
+            "data_fim": "2026-10-22",
+            "hora_inicio": "19:00:00",
+            "hora_fim": "20:00:00",
+            "local": {
+                "id": 48,
+                "evento_id": 13,
+                "sala": "Presencial",
+                "bloco": null,
+                "andar": null,
+                "outro": null
+            },
+            "carga_horaria_minutos": 60,
+            "evento": {
+                "id_public": "942740b7-60a0-461f-8534-2fa502a44ed2",
+                "nome": "XV Jornada Acadêmica de Ciência, Tecnologia e Cultura do Ifes - Campus Cachoeiro de Itapemirim",
+                "descricao": "A Jornada Acadêmica de Ciência, Tecnologia e Cultura — JACITEC do Ifes - Campus Cachoeiro de Itapemirim é um evento de extensão cujo principal objetivo é divulgar as atividades de ensino, pesquisa e extensão desenvolvidas no campus para a comunidade interna e externa, além de promover a integração entre os participantes de diversas áreas. Integrando a 23ª Semana Nacional de Ciência e Tecnologia (SNCT), a XV JACITEC traz como tema central \"Ciência Delas: Mulheres em Ciência, Tecnologia e Inovação\", convidando toda a comunidade a reconhecer o potencial transformador da participação feminina e valorizar referências em todas as áreas do conhecimento.\n\nA JACITEC busca disseminar à comunidade interna e externa, as atividades de integração ensino, pesquisa e extensão dos diferentes e diversos cursos e programas ofertados pelo campus, além de integrar participantes de áreas distintas a partir de uma programação variada e proposta pelos cursos em ativa no Ifes - Campus Cachoeiro.",
+                "data_inicio": "2026-10-20T03:00:00Z",
+                "data_fim": "2026-10-24T02:59:59Z",
+                "slug": "xv-jornada-academica-de-ciencia-tecnologia-cultura",
+                "inscricoes_abertas": true,
+                "logo_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/logo.png",
+                "banner_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/banner.mp4",
+                "banner_tipo": "video",
+                "imagem_promocional_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/imagem-promocional.jpg",
+                "enderecos": [
+                    {
+                        "nome": "IFES Campus Cachoeiro de Itapemirim",
+                        "cep": "29311-970",
+                        "rua": "Rodovia Engenheiro Fabiano Vivácqua",
+                        "numero": 1568,
+                        "complemento": "Caixa Postal 727",
+                        "bairro": "Morro Grande",
+                        "cidade": "Cachoeiro de Itapemirim",
+                        "estado": "ES"
+                    }
+                ],
+                "categorias": [
+                    {
+                        "nome": "Acadêmico e Científico"
+                    },
+                    {
+                        "nome": "Cultural e Esportivo"
+                    },
+                    {
+                        "nome": "Extensão e Inovação"
+                    },
+                    {
+                        "nome": "Social e Comunitário"
+                    }
+                ],
+                "campos_extra": [
+                    {
+                        "nome": "Instituição ou Organização de Origem",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "IFES - Campus Cachoeiro de Itapemirim",
+                            "IFES - Outro Campus",
+                            "Outra Instituição de Ensino Pública (Municipal, Estadual ou Federal)",
+                            "Instituição de Ensino Privada (Escola ou Faculdade)",
+                            "Empresa Privada / Setor Produtivo",
+                            "Órgão Público / Governamental (Exceto IFES)",
+                            "Comunidade em Geral / Sem vínculo institucional"
+                        ],
+                        "permite_outro": false
+                    },
+                    {
+                        "nome": "Escolaridade",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "Ensino Fundamental",
+                            "Ensino Médio",
+                            "Técnico / Profissionalizante",
+                            "Superior Incompleto",
+                            "Superior Completo",
+                            "Pós-Graduação (Especialização / Mestrado / Doutorado)"
+                        ],
+                        "permite_outro": false
+                    }
+                ],
+                "carga_horaria_minutos": null
+            },
+            "secoes": [
+                {
+                    "id_public": "6c5d0d52-4bde-4f04-8074-a4ea7a2ba61c",
+                    "nome": "Semana da Matemática",
+                    "sigla": "SEMAT",
+                    "descricao": "Semana da Licenciatura em Matemática do Ifes Campus Cachoeiro",
+                    "ordem": 4
+                }
+            ],
+            "is_deleted": false
+        },
+        {
+            "id_public": "29ef31f6-cbc7-42fd-83a5-0f25467db68b",
+            "tipo": "Mesa Redonda / Painel",
+            "nome": "Caminhos delas: Mulheres, formação e futuro",
+            "palestrante_nome": "Comissão Organizadora / Direção-Geral",
+            "descricao": null,
+            "data_inicio": "2026-10-23",
+            "data_fim": "2026-10-23",
+            "hora_inicio": "09:00:00",
+            "hora_fim": "11:00:00",
+            "local": {
+                "id": 51,
+                "evento_id": 13,
+                "sala": "Pátio Central",
+                "bloco": null,
+                "andar": null,
+                "outro": null
+            },
+            "carga_horaria_minutos": 120,
+            "evento": {
+                "id_public": "942740b7-60a0-461f-8534-2fa502a44ed2",
+                "nome": "XV Jornada Acadêmica de Ciência, Tecnologia e Cultura do Ifes - Campus Cachoeiro de Itapemirim",
+                "descricao": "A Jornada Acadêmica de Ciência, Tecnologia e Cultura — JACITEC do Ifes - Campus Cachoeiro de Itapemirim é um evento de extensão cujo principal objetivo é divulgar as atividades de ensino, pesquisa e extensão desenvolvidas no campus para a comunidade interna e externa, além de promover a integração entre os participantes de diversas áreas. Integrando a 23ª Semana Nacional de Ciência e Tecnologia (SNCT), a XV JACITEC traz como tema central \"Ciência Delas: Mulheres em Ciência, Tecnologia e Inovação\", convidando toda a comunidade a reconhecer o potencial transformador da participação feminina e valorizar referências em todas as áreas do conhecimento.\n\nA JACITEC busca disseminar à comunidade interna e externa, as atividades de integração ensino, pesquisa e extensão dos diferentes e diversos cursos e programas ofertados pelo campus, além de integrar participantes de áreas distintas a partir de uma programação variada e proposta pelos cursos em ativa no Ifes - Campus Cachoeiro.",
+                "data_inicio": "2026-10-20T03:00:00Z",
+                "data_fim": "2026-10-24T02:59:59Z",
+                "slug": "xv-jornada-academica-de-ciencia-tecnologia-cultura",
+                "inscricoes_abertas": true,
+                "logo_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/logo.png",
+                "banner_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/banner.mp4",
+                "banner_tipo": "video",
+                "imagem_promocional_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/imagem-promocional.jpg",
+                "enderecos": [
+                    {
+                        "nome": "IFES Campus Cachoeiro de Itapemirim",
+                        "cep": "29311-970",
+                        "rua": "Rodovia Engenheiro Fabiano Vivácqua",
+                        "numero": 1568,
+                        "complemento": "Caixa Postal 727",
+                        "bairro": "Morro Grande",
+                        "cidade": "Cachoeiro de Itapemirim",
+                        "estado": "ES"
+                    }
+                ],
+                "categorias": [
+                    {
+                        "nome": "Acadêmico e Científico"
+                    },
+                    {
+                        "nome": "Cultural e Esportivo"
+                    },
+                    {
+                        "nome": "Extensão e Inovação"
+                    },
+                    {
+                        "nome": "Social e Comunitário"
+                    }
+                ],
+                "campos_extra": [
+                    {
+                        "nome": "Instituição ou Organização de Origem",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "IFES - Campus Cachoeiro de Itapemirim",
+                            "IFES - Outro Campus",
+                            "Outra Instituição de Ensino Pública (Municipal, Estadual ou Federal)",
+                            "Instituição de Ensino Privada (Escola ou Faculdade)",
+                            "Empresa Privada / Setor Produtivo",
+                            "Órgão Público / Governamental (Exceto IFES)",
+                            "Comunidade em Geral / Sem vínculo institucional"
+                        ],
+                        "permite_outro": false
+                    },
+                    {
+                        "nome": "Escolaridade",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "Ensino Fundamental",
+                            "Ensino Médio",
+                            "Técnico / Profissionalizante",
+                            "Superior Incompleto",
+                            "Superior Completo",
+                            "Pós-Graduação (Especialização / Mestrado / Doutorado)"
+                        ],
+                        "permite_outro": false
+                    }
+                ],
+                "carga_horaria_minutos": null
+            },
+            "secoes": [
+                {
+                    "id_public": "5d0fcd6c-a51d-4724-9283-c1282abc9a9a",
+                    "nome": "Seminário de Humanidades",
+                    "sigla": "HUM",
+                    "descricao": "V Seminário de Humanidades",
+                    "ordem": 3
+                }
+            ],
+            "is_deleted": false
+        },
+        {
+            "id_public": "83f478a7-f396-4862-b31b-96d65f71d918",
+            "tipo": "Palestra",
+            "nome": "Cerimônia de Encerramento da XV JACITEC e Premiação da Mostra Científica",
+            "palestrante_nome": "Comissão Organizadora / Direção-Geral",
+            "descricao": null,
+            "data_inicio": "2026-10-23",
+            "data_fim": "2026-10-23",
+            "hora_inicio": "11:30:00",
+            "hora_fim": "13:00:00",
+            "local": {
+                "id": 52,
+                "evento_id": 13,
+                "sala": "Auditório",
+                "bloco": null,
+                "andar": null,
+                "outro": null
+            },
+            "carga_horaria_minutos": 90,
+            "evento": {
+                "id_public": "942740b7-60a0-461f-8534-2fa502a44ed2",
+                "nome": "XV Jornada Acadêmica de Ciência, Tecnologia e Cultura do Ifes - Campus Cachoeiro de Itapemirim",
+                "descricao": "A Jornada Acadêmica de Ciência, Tecnologia e Cultura — JACITEC do Ifes - Campus Cachoeiro de Itapemirim é um evento de extensão cujo principal objetivo é divulgar as atividades de ensino, pesquisa e extensão desenvolvidas no campus para a comunidade interna e externa, além de promover a integração entre os participantes de diversas áreas. Integrando a 23ª Semana Nacional de Ciência e Tecnologia (SNCT), a XV JACITEC traz como tema central \"Ciência Delas: Mulheres em Ciência, Tecnologia e Inovação\", convidando toda a comunidade a reconhecer o potencial transformador da participação feminina e valorizar referências em todas as áreas do conhecimento.\n\nA JACITEC busca disseminar à comunidade interna e externa, as atividades de integração ensino, pesquisa e extensão dos diferentes e diversos cursos e programas ofertados pelo campus, além de integrar participantes de áreas distintas a partir de uma programação variada e proposta pelos cursos em ativa no Ifes - Campus Cachoeiro.",
+                "data_inicio": "2026-10-20T03:00:00Z",
+                "data_fim": "2026-10-24T02:59:59Z",
+                "slug": "xv-jornada-academica-de-ciencia-tecnologia-cultura",
+                "inscricoes_abertas": true,
+                "logo_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/logo.png",
+                "banner_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/banner.mp4",
+                "banner_tipo": "video",
+                "imagem_promocional_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/imagem-promocional.jpg",
+                "enderecos": [
+                    {
+                        "nome": "IFES Campus Cachoeiro de Itapemirim",
+                        "cep": "29311-970",
+                        "rua": "Rodovia Engenheiro Fabiano Vivácqua",
+                        "numero": 1568,
+                        "complemento": "Caixa Postal 727",
+                        "bairro": "Morro Grande",
+                        "cidade": "Cachoeiro de Itapemirim",
+                        "estado": "ES"
+                    }
+                ],
+                "categorias": [
+                    {
+                        "nome": "Acadêmico e Científico"
+                    },
+                    {
+                        "nome": "Cultural e Esportivo"
+                    },
+                    {
+                        "nome": "Extensão e Inovação"
+                    },
+                    {
+                        "nome": "Social e Comunitário"
+                    }
+                ],
+                "campos_extra": [
+                    {
+                        "nome": "Instituição ou Organização de Origem",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "IFES - Campus Cachoeiro de Itapemirim",
+                            "IFES - Outro Campus",
+                            "Outra Instituição de Ensino Pública (Municipal, Estadual ou Federal)",
+                            "Instituição de Ensino Privada (Escola ou Faculdade)",
+                            "Empresa Privada / Setor Produtivo",
+                            "Órgão Público / Governamental (Exceto IFES)",
+                            "Comunidade em Geral / Sem vínculo institucional"
+                        ],
+                        "permite_outro": false
+                    },
+                    {
+                        "nome": "Escolaridade",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "Ensino Fundamental",
+                            "Ensino Médio",
+                            "Técnico / Profissionalizante",
+                            "Superior Incompleto",
+                            "Superior Completo",
+                            "Pós-Graduação (Especialização / Mestrado / Doutorado)"
+                        ],
+                        "permite_outro": false
+                    }
+                ],
+                "carga_horaria_minutos": null
+            },
+            "secoes": [
+                {
+                    "id_public": "0a960b77-56d5-47e9-a93c-93a2a2f2ba0d",
+                    "nome": "JACITEC",
+                    "sigla": "JACITEC",
+                    "descricao": null,
+                    "ordem": 5
+                }
+            ],
+            "is_deleted": false
+        },
+        {
+            "id_public": "627a0150-a102-43d2-9b58-b262559a9dfd",
+            "tipo": "Palestra",
+            "nome": "Matemática e Docência: formação e diálogos sobre relações de gênero",
+            "palestrante_nome": "Prof. Agnaldo da Conceição Esquincalha",
+            "descricao": null,
+            "data_inicio": "2026-10-23",
+            "data_fim": "2026-10-23",
+            "hora_inicio": "19:00:00",
+            "hora_fim": "20:00:00",
+            "local": {
+                "id": 46,
+                "evento_id": 13,
+                "sala": "Online",
+                "bloco": null,
+                "andar": null,
+                "outro": null
+            },
+            "carga_horaria_minutos": 60,
+            "evento": {
+                "id_public": "942740b7-60a0-461f-8534-2fa502a44ed2",
+                "nome": "XV Jornada Acadêmica de Ciência, Tecnologia e Cultura do Ifes - Campus Cachoeiro de Itapemirim",
+                "descricao": "A Jornada Acadêmica de Ciência, Tecnologia e Cultura — JACITEC do Ifes - Campus Cachoeiro de Itapemirim é um evento de extensão cujo principal objetivo é divulgar as atividades de ensino, pesquisa e extensão desenvolvidas no campus para a comunidade interna e externa, além de promover a integração entre os participantes de diversas áreas. Integrando a 23ª Semana Nacional de Ciência e Tecnologia (SNCT), a XV JACITEC traz como tema central \"Ciência Delas: Mulheres em Ciência, Tecnologia e Inovação\", convidando toda a comunidade a reconhecer o potencial transformador da participação feminina e valorizar referências em todas as áreas do conhecimento.\n\nA JACITEC busca disseminar à comunidade interna e externa, as atividades de integração ensino, pesquisa e extensão dos diferentes e diversos cursos e programas ofertados pelo campus, além de integrar participantes de áreas distintas a partir de uma programação variada e proposta pelos cursos em ativa no Ifes - Campus Cachoeiro.",
+                "data_inicio": "2026-10-20T03:00:00Z",
+                "data_fim": "2026-10-24T02:59:59Z",
+                "slug": "xv-jornada-academica-de-ciencia-tecnologia-cultura",
+                "inscricoes_abertas": true,
+                "logo_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/logo.png",
+                "banner_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/banner.mp4",
+                "banner_tipo": "video",
+                "imagem_promocional_url": "uploads/eventos/942740b7-60a0-461f-8534-2fa502a44ed2/imagem-promocional.jpg",
+                "enderecos": [
+                    {
+                        "nome": "IFES Campus Cachoeiro de Itapemirim",
+                        "cep": "29311-970",
+                        "rua": "Rodovia Engenheiro Fabiano Vivácqua",
+                        "numero": 1568,
+                        "complemento": "Caixa Postal 727",
+                        "bairro": "Morro Grande",
+                        "cidade": "Cachoeiro de Itapemirim",
+                        "estado": "ES"
+                    }
+                ],
+                "categorias": [
+                    {
+                        "nome": "Acadêmico e Científico"
+                    },
+                    {
+                        "nome": "Cultural e Esportivo"
+                    },
+                    {
+                        "nome": "Extensão e Inovação"
+                    },
+                    {
+                        "nome": "Social e Comunitário"
+                    }
+                ],
+                "campos_extra": [
+                    {
+                        "nome": "Instituição ou Organização de Origem",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "IFES - Campus Cachoeiro de Itapemirim",
+                            "IFES - Outro Campus",
+                            "Outra Instituição de Ensino Pública (Municipal, Estadual ou Federal)",
+                            "Instituição de Ensino Privada (Escola ou Faculdade)",
+                            "Empresa Privada / Setor Produtivo",
+                            "Órgão Público / Governamental (Exceto IFES)",
+                            "Comunidade em Geral / Sem vínculo institucional"
+                        ],
+                        "permite_outro": false
+                    },
+                    {
+                        "nome": "Escolaridade",
+                        "tipo": "select",
+                        "obrigatorio": true,
+                        "valor_padrao": null,
+                        "opcoes": [
+                            "Ensino Fundamental",
+                            "Ensino Médio",
+                            "Técnico / Profissionalizante",
+                            "Superior Incompleto",
+                            "Superior Completo",
+                            "Pós-Graduação (Especialização / Mestrado / Doutorado)"
+                        ],
+                        "permite_outro": false
+                    }
+                ],
+                "carga_horaria_minutos": null
+            },
+            "secoes": [
+                {
+                    "id_public": "6c5d0d52-4bde-4f04-8074-a4ea7a2ba61c",
+                    "nome": "Semana da Matemática",
+                    "sigla": "SEMAT",
+                    "descricao": "Semana da Licenciatura em Matemática do Ifes Campus Cachoeiro",
+                    "ordem": 4
+                }
+            ],
+            "is_deleted": false
         }
     ],
-    "total": 14,
-    "skip": 8,
-    "limit": 8
+    "total": 25,
+    "skip": 0,
+    "limit": 200
 }

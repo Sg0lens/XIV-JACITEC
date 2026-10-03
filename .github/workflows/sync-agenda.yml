@@ -25,7 +25,7 @@ jobs:
       - name: Baixar e Validar Agenda do QRCheck
         shell: powershell
         env:
-          QRCHECK_URL: ${{ vars.QRCHECK_AGENDA_URL || 'https://qrcheck.io/api/public/eventos/xv-jornada-academica-de-ciencia-tecnologia-cultura/agenda' }}
+          QRCHECK_URL: ${{ vars.QRCHECK_AGENDA_URL || 'https://qrcheck.io/api/atividades/publico/xv-jornada-academica-de-ciencia-tecnologia-cultura/agenda' }}
         run: |
           try {
               $resp = Invoke-WebRequest -Uri $env:QRCHECK_URL -UseBasicParsing -TimeoutSec 15

@@ -21,7 +21,7 @@
   var savedViewPref = null;
   try {
     savedViewPref = localStorage.getItem("jacitec_agenda_view");
-  } catch (e) {}
+  } catch (e) { }
   var currentView = savedViewPref || (window.innerWidth <= 768 ? "lista" : "grade");
   var scheduleDates = [];
   var predefinedSections = ["JACITEC", "SINF", "SEMIN", "SEMEC", "HUM", "SEMAT"];
@@ -300,8 +300,49 @@
       ? (activeSectionsToday.length ? activeSectionsToday : allSections)
       : [activeSection];
 
-    boardEl.style.gridTemplateColumns = "76px repeat(" + sectionNames.length + ", minmax(280px, 1fr))";
-    boardEl.style.gridTemplateRows = "48px calc(var(--hour-height, 110px) * " + bounds.totalHours + ")";
+    var colDefinitions = sectionNames.map(function (section) {
+      var laneActivities = activities.filter(function (activity) {
+        return getActivitySections(activity).indexOf(section) !== -1;
+      }).sort(function (a, b) {
+        return minutesFromTime(a.hora_inicio) - minutesFromTime(b.hora_inicio);
+      });
+
+      var clusters = [];
+      laneActivities.forEach(function (act) {
+        var s = minutesFromTime(act.hora_inicio);
+        var e = minutesFromTime(act.hora_fim);
+        if (e <= s) e = s + 30;
+        var placed = false;
+        for (var i = 0; i < clusters.length; i++) {
+          var c = clusters[i];
+          if (s < c.end && e > c.start) {
+            c.events.push(act);
+            c.start = Math.min(c.start, s);
+            c.end = Math.max(c.end, e);
+            placed = true;
+            break;
+          }
+        }
+        if (!placed) {
+          clusters.push({ start: s, end: e, events: [act] });
+        }
+      });
+
+      var maxConcurrent = 1;
+      clusters.forEach(function (c) {
+        if (c.events.length > maxConcurrent) {
+          maxConcurrent = c.events.length;
+        }
+      });
+
+      if (maxConcurrent > 1) {
+        return "minmax(calc(var(--lane-min-width, 330px) * " + (maxConcurrent * 0.82).toFixed(2) + "), " + (maxConcurrent * 0.9).toFixed(1) + "fr)";
+      }
+      return "minmax(var(--lane-min-width, 330px), 1fr)";
+    });
+
+    boardEl.style.gridTemplateColumns = "var(--time-col-width, 76px) " + colDefinitions.join(" ");
+    boardEl.style.gridTemplateRows = "48px calc(var(--hour-height, 120px) * " + bounds.totalHours + ")";
 
     var corner = document.createElement("div");
     corner.className = "agenda-board-corner";
@@ -318,7 +359,7 @@
 
     var timeAxis = document.createElement("div");
     timeAxis.className = "agenda-time-axis";
-    timeAxis.style.height = "calc(var(--hour-height, 110px) * " + bounds.totalHours + ")";
+    timeAxis.style.height = "calc(var(--hour-height, 120px) * " + bounds.totalHours + ")";
 
     for (var hour = bounds.startHour; hour <= bounds.endHour; hour += 1) {
       var tick = document.createElement("div");
@@ -334,7 +375,7 @@
     sectionNames.forEach(function (section) {
       var lane = document.createElement("div");
       lane.className = "agenda-lane";
-      lane.style.height = "calc(var(--hour-height, 110px) * " + bounds.totalHours + ")";
+      lane.style.height = "calc(var(--hour-height, 120px) * " + bounds.totalHours + ")";
 
       var totalMinutes = Math.max(60, bounds.endMin - bounds.startMin);
 
@@ -402,6 +443,16 @@
             activity.nome + ", " + formatTime(activity.hora_inicio) + " às " + formatTime(activity.hora_fim)
           );
 
+          var tooltipParts = [
+            activity.nome,
+            formatTime(activity.hora_inicio) + " às " + formatTime(activity.hora_fim)
+          ];
+          if (activity.place) tooltipParts.push(activity.place);
+          if (activity.palestrante_nome && String(activity.palestrante_nome).trim()) {
+            tooltipParts.push(String(activity.palestrante_nome).trim());
+          }
+          event.setAttribute("title", tooltipParts.join(" • "));
+
           var timeSpan = document.createElement("span");
           timeSpan.className = "agenda-event-time";
           timeSpan.textContent = formatTime(activity.hora_inicio) + " – " + formatTime(activity.hora_fim);
@@ -410,14 +461,39 @@
           titleSpan.className = "agenda-event-title";
           titleSpan.textContent = activity.nome;
 
-          event.appendChild(timeSpan);
-          event.appendChild(titleSpan);
-
+          var placeSpan = null;
           if (activity.place) {
-            var placeSpan = document.createElement("span");
+            placeSpan = document.createElement("span");
             placeSpan.className = "agenda-event-place";
             placeSpan.innerHTML = '<i class="fa-solid fa-location-dot"></i> ' + activity.place;
-            event.appendChild(placeSpan);
+          }
+
+          var speakerSpan = null;
+          if (activity.palestrante_nome && String(activity.palestrante_nome).trim()) {
+            speakerSpan = document.createElement("span");
+            speakerSpan.className = "agenda-event-speaker";
+            speakerSpan.innerHTML = '<i class="fa-solid fa-user-tie"></i> ' + String(activity.palestrante_nome).trim();
+          }
+
+          if (durationMin < 35) {
+            var rowTop = document.createElement("div");
+            rowTop.className = "agenda-event-row-top";
+            rowTop.appendChild(timeSpan);
+            rowTop.appendChild(titleSpan);
+            event.appendChild(rowTop);
+
+            if (placeSpan || speakerSpan) {
+              var rowMeta = document.createElement("div");
+              rowMeta.className = "agenda-event-row-meta";
+              if (placeSpan) rowMeta.appendChild(placeSpan);
+              if (speakerSpan) rowMeta.appendChild(speakerSpan);
+              event.appendChild(rowMeta);
+            }
+          } else {
+            event.appendChild(timeSpan);
+            event.appendChild(titleSpan);
+            if (placeSpan) event.appendChild(placeSpan);
+            if (speakerSpan) event.appendChild(speakerSpan);
           }
 
           lane.appendChild(event);
@@ -598,7 +674,7 @@
   if (btnViewBoard) {
     btnViewBoard.addEventListener("click", function () {
       currentView = "grade";
-      try { localStorage.setItem("jacitec_agenda_view", "grade"); } catch (e) {}
+      try { localStorage.setItem("jacitec_agenda_view", "grade"); } catch (e) { }
       updateViewSwitchButtons();
       renderCurrentView();
     });
@@ -606,7 +682,7 @@
   if (btnViewList) {
     btnViewList.addEventListener("click", function () {
       currentView = "lista";
-      try { localStorage.setItem("jacitec_agenda_view", "lista"); } catch (e) {}
+      try { localStorage.setItem("jacitec_agenda_view", "lista"); } catch (e) { }
       updateViewSwitchButtons();
       renderCurrentView();
     });
@@ -621,6 +697,51 @@
     });
   }
 
+  // Permite arrastar horizontalmente a grade com o mouse (grab and drag)
+  function setupDragToScroll() {
+    var slider = document.querySelector(".agenda-board-wrap");
+    if (!slider) return;
+
+    var isDown = false;
+    var startX = 0;
+    var scrollLeft = 0;
+    var hasMoved = false;
+
+    slider.addEventListener("mousedown", function (e) {
+      if (e.button !== 0) return;
+      isDown = true;
+      hasMoved = false;
+      slider.classList.add("is-dragging");
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+
+    window.addEventListener("mouseup", function () {
+      if (!isDown) return;
+      isDown = false;
+      slider.classList.remove("is-dragging");
+    });
+
+    slider.addEventListener("mousemove", function (e) {
+      if (!isDown) return;
+      var x = e.pageX - slider.offsetLeft;
+      var walk = x - startX;
+      if (Math.abs(walk) > 4) {
+        hasMoved = true;
+      }
+      slider.scrollLeft = scrollLeft - walk;
+    });
+
+    slider.addEventListener("click", function (e) {
+      if (hasMoved) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, true);
+  }
+
+  setupDragToScroll();
+
   // Carregamento de dados com anti-cache
   setStatus('<i class="fa-solid fa-circle-notch fa-spin"></i>Carregando agenda…');
   fetch("agenda.json?v=" + Date.now())
@@ -633,7 +754,7 @@
     })
     .catch(function () {
       setStatus(
-        '<i class="fa-solid fa-triangle-exclamation"></i>Não foi possível carregar agenda.json. Tente novamente mais tarde.'
+        '<i class="fa-solid fa-triangle-exclamation"></i>Não foi possível carregar a agenda. Tente novamente mais tarde.'
       );
     });
 })();
