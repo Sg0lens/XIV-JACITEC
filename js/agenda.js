@@ -14,6 +14,9 @@
   var btnResetFilters = document.getElementById("btn-reset-filters");
   var syncFooterEl = document.getElementById("agenda-sync-footer");
   var updatedTimeEl = document.getElementById("agenda-updated-time");
+  var activityModal = document.getElementById("activity-modal");
+  var activityModalClose = document.getElementById("activity-modal-close");
+  var activityModalCloseBtn = document.getElementById("modal-activity-close-btn");
 
   if (!statusEl) return;
 
@@ -77,13 +80,136 @@
 
   function getPlace(local) {
     if (!local) return "";
+    if (typeof local === "string") {
+      var s = local.trim();
+      return (s === "-" || s.toLowerCase() === "null" || s.toLowerCase() === "undefined") ? "" : s;
+    }
     var parts = [];
-    if (local.sala && String(local.sala).trim()) parts.push(String(local.sala).trim());
-    if (local.bloco && String(local.bloco).trim()) parts.push(String(local.bloco).trim());
-    if (local.andar && String(local.andar).trim()) parts.push(String(local.andar).trim());
-    if (local.outro && String(local.outro).trim()) parts.push(String(local.outro).trim());
+    var mainName = (local.nome || local.sala || local.espaco || "").trim();
+    if (mainName && mainName !== "-" && mainName.toLowerCase() !== "null" && mainName.toLowerCase() !== "undefined") {
+      parts.push(mainName);
+    }
+    if (local.bloco && String(local.bloco).trim() && String(local.bloco).trim() !== "-") {
+      var b = String(local.bloco).trim();
+      if (b.toLowerCase().indexOf("bloco") === -1) b = "Bloco " + b;
+      parts.push(b);
+    }
+    if (local.andar && String(local.andar).trim() && String(local.andar).trim() !== "-") {
+      var a = String(local.andar).trim();
+      if (a.toLowerCase().indexOf("andar") === -1) a = a + "º Andar";
+      parts.push(a);
+    }
+    if (local.outro && String(local.outro).trim() && String(local.outro).trim() !== "-") {
+      parts.push(String(local.outro).trim());
+    }
     return parts.join(" · ");
   }
+
+  function getPlaceIcon(placeStr) {
+    if (!placeStr) return "fa-solid fa-location-dot";
+    var lower = placeStr.toLowerCase();
+    if (lower.indexOf("online") !== -1 || lower.indexOf("remoto") !== -1 || lower.indexOf("web") !== -1) {
+      return "fa-solid fa-video";
+    }
+    return "fa-solid fa-location-dot";
+  }
+
+  function openActivityModal(activity) {
+    if (!activityModal) return;
+
+    var titleEl = document.getElementById("modal-activity-title");
+    var sectionEl = document.getElementById("modal-activity-section");
+    var typeEl = document.getElementById("modal-activity-type");
+    var timeEl = document.getElementById("modal-activity-time");
+    var placeEl = document.getElementById("modal-activity-place");
+    var placeRow = document.getElementById("modal-activity-place-row");
+    var placeIconEl = document.getElementById("modal-activity-place-icon");
+    var speakerEl = document.getElementById("modal-activity-speaker");
+    var speakerRow = document.getElementById("modal-activity-speaker-row");
+    var descEl = document.getElementById("modal-activity-desc");
+
+    if (titleEl) titleEl.textContent = activity.nome || "";
+
+    var sections = getActivitySections(activity);
+    var mainSec = sections[0] || "GERAL";
+    if (sectionEl) {
+      sectionEl.textContent = sections.join(" / ");
+      sectionEl.style.setProperty("--lane-color", getSectionColor(mainSec));
+    }
+
+    if (typeEl) {
+      if (activity.tipo) {
+        typeEl.textContent = activity.tipo;
+        typeEl.hidden = false;
+      } else {
+        typeEl.hidden = true;
+      }
+    }
+
+    if (timeEl) {
+      var dateFormatted = activity.data_inicio ? formatDate(activity.data_inicio) : "";
+      var timeStr = formatTime(activity.hora_inicio) + " às " + formatTime(activity.hora_fim);
+      timeEl.textContent = (dateFormatted ? dateFormatted + " · " : "") + timeStr;
+    }
+
+    if (placeRow && placeEl) {
+      if (activity.place) {
+        placeEl.textContent = activity.place;
+        if (placeIconEl) {
+          placeIconEl.className = getPlaceIcon(activity.place);
+        }
+        placeRow.hidden = false;
+      } else {
+        placeRow.hidden = true;
+      }
+    }
+
+    if (speakerRow && speakerEl) {
+      if (activity.palestrante_nome && String(activity.palestrante_nome).trim()) {
+        speakerEl.textContent = String(activity.palestrante_nome).trim();
+        speakerRow.hidden = false;
+      } else {
+        speakerRow.hidden = true;
+      }
+    }
+
+    if (descEl) {
+      if (activity.descricao && activity.descricao.trim()) {
+        descEl.textContent = activity.descricao.trim();
+        descEl.hidden = false;
+      } else {
+        descEl.textContent = "Sem descrição adicional informada.";
+        descEl.hidden = false;
+      }
+    }
+
+    activityModal.hidden = false;
+    document.body.style.overflow = "hidden";
+    if (activityModalClose) activityModalClose.focus();
+  }
+
+  function closeActivityModal() {
+    if (!activityModal) return;
+    activityModal.hidden = true;
+    document.body.style.overflow = "";
+  }
+
+  if (activityModalClose) {
+    activityModalClose.addEventListener("click", closeActivityModal);
+  }
+  if (activityModalCloseBtn) {
+    activityModalCloseBtn.addEventListener("click", closeActivityModal);
+  }
+  if (activityModal) {
+    activityModal.addEventListener("click", function (e) {
+      if (e.target === activityModal) closeActivityModal();
+    });
+  }
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && activityModal && !activityModal.hidden) {
+      closeActivityModal();
+    }
+  });
 
   function getActivitySections(activity) {
     var sections = (activity.secoes || []).map(function (section) {
@@ -471,8 +597,10 @@
           var placeSpan = null;
           if (activity.place) {
             placeSpan = document.createElement("span");
-            placeSpan.className = "agenda-event-place";
-            placeSpan.innerHTML = '<i class="fa-solid fa-location-dot"></i> ' + activity.place;
+            var isOnline = activity.place.toLowerCase().indexOf("online") !== -1;
+            placeSpan.className = "agenda-event-place" + (isOnline ? " is-online" : "");
+            var iconClass = getPlaceIcon(activity.place);
+            placeSpan.innerHTML = '<i class="' + iconClass + '"></i> ' + activity.place;
           }
 
           var speakerSpan = null;
@@ -497,11 +625,27 @@
               event.appendChild(rowMeta);
             }
           } else {
-            event.appendChild(timeSpan);
+            var headerRow = document.createElement("div");
+            headerRow.className = "agenda-event-header";
+            headerRow.appendChild(timeSpan);
+            if (placeSpan) headerRow.appendChild(placeSpan);
+            event.appendChild(headerRow);
+
             event.appendChild(titleSpan);
-            if (placeSpan) event.appendChild(placeSpan);
             if (speakerSpan) event.appendChild(speakerSpan);
           }
+
+          event.tabIndex = 0;
+          event.setAttribute("role", "button");
+          event.addEventListener("click", function () {
+            openActivityModal(activity);
+          });
+          event.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              openActivityModal(activity);
+            }
+          });
 
           lane.appendChild(event);
         });
@@ -587,8 +731,10 @@
 
       if (activity.place) {
         var place = document.createElement("span");
-        place.className = "agenda-card-meta-item";
-        place.innerHTML = '<i class="fa-solid fa-location-dot"></i> ' + activity.place;
+        var isOnline = activity.place.toLowerCase().indexOf("online") !== -1;
+        place.className = "agenda-card-meta-item is-place" + (isOnline ? " is-online" : "");
+        var placeIcon = getPlaceIcon(activity.place);
+        place.innerHTML = '<i class="' + placeIcon + '"></i> ' + activity.place;
         meta.appendChild(place);
       }
 
@@ -600,6 +746,18 @@
         desc.textContent = activity.descricao.trim();
         card.appendChild(desc);
       }
+
+      card.tabIndex = 0;
+      card.setAttribute("role", "button");
+      card.addEventListener("click", function () {
+        openActivityModal(activity);
+      });
+      card.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openActivityModal(activity);
+        }
+      });
 
       listEl.appendChild(card);
     });

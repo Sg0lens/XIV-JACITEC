@@ -118,6 +118,45 @@
       </div>
     </section>
 
+    <!-- Modal de Detalhes da Atividade -->
+    <div id="activity-modal" class="modal-overlay" hidden>
+      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-activity-title">
+        <button class="modal-close" id="activity-modal-close" type="button" aria-label="Fechar detalhes da atividade">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="modal-body">
+          <div class="modal-badges" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px;">
+            <span id="modal-activity-section" class="agenda-badge agenda-badge-lane"></span>
+            <span id="modal-activity-type" class="agenda-badge agenda-badge-type"></span>
+          </div>
+          <h3 id="modal-activity-title" style="margin-bottom: 16px;"></h3>
+          <ul class="modal-meta" style="flex-direction: column; gap: 12px; margin-bottom: 20px;">
+            <li id="modal-activity-time-row" style="display: flex; align-items: center; gap: 8px;">
+              <i class="fa-regular fa-clock" style="color: var(--aqua-400); width: 18px;"></i>
+              <strong>Horário:</strong> <span id="modal-activity-time"></span>
+            </li>
+            <li id="modal-activity-place-row" style="display: flex; align-items: center; gap: 8px;">
+              <i class="fa-solid fa-location-dot" id="modal-activity-place-icon" style="color: var(--coral-500); width: 18px;"></i>
+              <strong>Local:</strong> <span id="modal-activity-place" style="color: var(--ocean-900); font-weight: 700;"></span>
+            </li>
+            <li id="modal-activity-speaker-row" style="display: flex; align-items: center; gap: 8px;">
+              <i class="fa-solid fa-user-tie" style="color: var(--ocean-700); width: 18px;"></i>
+              <strong>Palestrante:</strong> <span id="modal-activity-speaker"></span>
+            </li>
+          </ul>
+          <hr style="border: none; border-top: 1px solid var(--sand-200); margin: 20px 0;">
+          <p id="modal-activity-desc" class="modal-desc" style="white-space: pre-line;"></p>
+          <div class="modal-actions" style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <a class="btn btn-primary btn-sm" href="https://qrcheck.io/evento/xv-jornada-academica-de-ciencia-tecnologia-cultura" target="_blank" rel="noopener">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Inscreva-se no QRCheck
+            </a>
+            <button type="button" class="btn btn-ghost btn-sm" id="modal-activity-close-btn" style="color: var(--ocean-800); border-color: var(--ocean-800);">
+              Fechar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
   <footer class="site-footer">
     <div class="footer-top">
@@ -186,7 +225,7 @@
     </div>
   </footer>
   <script src="js/main.js" defer></script>
-  <script src="js/agenda.js?v=20261003_realtime" defer></script>
+  <script src="js/agenda.js?v=20261008_locais" defer></script>
 </body>
 
 </html>

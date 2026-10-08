@@ -1648,11 +1648,13 @@ section {
   border-radius: 8px;
   padding: 18px 22px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-  transition: box-shadow 0.15s ease;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .agenda-card:hover {
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
 .agenda-card-header {
@@ -1731,6 +1733,28 @@ section {
 
 .agenda-card-meta-item i {
   color: var(--ink-400);
+}
+
+.agenda-card-meta-item.is-place {
+  font-weight: 600;
+  color: var(--ocean-900);
+  background: color-mix(in srgb, var(--aqua-400) 14%, var(--white));
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid color-mix(in srgb, var(--aqua-400) 32%, var(--white));
+}
+
+.agenda-card-meta-item.is-place i {
+  color: var(--coral-500);
+}
+
+.agenda-card-meta-item.is-place.is-online {
+  background: color-mix(in srgb, var(--aqua-300) 20%, var(--white));
+  border-color: color-mix(in srgb, var(--aqua-300) 45%, var(--white));
+}
+
+.agenda-card-meta-item.is-place.is-online i {
+  color: var(--aqua-500);
 }
 
 .agenda-card-desc {
@@ -1974,14 +1998,14 @@ section {
   border-radius: 6px;
   background: color-mix(in srgb, var(--lane-color, var(--ocean-700)) 22%, var(--white));
   color: var(--ink-900);
-  cursor: default;
+  cursor: pointer;
   text-align: left;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
   box-sizing: border-box;
-  transition: box-shadow 0.15s ease, background-color 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -1992,6 +2016,7 @@ section {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
     outline: 2px solid var(--lane-color, var(--ocean-700));
     outline-offset: 1px;
+    transform: translateY(-1px);
   }
 }
 
@@ -2055,12 +2080,22 @@ section {
 }
 
 
+.agenda-event-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  min-width: 0;
+  width: 100%;
+}
+
 .agenda-event-time {
   font-size: 0.68rem;
   font-weight: 700;
   color: var(--lane-color, var(--ocean-800));
   white-space: nowrap;
   line-height: 1;
+  flex-shrink: 0;
 }
 
 .agenda-event-title {
@@ -2069,26 +2104,58 @@ section {
   line-height: 1.25;
   color: var(--ocean-950);
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   word-break: break-word;
 }
 
-.agenda-event-place,
-.agenda-event-speaker {
-  font-size: 0.64rem;
-  color: var(--ink-600);
+.agenda-event-place {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--ocean-950);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-top: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: rgba(255, 255, 255, 0.88);
+  padding: 1px 5px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  max-width: 65%;
+  line-height: 1.2;
+}
+
+.agenda-event-place i {
+  font-size: 0.58rem;
+  color: var(--coral-500);
+  flex-shrink: 0;
+}
+
+.agenda-event-place.is-online {
+  background: color-mix(in srgb, var(--aqua-400) 18%, var(--white));
+  border-color: color-mix(in srgb, var(--aqua-400) 35%, var(--white));
+  color: var(--ocean-900);
+}
+
+.agenda-event-place.is-online i {
+  color: var(--aqua-500, #00827b);
+}
+
+.agenda-event-speaker {
+  font-size: 0.62rem;
+  color: var(--ink-700);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   display: flex;
   align-items: center;
   gap: 3px;
+  line-height: 1.2;
 }
 
-.agenda-event-place i,
 .agenda-event-speaker i {
   font-size: 0.58rem;
   color: var(--ink-400);
@@ -2252,7 +2319,7 @@ section {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08) !important;
     background: color-mix(in srgb, var(--lane-color, var(--ocean-700)) 18%, var(--white)) !important;
     z-index: 1 !important;
-    cursor: default;
+    cursor: pointer;
   }
 
   .agenda-event-time {
@@ -2263,14 +2330,18 @@ section {
     font-size: 0.68rem;
   }
 
-  .agenda-event-place,
+  .agenda-event-place {
+    font-size: 0.58rem;
+    padding: 1px 4px;
+  }
+
   .agenda-event-speaker {
-    font-size: 0.60rem;
+    font-size: 0.58rem;
   }
 
   .agenda-event-place i,
   .agenda-event-speaker i {
-    font-size: 0.54rem;
+    font-size: 0.52rem;
   }
 
   .agenda-event.is-compact,
@@ -2284,7 +2355,7 @@ section {
     gap: 1px !important;
     outline: none !important;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08) !important;
-    cursor: default !important;
+    cursor: pointer !important;
   }
 
   .agenda-event.is-compact .agenda-event-row-top,

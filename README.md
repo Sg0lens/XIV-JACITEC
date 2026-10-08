@@ -90,7 +90,7 @@ Seção de Notícias Retirada
           <a class="download-card" href="pdfs/XIV_JACITEC_EDITAL_ATIVIDADES.pdf" download>
             <i class="fa-solid fa-file-pdf"></i> Edital de atividades (PDF)
           </a>
-          <a class="download-card" href="pdfs/modelo_de_banner_XIVJACITEC_2025.pptx" download>
+          <a class="download-card" href="pdfs/modelo_de_banner_XV_JACITEC.pptx" download>
             <i class="fa-solid fa-file-powerpoint"></i> Modelo de banner
           </a>
         </div>
