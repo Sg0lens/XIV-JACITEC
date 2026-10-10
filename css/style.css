@@ -767,8 +767,9 @@ section {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 20px 16px;
-  margin-top: 24px;
+  gap: 16px 14px;
+  max-width: 960px;
+  margin: 24px auto 0;
 }
 
 /* ==========================================================================
@@ -2908,16 +2909,19 @@ section {
   }
 
   .register-actions {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 16px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px 14px;
     width: 100%;
-    max-width: 440px;
+    max-width: 900px;
     margin: 24px auto 0;
   }
 
   .register-actions .btn {
-    width: 100%;
+    width: auto;
+    max-width: 100%;
     text-align: center;
   }
 }
@@ -3110,6 +3114,22 @@ section {
     text-align: center;
   }
 
+  .register-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 380px;
+    margin: 20px auto 0;
+    gap: 12px;
+  }
+
+  .register-actions .btn {
+    width: 100%;
+    padding: 13px 20px;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
   .feature-media {
     width: 100%;
     margin-inline: 0;
@@ -3264,6 +3284,38 @@ section {
     height: 24px;
     max-width: 100%;
     object-fit: contain;
+  }
+
+  /* Apoio e Credenciamento lado a lado no mobile */
+  .partners-group.partners-group-half,
+  .partners-group:nth-child(2),
+  .partners-group:nth-child(3) {
+    width: calc(50% - 6px);
+    flex: 1 1 calc(50% - 6px);
+    max-width: calc(50% - 6px);
+    box-sizing: border-box;
+  }
+
+  .partners-group.partners-group-half .partners-logos,
+  .partners-group:nth-child(2) .partners-logos,
+  .partners-group:nth-child(3) .partners-logos {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .partners-group.partners-group-half .partner-item,
+  .partners-group:nth-child(2) .partner-item,
+  .partners-group:nth-child(3) .partner-item {
+    width: 100%;
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .partners-group.partners-group-half .partners-heading,
+  .partners-group:nth-child(2) .partners-heading,
+  .partners-group:nth-child(3) .partners-heading {
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
   }
 }
 
