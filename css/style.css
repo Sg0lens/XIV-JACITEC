@@ -1373,7 +1373,7 @@ section {
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding: 18px 0 22px;
+  padding: 18px 0 36px;
   /* Fade nas laterais */
   mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
@@ -1417,7 +1417,7 @@ section {
 .sponsor-ticker-card:hover {
   transform: translateY(-4px) scale(1.03);
   border-color: var(--aqua-400);
-  box-shadow: 0 12px 28px rgba(209, 79, 203, 0.32);
+  box-shadow: 0 8px 24px rgba(209, 79, 203, 0.32);
 }
 
 .sponsor-ticker-card img {
@@ -1438,12 +1438,12 @@ section {
 
 .sponsor-ticker-card.sponsor-ticker-light:hover {
   border-color: var(--aqua-400);
-  box-shadow: 0 12px 28px rgba(209, 79, 203, 0.28);
+  box-shadow: 0 8px 24px rgba(209, 79, 203, 0.28);
 }
 
 @media (max-width: 600px) {
   .sponsor-ticker {
-    padding: 14px 0 18px;
+    padding: 14px 0 28px;
   }
 
   .sponsor-ticker-items {
@@ -1523,7 +1523,11 @@ section {
 }
 
 .venue-section .section-head {
-  margin-bottom: clamp(36px, 5vw, 52px);
+  margin-bottom: clamp(20px, 2.5vw, 28px);
+}
+
+.venue-section .section-head h2 {
+  margin-bottom: 0;
 }
 
 .venue-grid {
