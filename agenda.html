@@ -18,7 +18,7 @@
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=1.8">
 </head>
 
 <body>
@@ -136,8 +136,10 @@
               <strong>Horário:</strong> <span id="modal-activity-time"></span>
             </li>
             <li id="modal-activity-place-row" style="display: flex; align-items: center; gap: 8px;">
-              <i class="fa-solid fa-location-dot" id="modal-activity-place-icon" style="color: var(--coral-500); width: 18px;"></i>
-              <strong>Local:</strong> <span id="modal-activity-place" style="color: var(--ocean-900); font-weight: 700;"></span>
+              <i class="fa-solid fa-location-dot" id="modal-activity-place-icon"
+                style="color: var(--coral-500); width: 18px;"></i>
+              <strong>Local:</strong> <span id="modal-activity-place"
+                style="color: var(--ocean-900); font-weight: 700;"></span>
             </li>
             <li id="modal-activity-speaker-row" style="display: flex; align-items: center; gap: 8px;">
               <i class="fa-solid fa-user-tie" style="color: var(--ocean-700); width: 18px;"></i>
@@ -147,16 +149,51 @@
           <hr style="border: none; border-top: 1px solid var(--sand-200); margin: 20px 0;">
           <p id="modal-activity-desc" class="modal-desc" style="white-space: pre-line;"></p>
           <div class="modal-actions" style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
-            <a class="btn btn-primary btn-sm" href="https://qrcheck.io/evento/xv-jornada-academica-de-ciencia-tecnologia-cultura" target="_blank" rel="noopener">
+            <a class="btn btn-primary btn-sm"
+              href="https://qrcheck.io/evento/xv-jornada-academica-de-ciencia-tecnologia-cultura" target="_blank"
+              rel="noopener">
               <i class="fa-solid fa-arrow-up-right-from-square"></i> Inscreva-se no QRCheck
             </a>
-            <button type="button" class="btn btn-ghost btn-sm" id="modal-activity-close-btn" style="color: var(--ocean-800); border-color: var(--ocean-800);">
+            <button type="button" class="btn btn-ghost btn-sm" id="modal-activity-close-btn"
+              style="color: var(--ocean-800); border-color: var(--ocean-800);">
               Fechar
             </button>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Localização e Como Chegar -->
+    <section id="local" class="venue-section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Localização</p>
+          <h2>Como chegar ao evento</h2>
+          <p>O evento acontecerá presencialmente nas dependências do Ifes Campus Cachoeiro de Itapemirim.</p>
+        </div>
+        <div class="venue-grid">
+          <div class="venue-card">
+            <h3>Ifes Campus Cachoeiro</h3>
+            <address>
+              Rod. Engenheiro Fabiano Vivácqua, nº 1568<br>
+              Localidade Morro Grande<br>
+              CEP 29.322-000 — Cachoeiro de Itapemirim - ES
+            </address>
+            <a class="btn btn-primary"
+              href="https://www.google.com/maps/place/Instituto+Federal+do+Esp%C3%ADrito+Santo+-+Campus+Cachoeiro+de+Itapemirim"
+              target="_blank" rel="noopener">
+              <i class="fa-solid fa-location-dot"></i> Abrir no Google Maps
+            </a>
+          </div>
+          <div class="venue-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3729.703776110018!2d-41.15731314909455!3d-20.80326867136092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb9679f48da7bf9%3A0xb6b381296237b225!2sInstituto%20Federal%20do%20Esp%C3%ADrito%20Santo%20-%20Campus%20Cachoeiro%20de%20Itapemirim!5e0!3m2!1spt-BR!2sbr!4v1664279195432!5m2!1spt-BR!2sbr"
+              title="Mapa de localização do Ifes Campus Cachoeiro de Itapemirim" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
   <footer class="site-footer">
     <div class="footer-top">
@@ -193,32 +230,84 @@
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="section-head">
-        <h2>Como chegar</h2>
-      </div>
-      <div class="venue-grid">
-        <div class="venue-card">
-          <h3>Ifes Campus Cachoeiro</h3>
-          <address>
-            Rod. Engenheiro Fabiano Vivácqua, nº 1568<br>
-            Localidade Morro Grande<br>
-            CEP 29.322-000 — Cachoeiro de Itapemirim - ES
-          </address>
-          <a class="btn btn-outline-venue"
-            href="https://www.google.com/maps/place/Instituto+Federal+do+Esp%C3%ADrito+Santo+-+Campus+Cachoeiro+de+Itapemirim"
-            target="_blank" rel="noopener">Abrir no Google Maps</a>
+    <div class="footer-partners container">
+      <div class="partners-row">
+        <div class="partners-group">
+          <h4 class="partners-heading">Realização</h4>
+          <div class="partners-logos">
+            <a href="https://cachoeiro.ifes.edu.br/" target="_blank" rel="noopener" class="partner-item"
+              title="Ifes - Campus Cachoeiro de Itapemirim">
+              <img src="img/footer/realizacao/ifes-cachoeiro.svg" alt="Ifes Campus Cachoeiro de Itapemirim"
+                loading="lazy">
+            </a>
+            <a href="https://distrito28.com.br/" target="_blank" rel="noopener" class="partner-item" title="Hub 28">
+              <img src="img/footer/realizacao/hub28.svg" alt="Hub 28" loading="lazy">
+            </a>
+          </div>
         </div>
-        <div class="venue-map">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3729.703776110018!2d-41.15731314909455!3d-20.80326867136092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb9679f48da7bf9%3A0xb6b381296237b225!2sInstituto%20Federal%20do%20Esp%C3%ADrito%20Santo%20-%20Campus%20Cachoeiro%20de%20Itapemirim!5e0!3m2!1spt-BR!2sbr!4v1664279195432!5m2!1spt-BR!2sbr"
-            title="Mapa de localização do Ifes Campus Cachoeiro de Itapemirim" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+
+        <div class="partners-group">
+          <h4 class="partners-heading">Apoio</h4>
+          <div class="partners-logos">
+            <a href="https://028distrito.blogspot.com/" target="_blank" rel="noopener" class="partner-item"
+              title="Distrito 028">
+              <img src="img/footer/apoio/distrito28.svg" alt="Distrito 028" loading="lazy">
+            </a>
+          </div>
+        </div>
+
+        <div class="partners-group">
+          <h4 class="partners-heading">Credenciamento</h4>
+          <div class="partners-logos">
+            <a href="https://qrcheck.io/" target="_blank" rel="noopener" class="partner-item" title="QRCheck">
+              <img src="img/footer/credenciamento/qrcheck.png" alt="QRCheck" loading="lazy">
+            </a>
+          </div>
+        </div>
+
+        <div class="partners-group partners-group-wide">
+          <h4 class="partners-heading">Patrocínio</h4>
+          <div class="partners-logos">
+            <a href="https://fapes.es.gov.br/" target="_blank" rel="noopener" class="partner-item" title="FAPES">
+              <img src="img/footer/patrocinio/fapes.svg"
+                alt="FAPES - Fundação de Amparo à Pesquisa e Inovação do Espírito Santo" loading="lazy">
+            </a>
+            <a href="https://www.ifes.edu.br/" target="_blank" rel="noopener" class="partner-item"
+              title="Instituto Federal do Espírito Santo">
+              <img src="img/footer/patrocinio/ifes-geral.svg" alt="Instituto Federal do Espírito Santo" loading="lazy">
+            </a>
+            <a href="https://semanact.mcti.gov.br/" target="_blank" rel="noopener" class="partner-item"
+              title="Semana Nacional de Ciência e Tecnologia (SNCT)">
+              <img src="img/footer/patrocinio/semana_nacional_c&t.svg" alt="Semana Nacional de Ciência e Tecnologia"
+                loading="lazy">
+            </a>
+            <a href="https://amenezes.com/" target="_blank" rel="noopener" class="partner-item partner-item-square"
+              title="A. Menezes Imobiliária">
+              <img src="img/footer/patrocinio/amenezes-imobiliaria.png" alt="A. Menezes Imobiliária" loading="lazy">
+            </a>
+            <a href="https://www.instagram.com/cafevaledocaxixe/" target="_blank" rel="noopener"
+              class="partner-item partner-item-light" title="Café Vale do Caxixe">
+              <img src="img/footer/patrocinio/cafe-vale-do-caxixe.png" alt="Café Vale do Caxixe" loading="lazy">
+            </a>
+            <a href="http://www.itamil.com.br/" target="_blank" rel="noopener" class="partner-item"
+              title="Itamil - Engenharia, Fabricação e Manutenção">
+              <img src="img/footer/patrocinio/itamil.png" alt="Itamil" loading="lazy">
+            </a>
+            <a href="https://ligsim.com/" target="_blank" rel="noopener" class="partner-item" title="Ligsim Telecom">
+              <img src="img/footer/patrocinio/ligsim.png" alt="Ligsim Telecom" loading="lazy">
+            </a>
+            <a href="https://www.instagram.com/paraisomaterialconstrucao/" target="_blank" rel="noopener"
+              class="partner-item partner-item-square" title="Paraíso Construção e Acabamento">
+              <img src="img/footer/patrocinio/paraiso-construccao.png" alt="Paraíso Construção e Acabamento"
+                loading="lazy">
+            </a>
+            <a href="http://whfcorretora.com.br/" target="_blank" rel="noopener" class="partner-item"
+              title="WHF Corretora de Seguros">
+              <img src="img/footer/patrocinio/whf-corretora.png" alt="WHF Corretora de Seguros" loading="lazy">
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="sponsors-strip container">
-      <img src="img/Patrocinio.png" alt="Realização, patrocínio e apoio" loading="lazy">
     </div>
     <div class="footer-bottom">
       <p>XV Jornada Acadêmica de Ciência, Tecnologia e Cultura — Ifes Campus Cachoeiro de Itapemirim</p>
