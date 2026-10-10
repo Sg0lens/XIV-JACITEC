@@ -1374,7 +1374,6 @@ section {
   width: 100%;
   overflow: hidden;
   padding: 18px 0 22px;
-  padding-top: 0px;
   /* Fade nas laterais */
   mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
