@@ -1,0 +1,30 @@
+# Permissao para o Facebook / Meta Scraper
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Facebot
+Allow: /
+
+# Permissao para outros crawlers de redes sociais e mensageiros
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+# Motores de busca (Google, Bing, etc.)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Regra geral para todos os robos amigaveis
+User-agent: *
+Allow: /
