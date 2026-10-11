@@ -3286,37 +3286,7 @@ section {
     object-fit: contain;
   }
 
-  /* Apoio e Credenciamento lado a lado no mobile */
-  .partners-group.partners-group-half,
-  .partners-group:nth-child(2),
-  .partners-group:nth-child(3) {
-    width: calc(50% - 6px);
-    flex: 1 1 calc(50% - 6px);
-    max-width: calc(50% - 6px);
-    box-sizing: border-box;
-  }
 
-  .partners-group.partners-group-half .partners-logos,
-  .partners-group:nth-child(2) .partners-logos,
-  .partners-group:nth-child(3) .partners-logos {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .partners-group.partners-group-half .partner-item,
-  .partners-group:nth-child(2) .partner-item,
-  .partners-group:nth-child(3) .partner-item {
-    width: 100%;
-    max-width: 100%;
-    flex: 1 1 100%;
-  }
-
-  .partners-group.partners-group-half .partners-heading,
-  .partners-group:nth-child(2) .partners-heading,
-  .partners-group:nth-child(3) .partners-heading {
-    font-size: 0.74rem;
-    letter-spacing: 0.08em;
-  }
 }
 
 /* Estilos de notícias e artigos foram movidos para css/pages-extra.css */
