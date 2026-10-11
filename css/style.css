@@ -1370,6 +1370,99 @@ section {
   margin-bottom: 0;
 }
 
+.sponsor-categories {
+  display: grid;
+  gap: 24px;
+}
+
+.sponsor-category {
+  --category-color: #e38ae6;
+  gap: 16px;
+  text-align: center;
+}
+
+.sponsor-category-diamante {
+  --category-color: #b8f0ff;
+}
+
+.sponsor-category-prata {
+  --category-color: #e2e8f0;
+}
+
+.sponsor-category-bronze {
+  --category-color: #f0b887;
+}
+
+.sponsor-category-heading {
+  display: inline-block;
+  margin: 0 0 16px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: #360738;
+  border: 1px solid var(--category-color);
+  color: var(--category-color);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sponsor-category-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 16px;
+  max-width: 100%;
+}
+
+.sponsor-category .sponsor-ticker-card,
+.sponsor-category .partner-item {
+  border-color: var(--category-color);
+}
+
+.sponsor-category .sponsor-card-name,
+.sponsor-category .partner-item-name {
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.sponsor-category .sponsor-card-name {
+  cursor: default;
+}
+
+.site-footer .sponsor-category-heading {
+  margin-bottom: 0;
+}
+
+.site-footer .sponsor-category-logos {
+  width: 100%;
+  max-width: 880px;
+}
+
+@media (max-width: 600px) {
+  .sponsor-categories .sponsor-ticker-card {
+    flex: 0 1 calc(50% - 8px);
+    min-width: 0;
+    max-width: calc(50% - 8px);
+    padding: 10px 12px;
+    box-sizing: border-box;
+  }
+
+  .sponsor-categories .sponsor-ticker-card img {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-footer .sponsor-category-logos {
+    gap: 8px;
+  }
+}
+
 .sponsor-ticker {
   position: relative;
   width: 100%;
