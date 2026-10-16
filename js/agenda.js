@@ -371,8 +371,7 @@
   }
 
   // Calcula limites dinâmicos de horário para o modo grade do dia ativo.
-  // Adiciona 1h de margem antes e depois das atividades para evitar que
-  // o primeiro e o último horário fiquem colados nas bordas da grade.
+  // Arredonda para horas inteiras sem acrescentar faixas de horário vazias.
   function getDayTimeBounds(activities) {
     if (!activities || !activities.length) {
       return { startMin: 8 * 60, endMin: 19 * 60, startHour: 8, endHour: 19, totalHours: 11 };
@@ -386,9 +385,8 @@
       if (!isNaN(e) && e > maxMin) maxMin = e;
     });
 
-    // 1h antes da primeira atividade, 1h depois da última
-    var startHour = Math.floor(minMin / 60) - 1;
-    var endHour = Math.ceil(maxMin / 60) + 1;
+    var startHour = Math.floor(minMin / 60);
+    var endHour = Math.ceil(maxMin / 60);
 
     // Clamp entre 7h e 23h
     startHour = Math.max(7, startHour);
@@ -469,13 +467,13 @@
       });
 
       if (maxConcurrent > 1) {
-        return "minmax(calc(var(--lane-min-width, 330px) * " + (maxConcurrent * 0.82).toFixed(2) + "), " + (maxConcurrent * 0.9).toFixed(1) + "fr)";
+        return "minmax(calc(var(--lane-min-width, 200px) * " + (maxConcurrent * 0.82).toFixed(2) + "), " + (maxConcurrent * 0.9).toFixed(1) + "fr)";
       }
-      return "minmax(var(--lane-min-width, 330px), 1fr)";
+      return "minmax(var(--lane-min-width, 200px), 1fr)";
     });
 
-    boardEl.style.gridTemplateColumns = "var(--time-col-width, 76px) " + colDefinitions.join(" ");
-    boardEl.style.gridTemplateRows = "48px calc(var(--hour-height, 120px) * " + bounds.totalHours + ")";
+    boardEl.style.gridTemplateColumns = "var(--time-col-width, 64px) " + colDefinitions.join(" ");
+    boardEl.style.gridTemplateRows = "40px calc(var(--hour-height, 72px) * " + bounds.totalHours + ")";
 
     var corner = document.createElement("div");
     corner.className = "agenda-board-corner";
@@ -492,7 +490,7 @@
 
     var timeAxis = document.createElement("div");
     timeAxis.className = "agenda-time-axis";
-    timeAxis.style.height = "calc(var(--hour-height, 120px) * " + bounds.totalHours + ")";
+    timeAxis.style.height = "calc(var(--hour-height, 72px) * " + bounds.totalHours + ")";
 
     for (var hour = bounds.startHour; hour <= bounds.endHour; hour += 1) {
       var tick = document.createElement("div");
@@ -508,7 +506,7 @@
     sectionNames.forEach(function (section) {
       var lane = document.createElement("div");
       lane.className = "agenda-lane";
-      lane.style.height = "calc(var(--hour-height, 120px) * " + bounds.totalHours + ")";
+      lane.style.height = "calc(var(--hour-height, 72px) * " + bounds.totalHours + ")";
 
       var totalMinutes = Math.max(60, bounds.endMin - bounds.startMin);
 
@@ -560,9 +558,6 @@
 
           var event = document.createElement("div");
           event.className = "agenda-event";
-          if (durationMin < 35) {
-            event.classList.add("is-compact");
-          }
           if (count > 1) {
             event.classList.add("is-parallel");
           }
@@ -610,30 +605,12 @@
             speakerSpan.innerHTML = '<i class="fa-solid fa-user-tie"></i> ' + String(activity.palestrante_nome).trim();
           }
 
-          if (durationMin < 35) {
-            var rowTop = document.createElement("div");
-            rowTop.className = "agenda-event-row-top";
-            rowTop.appendChild(timeSpan);
-            rowTop.appendChild(titleSpan);
-            event.appendChild(rowTop);
-
-            if (placeSpan || speakerSpan) {
-              var rowMeta = document.createElement("div");
-              rowMeta.className = "agenda-event-row-meta";
-              if (placeSpan) rowMeta.appendChild(placeSpan);
-              if (speakerSpan) rowMeta.appendChild(speakerSpan);
-              event.appendChild(rowMeta);
-            }
-          } else {
-            var headerRow = document.createElement("div");
-            headerRow.className = "agenda-event-header";
-            headerRow.appendChild(timeSpan);
-            if (placeSpan) headerRow.appendChild(placeSpan);
-            event.appendChild(headerRow);
-
-            event.appendChild(titleSpan);
-            if (speakerSpan) event.appendChild(speakerSpan);
-          }
+          event.appendChild(timeSpan);
+          event.appendChild(titleSpan);
+          if (speakerSpan) event.appendChild(speakerSpan);
+          if (placeSpan) event.appendChild(placeSpan);
+          event.dataset.startMinute = visibleStart;
+          event.dataset.endMinute = visibleEnd;
 
           event.tabIndex = 0;
           event.setAttribute("role", "button");
@@ -653,7 +630,79 @@
 
       boardEl.appendChild(lane);
     });
+    fitBoardContent = function () { fitBoardTimeline(bounds); };
+    requestAnimationFrame(fitBoardContent);
   }
+
+  // Expande apenas os intervalos necessários para exibir os textos completos,
+  // mantendo todas as áreas e os horários alinhados, sem sobrepor atividades.
+  var fitBoardContent = null;
+  function fitBoardTimeline(bounds) {
+    var events = Array.from(boardEl.querySelectorAll(".agenda-event"));
+    var points = [bounds.startMin, bounds.endMin];
+    for (var hour = bounds.startHour; hour <= bounds.endHour; hour++) points.push(hour * 60);
+    events.forEach(function (event) {
+      points.push(Number(event.dataset.startMinute), Number(event.dataset.endMinute));
+    });
+    points = Array.from(new Set(points)).sort(function (a, b) { return a - b; });
+    var hourHeight = parseFloat(getComputedStyle(boardEl).getPropertyValue("--hour-height"));
+    var heights = points.slice(1).map(function (minute, i) {
+      return (minute - points[i]) * hourHeight / 60;
+    });
+    events.forEach(function (event) {
+      var start = points.indexOf(Number(event.dataset.startMinute));
+      var end = points.indexOf(Number(event.dataset.endMinute));
+      var style = getComputedStyle(event);
+      var children = Array.from(event.children);
+      var needed = children.reduce(function (sum, child) {
+        return sum + child.getBoundingClientRect().height;
+      }, 0) + parseFloat(style.paddingTop) + parseFloat(style.paddingBottom)
+        + parseFloat(style.rowGap) * Math.max(0, children.length - 1) + 5;
+      var available = heights.slice(start, end).reduce(function (sum, height) { return sum + height; }, 0);
+      if (needed > available) {
+        for (var i = start; i < end; i++) {
+          heights[i] += (needed - available) * (points[i + 1] - points[i]) / (points[end] - points[start]);
+        }
+      }
+    });
+    var offsets = [0];
+    heights.forEach(function (height) { offsets.push(offsets[offsets.length - 1] + height); });
+    var total = offsets[offsets.length - 1];
+    boardEl.style.gridTemplateRows = "40px " + total + "px";
+    boardEl.querySelector(".agenda-time-axis").style.height = total + "px";
+    boardEl.querySelectorAll(".agenda-hour").forEach(function (tick, index) {
+      tick.style.top = offsets[points.indexOf((bounds.startHour + index) * 60)] + "px";
+    });
+    var lines = [];
+    for (var h = bounds.startHour + 1; h <= bounds.endHour; h++) {
+      var y = offsets[points.indexOf(h * 60)];
+      lines.push("transparent " + (y - 1) + "px", "#eee0f0 " + (y - 1) + "px", "#eee0f0 " + y + "px", "transparent " + y + "px");
+    }
+    boardEl.querySelectorAll(".agenda-lane").forEach(function (lane) {
+      lane.style.height = total + "px";
+      lane.style.backgroundImage = "linear-gradient(to bottom, transparent 0px, " + lines.join(", ") + ")";
+    });
+    events.forEach(function (event) {
+      var top = offsets[points.indexOf(Number(event.dataset.startMinute))];
+      var bottom = offsets[points.indexOf(Number(event.dataset.endMinute))];
+      event.style.top = top + "px";
+      event.style.height = (bottom - top - 4) + "px";
+    });
+  }
+
+  if (typeof ResizeObserver !== "undefined") {
+    var lastBoardWidth = 0;
+    new ResizeObserver(function () {
+      var width = boardEl.getBoundingClientRect().width;
+      if (width && width !== lastBoardWidth) {
+        lastBoardWidth = width;
+        if (fitBoardContent) requestAnimationFrame(fitBoardContent);
+      }
+    }).observe(boardEl);
+  }
+  if (document.fonts) document.fonts.ready.then(function () {
+    if (fitBoardContent) requestAnimationFrame(fitBoardContent);
+  });
 
   function getPeriodInfo(horaStr) {
     var min = minutesFromTime(horaStr);
