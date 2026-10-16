@@ -1894,13 +1894,20 @@ section {
 }
 
 .partner-item img {
-  height: clamp(30px, 3.2vw, 40px);
+  --partner-logo-height: clamp(30px, 3.2vw, 40px);
+  height: var(--partner-logo-height);
   width: auto;
   max-width: clamp(140px, 15vw, 180px);
   object-fit: contain;
   display: block;
   opacity: 0.95;
   transition: opacity 0.2s ease;
+}
+
+/* Mesma largura visual do Hub 28, preservando a proporção da Incubadora. */
+.partner-item.partner-item-incubadora img {
+  width: calc(var(--partner-logo-height) * 585 / 143);
+  height: auto;
 }
 
 .partner-item-square img {
@@ -3340,7 +3347,8 @@ section {
   }
 
   .partner-item img {
-    height: 28px;
+    --partner-logo-height: 28px;
+    height: var(--partner-logo-height);
     max-width: 130px;
   }
 
@@ -3374,7 +3382,8 @@ section {
   }
 
   .partner-item img {
-    height: 24px;
+    --partner-logo-height: 24px;
+    height: var(--partner-logo-height);
     max-width: 100%;
     object-fit: contain;
   }
