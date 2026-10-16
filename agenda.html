@@ -38,7 +38,7 @@
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css?v=2.1">
+  <link rel="stylesheet" href="css/style.css?v=20261016_agenda">
 </head>
 
 <body>
@@ -113,11 +113,11 @@
           <button type="button" class="btn btn-secondary btn-sm" id="btn-reset-filters">Ver todas as áreas</button>
         </div>
 
-        <!-- Modo Grade (Timeline com scroll horizontal suave) -->
+        <!-- Modo Grade (Timeline com cabeçalhos fixos nos dois eixos) -->
         <div class="agenda-board-card" id="schedule-wrap" hidden>
           <div class="agenda-scroll-hint"><i class="fa-solid fa-arrows-left-right"></i> Arraste para o lado para ver
-            todas as áreas</div>
-          <div class="agenda-board-wrap">
+            todas as áreas. Role na grade para ver os horários.</div>
+          <div class="agenda-board-wrap" tabindex="0" role="region" aria-label="Grade de atividades com rolagem por horário e área">
             <div class="agenda-board" id="schedule-board" aria-label="Programação por horário e área"></div>
           </div>
         </div>
@@ -333,7 +333,7 @@
     </div>
   </footer>
   <script src="js/main.js" defer></script>
-  <script src="js/agenda.js?v=20261008_locais" defer></script>
+  <script src="js/agenda.js?v=20261016_compacta" defer></script>
 </body>
 
 </html>
