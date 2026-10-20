@@ -92,18 +92,18 @@
 
 .campus-map__brand {
   position: absolute;
-  top: 2%;
+  bottom: 5.2%;
   right: 3.5%;
-  background: transparent;
-  padding: 0;
-  border-radius: 0;
+  background: var(--cm-ink);
+  padding: clamp(6px, 1vw, 10px) clamp(10px, 1.4vw, 16px);
+  border-radius: 14px;
   pointer-events: none;
   z-index: 2;
-  box-shadow: none;
+  box-shadow: 0 6px 18px -4px rgba(61, 12, 66, 0.45);
 }
 
 .campus-map__brand img {
-  height: clamp(24px, 4.2vw, 44px);
+  height: clamp(28px, 5vw, 50px);
   width: auto;
   display: block;
 }
@@ -111,7 +111,7 @@
 .campus-map__scale {
   position: absolute;
   right: 3.5%;
-  bottom: 1.6%;
+  bottom: 1.5%;
   margin: 0;
   font-size: clamp(0.6rem, 1.3vw, 0.8rem);
   color: var(--cm-ink);
